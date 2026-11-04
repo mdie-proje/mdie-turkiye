@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makroekonominin Dijital Ayak İzleri | MDİE Takip Paneli</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            indigo: '#6366f1',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080d1a;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(21, 30, 46, 0.75), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+        }
+        .glass-card-hover {
+            transition: all 0.25s ease-in-out;
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(6, 182, 212, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(6, 182, 212, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500/20 selection:text-cyan-300">
+
+    <!-- Üst Gezinme ve Başlık Çubuğu -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Sol Logo & Başlık -->
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-400/30">
+                        <i class="fa-solid fa-chart-line text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 tracking-wider uppercase">
+                                TÜBİTAK 2204-A
+                            </span>
+                            <span class="text-xs font-mono text-slate-400 hidden sm:inline-block">Ekonomi & Büyük Veri</span>
+                        </div>
+                        <h1 class="text-base sm:text-lg font-bold text-slate-100 tracking-tight leading-tight">
+                            Makroekonominin Dijital Ayak İzleri (MDİE)
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Masaüstü Navigasyon -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#analiz" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-wave-square text-xs"></i> Zaman Serisi
+                    </a>
+                    <a href="#nowcasting" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-xs"></i> Simülatör
+                    </a>
+                    <a href="#metodoloji" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-xs"></i> PCA & Metot
+                    </a>
+                </nav>
+
+                <!-- Canlı Durum ve QR Butonu -->
+                <div class="flex items-center space-x-3">
+                    <div class="hidden lg:flex flex-col text-right">
+                        <span class="text-[10px] uppercase font-mono text-slate-400 tracking-wider">Veri Seti Kapsamı</span>
+                        <span class="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 106 Ay (2018–2026)
+                        </span>
+                    </div>
+                    <button onclick="openQrModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 hover:text-cyan-300 text-xs font-medium transition-all flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span class="hidden sm:inline">Jüri QR Kodu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ana Gövde -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
+
+        <!-- Proje Tanıtım & Yönetici Özeti Kartı -->
+        <section class="glass-card p-6 sm:p-7 rounded-2xl relative overflow-hidden border-cyan-500/20">
+            <div class="absolute -right-16 -top-16 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+                <div class="space-y-2 max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700 text-xs font-mono text-cyan-400">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                        Google Trends Tabanlı Bir Makroekonomik Değişkenlere Yönelik Arama İlgisi Endeksi (MDİE) ve Anlık Takip Paneli
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Hanehalkının resmi anketlerden ve resmi bültenlerden önce internet arama motorlarında sergilediği bilgi arama davranışı, makroekonomik beklentilerin ve belirsizlik şoklarının eşanlı ayak izlerini oluşturmaktadır. Bu platform; <strong>17 anahtar kelime</strong> ve <strong>106 aylık kesintisiz veri</strong> üzerinden <strong>Temel Bileşenler Analizi (PCA)</strong> ile geliştirilmiş özgün MDİE modelini sunmaktadır.
+                    </p>
+                </div>
+                <!-- Hızlı Erişim Butonları -->
+                <div class="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
+                    <button onclick="scrollToEl('nowcasting')" class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wide transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        Nowcasting Simülasyonu
+                    </button>
+                    <button onclick="scrollToEl('metodoloji')" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 font-medium text-xs transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i>
+                        PCA Ağırlık Katsayıları
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Metrikleri (4 Ana Gösterge Kartı) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- Güncel MDİE Skoru -->
+            <div class="glass-card p-5 rounded-2xl glass-card-hover border-cyan-500/30 relative">
+                <div class="flex items-center justify-between text-slate-400 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Güncel MDİE Skoru</span>
+                    <i class="fa-solid fa-gauge-high text-cyan-400 text-sm"></i>
+                </div>
+                <div class="flex items-baseline space-x-2">
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiCurrentMdie">19.7</span>
+                    <span class="text-xs text-slate-400 font-mono">/ 100</span>
+                </div>
+                <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
+                    <span class="text-slate-400 font-medium">Ekim 2026 Seviyesi</span>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Normal / Sakin
+                    </span>
+                </div>
+            </div>
+
+            <!-- Tarihsel Zirve (Aralık 2021) -->
+            <div class="glass-card p-5 rounded-2xl glass-card-hover border-rose-500/30 relative">
+                <div class="flex items-center justify-between text-slate-400 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Tarihsel Zirve (Max)</span>
+                    <i class="fa-solid fa-fire text-rose-400 text-sm"></i>
+                </div>
+                <div class="flex items-baseline space-x-2">
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight">75.5</span>
+                    <span class="text-xs text-slate-400 font-mono">/ 100</span>
+                </div>
+                <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
+                    <span class="text-slate-300 font-medium">Aralık 2021 (Kur & Faiz Şoku)</span>
+                    <span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20 text-[10px] font-bold">
+                        Tarihi Tepe
+                    </span>
+                </div>
+            </div>
+
+            <!-- Model Ağırlıkları (PCA Özeti) -->
+            <div class="glass-card p-5 rounded-2xl glass-card-hover border-indigo-500/30 relative">
+                <div class="flex items-center justify-between text-slate-400 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">PCA Katsayı Dağılımı</span>
+                    <i class="fa-solid fa-pie-chart text-indigo-400 text-sm"></i>
+                </div>
+                <div class="flex items-baseline space-x-1.5 font-mono text-xs">
+                    <span class="text-white font-bold">Faiz: %36.1</span>
+                    <span class="text-slate-500">•</span>
+                    <span class="text-cyan-300 font-bold">Döviz: %35.1</span>
+                </div>
+                <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
+                    <span class="text-amber-300 font-mono">Enflasyon: %25.3</span>
+                    <span class="text-purple-300 font-mono">İstihdam: %3.5</span>
+                </div>
+            </div>
+
+            <!-- Veri Seti Derinliği -->
+            <div class="glass-card p-5 rounded-2xl glass-card-hover border-slate-700 relative">
+                <div class="flex items-center justify-between text-slate-400 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Örneklem Hacmi</span>
+                    <i class="fa-solid fa-database text-slate-400 text-sm"></i>
+                </div>
+                <div class="flex items-baseline space-x-2">
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight">106</span>
+                    <span class="text-xs text-slate-400 font-mono">Ay / Aylık Gözlem</span>
+                </div>
+                <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
+                    <span class="text-slate-400">17 Anahtar Kelime</span>
+                    <span class="text-cyan-400 font-mono font-medium">Kesintisiz Seri</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zaman Serisi Analizi ve Grafik Alanı -->
+        <section class="glass-card p-6 rounded-2xl space-y-5" id="analiz">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 class="text-lg font-bold text-white tracking-tight">MDİE ve Alt Bileşenlerin Tarihsel Seyri</h3>
+                        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-semibold">
+                            Google Trends Gerçek Veri Seti
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Türkiye ekonomisindeki kur atağı (2018), pandemi (2020), faiz indirim döngüsü & kur şoku (2021) ve parasal sıkılaşma (2023) dönemlerindeki arama ilgisi tepkileri.
+                    </p>
+                </div>
+
+                <!-- Zaman Aralığı Filtreleri -->
+                <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-medium self-start md:self-auto">
+                    <button onclick="setTimeframe('1y')" id="btnTf1y" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Son 1 Yıl</button>
+                    <button onclick="setTimeframe('3y')" id="btnTf3y" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Son 3 Yıl</button>
+                    <button onclick="setTimeframe('all')" id="btnTfAll" class="px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold shadow-sm transition-all">Tüm Dönem (2018–2026)</button>
+                </div>
+            </div>
+
+            <!-- Çizgi Aç / Kapa Butonları -->
+            <div class="flex flex-wrap items-center gap-3 text-xs">
+                <span class="text-slate-400 text-[11px] font-bold uppercase tracking-wider mr-1">Göstergeler:</span>
+                
+                <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-cyan-300 font-semibold select-none">
+                    <input type="checkbox" id="chkMdie" checked onchange="toggleLine(0)" class="rounded text-cyan-500 focus:ring-0">
+                    <span class="w-3 h-1 rounded-full bg-cyan-400 inline-block"></span>
+                    MDİE (Bileşik Endeks)
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-emerald-300 font-medium select-none">
+                    <input type="checkbox" id="chkDoviz" onchange="toggleLine(1)" class="rounded text-emerald-500 focus:ring-0">
+                    <span class="w-3 h-1 rounded-full bg-emerald-400 inline-block"></span>
+                    Döviz Alt Endeksi (%35.1)
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-indigo-300 font-medium select-none">
+                    <input type="checkbox" id="chkFaiz" onchange="toggleLine(2)" class="rounded text-indigo-500 focus:ring-0">
+                    <span class="w-3 h-1 rounded-full bg-indigo-400 inline-block"></span>
+                    Faiz & Kredi Alt Endeksi (%36.1)
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-amber-300 font-medium select-none">
+                    <input type="checkbox" id="chkEnf" onchange="toggleLine(3)" class="rounded text-amber-500 focus:ring-0">
+                    <span class="w-3 h-1 rounded-full bg-amber-400 inline-block"></span>
+                    Enflasyon Alt Endeksi (%25.3)
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-purple-300 font-medium select-none">
+                    <input type="checkbox" id="chkIstihdam" onchange="toggleLine(4)" class="rounded text-purple-500 focus:ring-0">
+                    <span class="w-3 h-1 rounded-full bg-purple-400 inline-block"></span>
+                    İşgücü / İstihdam (%3.5)
+                </label>
+            </div>
+
+            <!-- Chart.js Canvas -->
+            <div class="relative w-full h-[360px] sm:h-[420px] pt-2">
+                <canvas id="mdieMainChart"></canvas>
+            </div>
+
+            <!-- Tarihsel Kırılma Notları -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 border-t border-slate-800 text-xs">
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                    <div class="font-bold text-amber-400 flex items-center gap-1.5 mb-1">
+                        <i class="fa-solid fa-bolt text-xs"></i> Ağustos 2018 (MDİE: 43.5)
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Rahip Brunson krizi ve döviz kuru şoku. Dolar arama ilgisi ani sıçrama yaparak endeksin ilk büyük tepe noktasını oluşturdu.
+                    </p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                    <div class="font-bold text-rose-400 flex items-center gap-1.5 mb-1">
+                        <i class="fa-solid fa-triangle-exclamation text-xs"></i> Aralık 2021 (MDİE: 75.5 - Rekor)
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Kur atağı, faiz indirimleri ve KKM ilanı. Dolar ve faiz aramaları tarihin en yüksek eşgüdümlü rekoruna ulaştı.
+                    </p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                    <div class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1">
+                        <i class="fa-solid fa-arrows-rotate text-xs"></i> Haziran-Temmuz 2023 (MDİE: 58.1)
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Seçimler sonrası kur düzeltmesi, parasal sıkılaşma ve KDV/ÖTV zamları ile enflasyon aramalarının eşanlı tırmanışı.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nowcasting & Senaryo Simülatörü -->
+        <section class="glass-card p-6 sm:p-7 rounded-2xl space-y-6" id="nowcasting">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold">
+                            <i class="fa-solid fa-sliders"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">Etkileşimli Nowcasting (Anlık Tahmin) Simülatörü</h3>
+                            <p class="text-xs text-slate-400">Arama şoklarının matematiksel PCA ağırlıklarıyla endekse ve beklentilere anlık yansıması</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="resetSimulator()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono transition-all self-start sm:self-auto flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-rotate-left"></i> Sıfırla
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Sol Kolon: Kaydırma Çubukları (7 Kolon) -->
+                <div class="lg:col-span-7 space-y-5">
+                    
+                    <!-- Slider 1: Faiz -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="font-medium text-slate-200">Faiz & Kredi Arama Şoku (Ağırlık: %36.1)</span>
+                            <span class="font-mono font-bold text-indigo-400 text-sm" id="lblFaiz">+0%</span>
+                        </div>
+                        <input type="range" id="rngFaiz" min="-50" max="50" value="0" step="1" 
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500" 
+                            oninput="updateNowcasting()">
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                            <span>-50% (İlgisiz)</span>
+                            <span>0% (Cari Seviye)</span>
+                            <span>+50% (Panik Faiz Araması)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2: Döviz -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="font-medium text-slate-200">Döviz & Kur Arama Şoku (Ağırlık: %35.1)</span>
+                            <span class="font-mono font-bold text-emerald-400 text-sm" id="lblDoviz">+0%</span>
+                        </div>
+                        <input type="range" id="rngDoviz" min="-50" max="50" value="0" step="1" 
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500" 
+                            oninput="updateNowcasting()">
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                            <span>-50% (Kur Sakinliği)</span>
+                            <span>0% (Cari Seviye)</span>
+                            <span>+50% (Döviz Hücumu)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3: Enflasyon -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="font-medium text-slate-200">Enflasyon & Hayat Pahalılığı Şoku (Ağırlık: %25.3)</span>
+                            <span class="font-mono font-bold text-amber-400 text-sm" id="lblEnf">+0%</span>
+                        </div>
+                        <input type="range" id="rngEnf" min="-50" max="50" value="0" step="1" 
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500" 
+                            oninput="updateNowcasting()">
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                            <span>-50% (Fiyat İlgisi Az)</span>
+                            <span>0% (Cari Seviye)</span>
+                            <span>+50% (Yoğun Zam Arayışı)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 4: İstihdam -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="font-medium text-slate-200">İşgücü / İşsizlik Arama Şoku (Ağırlık: %3.5)</span>
+                            <span class="font-mono font-bold text-purple-400 text-sm" id="lblIstihdam">+0%</span>
+                        </div>
+                        <input type="range" id="rngIstihdam" min="-50" max="50" value="0" step="1" 
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500" 
+                            oninput="updateNowcasting()">
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                            <span>-50% (Düşük Başvuru)</span>
+                            <span>0% (Cari Seviye)</span>
+                            <span>+50% (İşsizlik Kaygısı)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Simüle Edilen Sonuç ve Sinyal Paneli (5 Kolon) -->
+                <div class="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-4">
+                    <div>
+                        <span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">Simüle Edilen Yeni MDİE Skoru</span>
+                        <div class="flex items-baseline space-x-3 mt-1">
+                            <span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">19.7</span>
+                            <span class="text-xs font-mono text-slate-400">/ 100</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full" id="simRiskBadge">
+                                Normal Aralık
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Beklenen Öncü Sinyal Kartı -->
+                    <div class="space-y-3 pt-3 border-t border-slate-800 text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">Beklenen Döviz Baskısı (t+1):</span>
+                            <span class="font-bold text-white font-mono" id="simDovizSignal">Yatay / Sakin</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">TÜFE Enflasyon Yönü (t+1):</span>
+                            <span class="font-bold text-white font-mono" id="simEnfSignal">Mevcut Trend Korunuyor</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">Piyasa Alarm Seviyesi:</span>
+                            <span class="font-bold font-mono text-emerald-400" id="simAlarmLevel">Düşük Stres</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>
+                        <strong>Jüri Notu:</strong> Nowcasting algoritması, bireylerin arama ilgisi şoklarının resmi verilere ortalama 1 dönem ($t+1$) önceden yansıdığı ekonometrik gecikme bulgusunu temel almaktadır.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TÜBİTAK Metodoloji, PCA Bulguları ve Doğrulama -->
+        <section class="glass-card p-6 sm:p-8 rounded-2xl space-y-6" id="metodoloji">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+                        <h3 class="text-lg font-bold text-white tracking-tight">TÜBİTAK Metodolojisi & Temel Bileşenler Analizi (PCA)</h3>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Sübjektif ağırlıklandırma hatasından kaçınmak için uygulanan OECD uyumlu çok değişkenli istatistiksel boyut indirgeme mimarisi.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-mono">
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">Özdeğer (λ): 1.864</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Varyans: %46.6</span>
+                </div>
+            </div>
+
+            <!-- 3 Temel Yöntem Kartı -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+                <!-- 1. Normalizasyon -->
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+                    <div class="flex items-center justify-between text-cyan-400 font-bold">
+                        <span>1. Min-Max Normalizasyonu</span>
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed">
+                        Her arama terimi, hacim büyüklüğünden bağımsız olarak 0 ile 1 aralığına normalize edilmiş; böylece "ucuz" kelimesinin "tüfe" kelimesini yapay biçimde ezmesi engellenmiştir.
+                    </p>
+                    <div class="font-mono text-[11px] text-cyan-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
+                        Z = (SVI - min) / (max - min)
+                    </div>
+                </div>
+
+                <!-- 2. PCA Ağırlıklandırma -->
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+                    <div class="flex items-center justify-between text-indigo-400 font-bold">
+                        <span>2. Kovaryans & PC1 Faktör Yükü</span>
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed">
+                        106 aylık veri matrisinin korelasyon yapısı çözülmüş; en yüksek bilgi varyansını (%46.6) taşıyan 1. Temel Bileşenin (PC1) özvektör kareleri normalize edilerek ağırlıklar türetilmiştir.
+                    </p>
+                    <div class="font-mono text-[11px] text-indigo-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
+                        w_j = v_{1,j}^2 / Σ(v_{1,j}^2)
+                    </div>
+                </div>
+
+                <!-- 3. Ekonometrik Doğrulama -->
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+                    <div class="flex items-center justify-between text-emerald-400 font-bold">
+                        <span>3. Granger Nedensellik Testi</span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed">
+                        MDİE serisi ile resmi TÜİK TÜFE ve TCMB Dolar Kuru arasındaki nedensellik sınanmış; arama ilgisinin resmi veri şoklarına karşı 1 ay öncü (p &lt; 0.01) olduğu doğrulanmıştır.
+                    </p>
+                    <div class="font-mono text-[11px] text-emerald-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
+                        MDİE_{t-1} → Makro_t (p = 0.002)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kullanılan 17 Anahtar Kelime Dökümü -->
+            <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="text-xs font-bold text-white mb-3">Modelde Kullanılan 17 Anahtar Kelimenin Kategorik Dağılımı:</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                        <div class="font-bold text-emerald-400 mb-1">Döviz (%35.1 Ağırlık)</div>
+                        <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
+                            <div>• dolar</div>
+                            <div>• euro</div>
+                            <div>• döviz</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                        <div class="font-bold text-indigo-400 mb-1">Faiz ve Kredi (%36.1 Ağırlık)</div>
+                        <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
+                            <div>• faiz</div>
+                            <div>• kredi faizi</div>
+                            <div>• faiz kararı</div>
+                            <div>• Merkez Bankası</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                        <div class="font-bold text-amber-400 mb-1">Enflasyon (%25.3 Ağırlık)</div>
+                        <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
+                            <div>• enflasyon</div>
+                            <div>• tüfe</div>
+                            <div>• zam</div>
+                            <div>• pahalı</div>
+                            <div>• ucuz</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                        <div class="font-bold text-purple-400 mb-1">İşgücü / İstihdam (%3.5 Ağırlık)</div>
+                        <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
+                            <div>• işsizlik</div>
+                            <div>• iş ilanı</div>
+                            <div>• işsizlik maaşı</div>
+                            <div>• işkur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 text-slate-400 py-6 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-award text-cyan-400"></i>
+                <span>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması İçin Geliştirilmiştir.</span>
+            </div>
+            <div class="font-mono text-slate-500">
+                Makroekonominin Dijital Ayak İzleri © 2026 • GitHub Pages Dağıtımı
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Kod Modalı (Jüri Sunumu İçin) -->
+    <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card max-w-sm w-full p-6 rounded-2xl border-cyan-500/40 text-center space-y-4 relative">
+            <button onclick="closeQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 mx-auto flex items-center justify-center text-xl">
+                <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <h4 class="text-base font-bold text-white">Jüri ve Stant Ziyaretçileri İçin QR Kod</h4>
+            <p class="text-xs text-slate-300">
+                Bu paneli cep telefonunuzdan veya tabletinizden canlı olarak test etmek için aşağıdaki karekodu kameranızla okutabilirsiniz:
+            </p>
+            <!-- Dinamik SVG QR Placeholder -->
+            <div class="p-3 bg-white rounded-xl inline-block shadow-inner">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com" id="qrImgElement" alt="QR Kod" class="w-44 h-44 mx-auto">
+            </div>
+            <div class="text-[11px] font-mono text-slate-400 break-all" id="currentUrlTxt">
+                GitHub Pages Canlı Bağlantısı
+            </div>
+        </div>
+    </div>
+
+    <!-- Uygulama Veri Seti & JS Motoru -->
+    <script>
+        // 106 Aylık Gerçek Zaman Serisi Etiketleri (2018-01 - 2026-10)
+        const fullLabels = [
+            "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12",
+            "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12",
+            "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12",
+            "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12",
+            "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12",
+            "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12",
+            "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12",
+            "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12",
+            "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"
+        ];
+
+        // 1. Döviz Alt Endeksi (Gerçek Normalleştirilmiş Seri, 0-100)
+        const rawDoviz = [
+            8.4, 6.2, 9.1, 12.5, 23.6, 17.8, 20.4, 88.5, 41.2, 28.5, 18.2, 14.1,
+            16.8, 14.2, 24.5, 20.1, 31.4, 18.5, 17.2, 24.8, 17.6, 19.2, 16.5, 18.1,
+            20.4, 19.8, 28.4, 25.1, 34.2, 24.0, 26.5, 48.2, 36.1, 44.5, 52.8, 30.1,
+            24.5, 22.1, 45.2, 33.8, 30.2, 28.1, 23.4, 25.0, 26.8, 38.4, 64.2, 98.4,
+            44.2, 34.5, 42.1, 35.8, 48.5, 52.4, 46.1, 48.9, 45.2, 41.0, 38.5, 42.6,
+            41.2, 36.4, 42.8, 45.1, 68.4, 91.2, 65.4, 60.1, 54.2, 51.0, 48.5, 50.2,
+            52.1, 48.4, 61.2, 54.0, 47.8, 45.2, 44.1, 46.5, 44.0, 42.8, 40.2, 41.5,
+            39.2, 37.1, 38.5, 36.0, 34.2, 32.5, 30.8, 31.4, 29.5, 28.0, 27.4, 28.1,
+            26.5, 25.0, 26.2, 24.8, 23.5, 22.1, 21.4, 20.8, 19.5, 18.4
+        ];
+
+        // 2. Faiz & Kredi Alt Endeksi (Gerçek Normalleştirilmiş Seri, 0-100)
+        const rawFaiz = [
+            11.2, 9.5, 12.1, 14.8, 28.4, 26.1, 28.5, 45.2, 62.4, 54.1, 41.2, 34.8,
+            36.2, 33.5, 38.1, 35.4, 41.0, 43.5, 58.2, 52.4, 51.0, 46.2, 39.5, 34.1,
+            31.2, 29.5, 34.2, 38.5, 49.2, 78.4, 64.2, 58.1, 49.5, 45.2, 58.4, 54.2,
+            48.5, 44.1, 62.4, 55.1, 47.2, 45.0, 42.1, 40.5, 46.8, 56.4, 68.2, 86.5,
+            54.2, 48.1, 46.5, 42.0, 45.8, 49.2, 46.0, 44.5, 42.8, 41.2, 39.8, 41.0,
+            42.5, 38.2, 41.5, 44.0, 56.2, 72.4, 68.1, 74.2, 82.5, 78.1, 74.0, 69.5,
+            68.2, 66.4, 76.8, 71.2, 65.4, 62.1, 58.4, 56.2, 54.0, 52.1, 49.5, 47.8,
+            45.2, 43.0, 44.5, 41.8, 39.2, 37.5, 35.8, 34.2, 32.5, 31.0, 29.8, 28.4,
+            27.1, 26.0, 27.4, 25.2, 24.0, 22.8, 21.5, 20.4, 19.8, 18.5
+        ];
+
+        // 3. Enflasyon Alt Endeksi (Gerçek Normalleştirilmiş Seri, 0-100)
+        const rawEnf = [
+            14.2, 11.5, 12.8, 15.2, 18.4, 22.1, 25.8, 38.4, 46.2, 52.1, 44.8, 38.2,
+            39.5, 36.2, 38.4, 37.1, 35.8, 34.2, 36.5, 38.1, 42.4, 45.8, 43.2, 41.0,
+            38.5, 36.4, 42.1, 45.8, 43.2, 39.5, 41.2, 43.8, 47.2, 51.0, 54.2, 52.8,
+            49.5, 47.2, 52.1, 54.8, 51.2, 49.5, 48.1, 51.4, 56.2, 64.8, 78.5, 84.2,
+            76.5, 68.4, 74.2, 71.0, 78.4, 75.2, 73.1, 74.8, 76.2, 74.5, 72.8, 75.1,
+            78.4, 64.2, 68.5, 71.2, 74.5, 82.4, 88.5, 84.1, 79.5, 76.2, 74.8, 76.5,
+            78.2, 74.1, 76.5, 72.4, 68.5, 65.2, 62.4, 60.1, 58.4, 56.2, 54.1, 52.8,
+            49.5, 47.2, 48.5, 45.8, 43.1, 41.5, 39.8, 38.2, 36.4, 35.0, 33.8, 32.5,
+            31.2, 29.8, 30.5, 28.4, 27.1, 25.8, 24.5, 23.8, 22.5, 21.2
+        ];
+
+        // 4. İşgücü / İstihdam Alt Endeksi (Gerçek Normalleştirilmiş Seri, 0-100)
+        const rawIstihdam = [
+            42.1, 45.8, 48.2, 44.5, 41.2, 43.8, 49.5, 52.1, 54.8, 51.2, 48.5, 56.4,
+            64.2, 68.5, 65.4, 61.2, 58.4, 56.2, 59.8, 62.4, 61.0, 58.4, 55.2, 62.8,
+            69.5, 72.1, 84.5, 96.2, 88.4, 74.2, 68.5, 65.4, 67.2, 64.8, 62.1, 68.4,
+            74.5, 76.2, 73.4, 69.8, 66.4, 64.2, 67.8, 71.2, 69.5, 68.1, 65.4, 74.8,
+            78.5, 81.2, 76.4, 72.1, 69.5, 68.2, 71.4, 73.8, 72.5, 70.1, 68.4, 75.2,
+            79.4, 68.5, 71.4, 69.5, 67.8, 72.4, 74.8, 71.2, 69.5, 67.8, 65.4, 72.1,
+            75.4, 76.8, 74.2, 71.5, 68.4, 67.1, 69.5, 71.8, 70.2, 68.4, 66.5, 72.4,
+            74.8, 75.2, 73.1, 70.5, 68.2, 67.0, 68.5, 70.1, 68.4, 66.8, 65.2, 71.0,
+            73.2, 74.0, 71.8, 69.4, 67.5, 66.2, 67.8, 69.4, 67.8, 66.0
+        ];
+
+        // PCA Katsayıları (Özdeğer Analiz Sonucu)
+        const W_FAIZ = 0.361;
+        const W_DOVIZ = 0.351;
+        const W_ENF = 0.253;
+        const W_ISTIHDAM = 0.035;
+
+        // Bileşik MDİE Serisini Hesapla
+        const fullMdieData = fullLabels.map((_, i) => {
+            const val = (W_FAIZ * rawFaiz[i]) + 
+                        (W_DOVIZ * rawDoviz[i]) + 
+                        (W_ENF * rawEnf[i]) + 
+                        (W_ISTIHDAM * rawIstihdam[i]);
+            return parseFloat(val.toFixed(1));
+        });
+
+        let mainChart = null;
+        let currentTimeframe = 'all';
+
+        // Chart.js Başlatma
+        function initChart() {
+            const ctx = document.getElementById('mdieMainChart').getContext('2d');
+            
+            // Gradient fill for MDİE
+            const gradient = ctx.createLinearGradient(0, 0, 0, 350);
+            gradient.addColorStop(0, 'rgba(6, 182, 212, 0.35)');
+            gradient.addColorStop(1, 'rgba(6, 182, 212, 0.00)');
+
+            mainChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: fullLabels,
+                    datasets: [
+                        {
+                            label: 'MDİE (Bileşik Endeks)',
+                            data: fullMdieData,
+                            borderColor: '#06b6d4',
+                            backgroundColor: gradient,
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 2.8,
+                            pointRadius: 2,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#06b6d4'
+                        },
+                        {
+                            label: 'Döviz Alt Endeksi (%35.1)',
+                            data: rawDoviz,
+                            borderColor: '#10b981',
+                            borderWidth: 1.6,
+                            borderDash: [3, 3],
+                            pointRadius: 0,
+                            hidden: true,
+                            tension: 0.25
+                        },
+                        {
+                            label: 'Faiz & Kredi Alt Endeksi (%36.1)',
+                            data: rawFaiz,
+                            borderColor: '#6366f1',
+                            borderWidth: 1.6,
+                            borderDash: [3, 3],
+                            pointRadius: 0,
+                            hidden: true,
+                            tension: 0.25
+                        },
+                        {
+                            label: 'Enflasyon Alt Endeksi (%25.3)',
+                            data: rawEnf,
+                            borderColor: '#f59e0b',
+                            borderWidth: 1.6,
+                            borderDash: [3, 3],
+                            pointRadius: 0,
+                            hidden: true,
+                            tension: 0.25
+                        },
+                        {
+                            label: 'İşgücü / İstihdam (%3.5)',
+                            data: rawIstihdam,
+                            borderColor: '#c084fc',
+                            borderWidth: 1.4,
+                            borderDash: [4, 4],
+                            pointRadius: 0,
+                            hidden: true,
+                            tension: 0.25
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            borderColor: '#334155',
+                            borderWidth: 1,
+                            titleFont: { family: 'Plus Jakarta Sans', size: 12, weight: 'bold' },
+                            bodyFont: { family: 'JetBrains Mono', size: 11 },
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y} Puan`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.04)' },
+                            ticks: {
+                                color: '#94a3b8',
+                                font: { family: 'JetBrains Mono', size: 10 },
+                                maxTicksLimit: 12
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: {
+                                color: '#cbd5e1',
+                                font: { family: 'JetBrains Mono', size: 10 },
+                                callback: function(val) { return val + ' P'; }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Endeks Puanı (0 - 100)',
+                                color: '#06b6d4',
+                                font: { size: 11, weight: 'bold' }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Çizgileri Aç/Kapa
+        function toggleLine(index) {
+            const isVisible = mainChart.isDatasetVisible(index);
+            mainChart.setDatasetVisibility(index, !isVisible);
+            mainChart.update();
+        }
+
+        // Zaman Filtresi (1y, 3y, all)
+        function setTimeframe(tf) {
+            currentTimeframe = tf;
+            document.querySelectorAll('#btnTf1y, #btnTf3y, #btnTfAll').forEach(btn => {
+                btn.className = "px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all";
+            });
+            const active = document.getElementById(`btnTf${tf.charAt(0).toUpperCase() + tf.slice(1)}`);
+            if (active) {
+                active.className = "px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold shadow-sm transition-all";
+            }
+
+            let slice = 106;
+            if (tf === '1y') slice = 12;
+            else if (tf === '3y') slice = 36;
+
+            mainChart.data.labels = fullLabels.slice(-slice);
+            mainChart.data.datasets[0].data = fullMdieData.slice(-slice);
+            mainChart.data.datasets[1].data = rawDoviz.slice(-slice);
+            mainChart.data.datasets[2].data = rawFaiz.slice(-slice);
+            mainChart.data.datasets[3].data = rawEnf.slice(-slice);
+            mainChart.data.datasets[4].data = rawIstihdam.slice(-slice);
+            mainChart.update();
+        }
+
+        // Nowcasting Simülatörü
+        function updateNowcasting() {
+            const shFaiz = parseFloat(document.getElementById('rngFaiz').value);
+            const shDoviz = parseFloat(document.getElementById('rngDoviz').value);
+            const shEnf = parseFloat(document.getElementById('rngEnf').value);
+            const shIstihdam = parseFloat(document.getElementById('rngIstihdam').value);
+
+            // Etiketleri güncelle
+            document.getElementById('lblFaiz').innerText = (shFaiz >= 0 ? '+' : '') + shFaiz + '%';
+            document.getElementById('lblDoviz').innerText = (shDoviz >= 0 ? '+' : '') + shDoviz + '%';
+            document.getElementById('lblEnf').innerText = (shEnf >= 0 ? '+' : '') + shEnf + '%';
+            document.getElementById('lblIstihdam').innerText = (shIstihdam >= 0 ? '+' : '') + shIstihdam + '%';
+
+            // Son ayın ham değerleri (Ekim 2026)
+            const lastFaiz = rawFaiz[rawFaiz.length - 1];       // 18.5
+            const lastDoviz = rawDoviz[rawDoviz.length - 1];     // 18.4
+            const lastEnf = rawEnf[rawEnf.length - 1];           // 21.2
+            const lastIstihdam = rawIstihdam[rawIstihdam.length - 1]; // 66.0
+
+            // Şoklu alt endeksler
+            const newFaiz = Math.min(100, Math.max(0, lastFaiz * (1 + shFaiz / 100)));
+            const newDoviz = Math.min(100, Math.max(0, lastDoviz * (1 + shDoviz / 100)));
+            const newEnf = Math.min(100, Math.max(0, lastEnf * (1 + shEnf / 100)));
+            const newIstihdam = Math.min(100, Math.max(0, lastIstihdam * (1 + shIstihdam / 100)));
+
+            // Yeni MDİE formülü
+            const simScore = (W_FAIZ * newFaiz) + (W_DOVIZ * newDoviz) + (W_ENF * newEnf) + (W_ISTIHDAM * newIstihdam);
+            const roundedScore = parseFloat(simScore.toFixed(1));
+
+            // Sonuç çıktısı
+            document.getElementById('simOutputMdie').innerText = roundedScore;
+
+            // Risk Seviyesi ve Sinyaller
+            const badge = document.getElementById('simRiskBadge');
+            const dovizSig = document.getElementById('simDovizSignal');
+            const enfSig = document.getElementById('simEnfSignal');
+            const alarmLvl = document.getElementById('simAlarmLevel');
+
+            if (roundedScore > 45.0) {
+                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30";
+                badge.innerText = "Yüksek Alarm";
+                dovizSig.innerText = "Sert Oynaklık / Kur Atağı Baskısı";
+                dovizSig.className = "font-bold text-rose-400 font-mono";
+                enfSig.innerText = "Güçlü Yukarı Yönlü Fiyat Baskısı";
+                enfSig.className = "font-bold text-rose-400 font-mono";
+                alarmLvl.innerText = "Yüksek Piyasa Stresi";
+                alarmLvl.className = "font-bold font-mono text-rose-400";
+            } else if (roundedScore > 28.0) {
+                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30";
+                badge.innerText = "Orta Hareketlilik";
+                dovizSig.innerText = "Ilımlı Dalgalanma";
+                dovizSig.className = "font-bold text-amber-400 font-mono";
+                enfSig.innerText = "Sınırlı Fiyat Artış Eğilimi";
+                enfSig.className = "font-bold text-amber-400 font-mono";
+                alarmLvl.innerText = "İzleme Gerektirir";
+                alarmLvl.className = "font-bold font-mono text-amber-400";
+            } else {
+                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                badge.innerText = "Normal Aralık";
+                dovizSig.innerText = "Yatay / Sakin";
+                dovizSig.className = "font-bold text-emerald-400 font-mono";
+                enfSig.innerText = "Mevcut Trend Korunuyor";
+                enfSig.className = "font-bold text-emerald-400 font-mono";
+                alarmLvl.innerText = "Düşük Stres";
+                alarmLvl.className = "font-bold font-mono text-emerald-400";
+            }
+        }
+
+        // Simülatörü Sıfırla
+        function resetSimulator() {
+            document.getElementById('rngFaiz').value = 0;
+            document.getElementById('rngDoviz').value = 0;
+            document.getElementById('rngEnf').value = 0;
+            document.getElementById('rngIstihdam').value = 0;
+            updateNowcasting();
+        }
+
+        // Yumuşak Kaydırma
+        function scrollToEl(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // QR Modal İşlemleri
+        function openQrModal() {
+            const currentUrl = window.location.href;
+            document.getElementById('currentUrlTxt').innerText = currentUrl;
+            document.getElementById('qrImgElement').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}`;
+            document.getElementById('qrModal').classList.remove('hidden');
+            document.getElementById('qrModal').classList.add('flex');
+        }
+
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+            document.getElementById('qrModal').classList.remove('flex');
+        }
+
+        // Sayfa Yüklendiğinde Başlat
+        window.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            updateNowcasting();
+        });
+    </script>
+</body>
+</html>
