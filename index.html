@@ -62,7 +62,6 @@
             transform: translateY(-2px);
             box-shadow: 0 14px 30px -5px rgba(6, 182, 212, 0.15);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -85,7 +84,6 @@
     <header class="sticky top-0 z-50 glass-card border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Sol Logo & Başlık -->
                 <div class="flex items-center space-x-3.5">
                     <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-400/30">
                         <i class="fa-solid fa-chart-line text-white text-lg"></i>
@@ -104,7 +102,7 @@
                     </div>
                 </div>
 
-                <!-- Masaüstü Sekme Değiştirici -->
+                <!-- Sekme Menüsü -->
                 <nav class="hidden md:flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800 text-xs font-medium">
                     <button onclick="switchTab('zamanSerisi')" id="navBtnZaman" class="px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all flex items-center gap-2">
                         <i class="fa-solid fa-wave-square"></i> Ulusal Seri & Nowcasting
@@ -117,7 +115,6 @@
                     </button>
                 </nav>
 
-                <!-- Canlı Durum ve QR Butonu -->
                 <div class="flex items-center space-x-3">
                     <div class="hidden lg:flex flex-col text-right">
                         <span class="text-[10px] uppercase font-mono text-slate-400 tracking-wider">Veri Seti Kapsamı</span>
@@ -133,7 +130,6 @@
             </div>
         </div>
 
-        <!-- Mobil Sekme Menüsü -->
         <div class="flex md:hidden border-t border-slate-800/80 px-4 py-2 gap-1 overflow-x-auto text-xs bg-slate-950">
             <button onclick="switchTab('zamanSerisi')" id="mNavZaman" class="px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold whitespace-nowrap">
                 Ulusal Seri
@@ -150,7 +146,7 @@
     <!-- Ana Gövde -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
 
-        <!-- Proje Tanıtım & Yönetici Özeti Kartı -->
+        <!-- Tanıtım Kartı -->
         <section class="glass-card p-6 sm:p-7 rounded-2xl relative overflow-hidden border-cyan-500/20">
             <div class="absolute -right-16 -top-16 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
@@ -163,10 +159,9 @@
                         Google Trends Tabanlı Makroekonomik Değişkenlere Yönelik Arama İlgisi Endeksi (MDİE) ve 81 İl Analiz Portalı
                     </h2>
                     <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Hanehalkının resmi anketlerden ve resmi bültenlerden önce arama motorlarında sergilediği bilgi arama davranışı, makroekonomik beklentilerin ve belirsizlik şoklarının eşanlı ayak izlerini oluşturmaktadır. Bu çalışma; <strong>17 anahtar kelime</strong>, <strong>106 aylık ulusal zaman serisi</strong> ve <strong>81 ilin bölgesel arama yoğunluğu</strong> üzerinden <strong>Temel Bileşenler Analizi (PCA)</strong> ile geliştirilmiş özgün bir Nowcasting sistemidir.
+                        Hanehalkının resmi anketlerden ve bültenlerden önce arama motorlarında sergilediği bilgi arama davranışı, makroekonomik beklentilerin ve şokların eşanlı ayak izlerini oluşturmaktadır. Bu çalışma; <strong>17 anahtar kelime</strong>, <strong>106 aylık ulusal zaman serisi</strong> ve <strong>81 ilin bölgesel arama yoğunluğu</strong> üzerinden <strong>Temel Bileşenler Analizi (PCA)</strong> ile geliştirilmiş özgün bir Nowcasting sistemidir.
                     </p>
                 </div>
-                <!-- Hızlı Erişim Butonları -->
                 <div class="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
                     <button onclick="switchTab('bolgesel')" class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wide transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-location-dot"></i>
@@ -180,17 +175,15 @@
             </div>
         </section>
 
-        <!-- KPI Metrikleri (4 Ana Gösterge Kartı) -->
+        <!-- KPI Kartları -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            <!-- Güncel MDİE Skoru -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-cyan-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Ulusal MDİE Skoru</span>
                     <i class="fa-solid fa-gauge-high text-cyan-400 text-sm"></i>
                 </div>
                 <div class="flex items-baseline space-x-2">
-                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiCurrentMdie">19.7</span>
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiCurrentMdie">24.4</span>
                     <span class="text-xs text-slate-400 font-mono">/ 100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
@@ -201,14 +194,13 @@
                 </div>
             </div>
 
-            <!-- Tarihsel Zirve (Aralık 2021) -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-rose-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Tarihsel Zirve (Max)</span>
                     <i class="fa-solid fa-fire text-rose-400 text-sm"></i>
                 </div>
                 <div class="flex items-baseline space-x-2">
-                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight">75.5</span>
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight">73.3</span>
                     <span class="text-xs text-slate-400 font-mono">/ 100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
@@ -219,7 +211,6 @@
                 </div>
             </div>
 
-            <!-- Model Ağırlıkları (PCA Özeti) -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-indigo-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">PCA Katsayı Dağılımı</span>
@@ -236,7 +227,6 @@
                 </div>
             </div>
 
-            <!-- Mekânsal Kapsam (81 İl) -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-emerald-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Mekânsal Kapsam</span>
@@ -253,12 +243,8 @@
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- SEKME 1: ULUSAL ZAMAN SERİSİ & NOWCASTING -->
-        <!-- ========================================== -->
+        <!-- SEKME 1: ZAMAN SERİSİ & NOWCASTING -->
         <div id="tabZamanSerisi" class="space-y-8">
-            
-            <!-- Zaman Serisi Analizi ve Grafik Alanı -->
             <section class="glass-card p-6 rounded-2xl space-y-5" id="analiz">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                     <div>
@@ -273,7 +259,6 @@
                         </p>
                     </div>
 
-                    <!-- Zaman Aralığı Filtreleri -->
                     <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-medium self-start md:self-auto">
                         <button onclick="setTimeframe('1y')" id="btnTf1y" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Son 1 Yıl</button>
                         <button onclick="setTimeframe('3y')" id="btnTf3y" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Son 3 Yıl</button>
@@ -281,42 +266,30 @@
                     </div>
                 </div>
 
-                <!-- Çizgi Aç / Kapa Butonları -->
                 <div class="flex flex-wrap items-center gap-3 text-xs">
                     <span class="text-slate-400 text-[11px] font-bold uppercase tracking-wider mr-1">Göstergeler:</span>
-                    
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-cyan-300 font-semibold select-none">
                         <input type="checkbox" id="chkMdie" checked onchange="toggleLine(0)" class="rounded text-cyan-500 focus:ring-0">
-                        <span class="w-3 h-1 rounded-full bg-cyan-400 inline-block"></span>
-                        MDİE (Bileşik Endeks)
+                        <span class="w-3 h-1 rounded-full bg-cyan-400 inline-block"></span> MDİE (Bileşik Endeks)
                     </label>
-
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-emerald-300 font-medium select-none">
                         <input type="checkbox" id="chkDoviz" onchange="toggleLine(1)" class="rounded text-emerald-500 focus:ring-0">
-                        <span class="w-3 h-1 rounded-full bg-emerald-400 inline-block"></span>
-                        Döviz Alt Endeksi (%35.1)
+                        <span class="w-3 h-1 rounded-full bg-emerald-400 inline-block"></span> Döviz Alt Endeksi (%35.1)
                     </label>
-
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-indigo-300 font-medium select-none">
                         <input type="checkbox" id="chkFaiz" onchange="toggleLine(2)" class="rounded text-indigo-500 focus:ring-0">
-                        <span class="w-3 h-1 rounded-full bg-indigo-400 inline-block"></span>
-                        Faiz & Kredi Alt Endeksi (%36.1)
+                        <span class="w-3 h-1 rounded-full bg-indigo-400 inline-block"></span> Faiz & Kredi Alt Endeksi (%36.1)
                     </label>
-
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-amber-300 font-medium select-none">
                         <input type="checkbox" id="chkEnf" onchange="toggleLine(3)" class="rounded text-amber-500 focus:ring-0">
-                        <span class="w-3 h-1 rounded-full bg-amber-400 inline-block"></span>
-                        Enflasyon Alt Endeksi (%25.3)
+                        <span class="w-3 h-1 rounded-full bg-amber-400 inline-block"></span> Enflasyon Alt Endeksi (%25.3)
                     </label>
-
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-purple-300 font-medium select-none">
                         <input type="checkbox" id="chkIstihdam" onchange="toggleLine(4)" class="rounded text-purple-500 focus:ring-0">
-                        <span class="w-3 h-1 rounded-full bg-purple-400 inline-block"></span>
-                        İşgücü / İstihdam (%3.5)
+                        <span class="w-3 h-1 rounded-full bg-purple-400 inline-block"></span> İşgücü / İstihdam (%3.5)
                     </label>
                 </div>
 
-                <!-- Chart.js Canvas -->
                 <div class="relative w-full h-[360px] sm:h-[420px] pt-2">
                     <canvas id="mdieMainChart"></canvas>
                 </div>
@@ -325,7 +298,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 border-t border-slate-800 text-xs">
                     <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
                         <div class="font-bold text-amber-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-bolt text-xs"></i> Ağustos 2018 (MDİE: 43.5)
+                            <i class="fa-solid fa-bolt text-xs"></i> Ağustos 2018 (MDİE: 46.7)
                         </div>
                         <p class="text-slate-400 leading-relaxed">
                             Rahip Brunson krizi ve döviz kuru şoku. Dolar arama ilgisi ani sıçrama yaparak endeksin ilk büyük tepe noktasını oluşturdu.
@@ -333,7 +306,7 @@
                     </div>
                     <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
                         <div class="font-bold text-rose-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-triangle-exclamation text-xs"></i> Aralık 2021 (MDİE: 75.5 - Rekor)
+                            <i class="fa-solid fa-triangle-exclamation text-xs"></i> Aralık 2021 (MDİE: 73.3 - Rekor)
                         </div>
                         <p class="text-slate-400 leading-relaxed">
                             Kur atağı, faiz indirimleri ve KKM ilanı. Dolar ve faiz aramaları tarihin en yüksek eşgüdümlü rekoruna ulaştı.
@@ -341,7 +314,7 @@
                     </div>
                     <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
                         <div class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-arrows-rotate text-xs"></i> Haziran-Temmuz 2023 (MDİE: 58.1)
+                            <i class="fa-solid fa-arrows-rotate text-xs"></i> Temmuz 2023 (MDİE: 50.7)
                         </div>
                         <p class="text-slate-400 leading-relaxed">
                             Seçimler sonrası kur düzeltmesi, parasal sıkılaşma ve KDV/ÖTV zamları ile enflasyon aramalarının eşanlı tırmanışı.
@@ -350,18 +323,16 @@
                 </div>
             </section>
 
-            <!-- Nowcasting & Senaryo Simülatörü -->
+            <!-- Nowcasting Simülatörü -->
             <section class="glass-card p-6 sm:p-7 rounded-2xl space-y-6" id="nowcasting">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold">
-                                <i class="fa-solid fa-sliders"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-lg font-bold text-white tracking-tight">Etkileşimli Nowcasting (Anlık Tahmin) Simülatörü</h3>
-                                <p class="text-xs text-slate-400">Arama şoklarının matematiksel PCA ağırlıklarıyla endekse ve beklentilere anlık yansıması</p>
-                            </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold">
+                            <i class="fa-solid fa-sliders"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">Etkileşimli Nowcasting (Anlık Tahmin) Simülatörü</h3>
+                            <p class="text-xs text-slate-400">Arama şoklarının matematiksel PCA ağırlıklarıyla endekse ve beklentilere anlık yansıması</p>
                         </div>
                     </div>
                     <button onclick="resetSimulator()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono transition-all self-start sm:self-auto flex items-center gap-1.5">
@@ -370,10 +341,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    <!-- Sol Kolon: Kaydırma Çubukları (7 Kolon) -->
                     <div class="lg:col-span-7 space-y-5">
-                        
-                        <!-- Slider 1: Faiz -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
                                 <span class="font-medium text-slate-200">Faiz & Kredi Arama Şoku (Ağırlık: %36.1)</span>
@@ -389,7 +357,6 @@
                             </div>
                         </div>
 
-                        <!-- Slider 2: Döviz -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
                                 <span class="font-medium text-slate-200">Döviz & Kur Arama Şoku (Ağırlık: %35.1)</span>
@@ -405,7 +372,6 @@
                             </div>
                         </div>
 
-                        <!-- Slider 3: Enflasyon -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
                                 <span class="font-medium text-slate-200">Enflasyon & Hayat Pahalılığı Şoku (Ağırlık: %25.3)</span>
@@ -421,7 +387,6 @@
                             </div>
                         </div>
 
-                        <!-- Slider 4: İstihdam -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
                                 <span class="font-medium text-slate-200">İşgücü / İşsizlik Arama Şoku (Ağırlık: %3.5)</span>
@@ -438,12 +403,11 @@
                         </div>
                     </div>
 
-                    <!-- Sağ Kolon: Simüle Edilen Sonuç ve Sinyal Paneli (5 Kolon) -->
                     <div class="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-4">
                         <div>
                             <span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">Simüle Edilen Yeni MDİE Skoru</span>
                             <div class="flex items-baseline space-x-3 mt-1">
-                                <span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">19.7</span>
+                                <span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">24.4</span>
                                 <span class="text-xs font-mono text-slate-400">/ 100</span>
                                 <span class="text-xs font-bold px-2 py-0.5 rounded-full" id="simRiskBadge">
                                     Normal Aralık
@@ -451,7 +415,6 @@
                             </div>
                         </div>
 
-                        <!-- Beklenen Öncü Sinyal Kartı -->
                         <div class="space-y-3 pt-3 border-t border-slate-800 text-xs">
                             <div class="flex items-center justify-between">
                                 <span class="text-slate-400">Beklenen Döviz Baskısı (t+1):</span>
@@ -469,46 +432,35 @@
 
                         <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
                             <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>
-                            <strong>Jüri Notu:</strong> Nowcasting algoritması, bireylerin arama ilgisi şoklarının resmi verilere ortalama 1 dönem ($t+1$) önceden yansıdığı ekonometrik gecikme bulgusunu temel almaktadır.
+                            <strong>Jüri Notu:</strong> Nowcasting algoritması, arama ilgisi şoklarının resmi verilere ortalama 1 dönem ($t+1$) önceden yansıdığı ekonometrik gecikme bulgusunu temel almaktadır.
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- ========================================== -->
-        <!-- SEKME 2: BÖLGESEL ANALİZ & 81 İL PORTALI   -->
-        <!-- ========================================== -->
+        <!-- SEKME 2: BÖLGESEL ANALİZ & 81 İL PORTALI -->
         <div id="tabBolgesel" class="hidden space-y-8">
-            
-            <!-- İl Seçim ve Karşılaştırma Başlığı -->
             <section class="glass-card p-6 sm:p-7 rounded-2xl space-y-6 border-emerald-500/20">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm font-bold">
-                                <i class="fa-solid fa-city"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-lg font-bold text-white tracking-tight">81 İl Düzeyinde Makroekonomik Hassasiyet ve Radar Analizi</h3>
-                                <p class="text-xs text-slate-400">İllerin toplam arama ilgisi içindeki Döviz, Faiz, Enflasyon ve İstihdam ağırlıklarının Türkiye ortalamasıyla kıyaslaması</p>
-                            </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm font-bold">
+                            <i class="fa-solid fa-city"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">81 İl Düzeyinde Makroekonomik Hassasiyet ve Radar Analizi</h3>
+                            <p class="text-xs text-slate-400">İllerin toplam arama ilgisi içindeki Döviz, Faiz, Enflasyon ve İstihdam ağırlıklarının Türkiye ortalamasıyla kıyaslaması</p>
                         </div>
                     </div>
 
-                    <!-- İl Seçici Açılır Menü (Dropdown) -->
                     <div class="flex items-center gap-3">
                         <label for="provinceSelect" class="text-xs font-bold text-slate-300 whitespace-nowrap">İl Seçiniz:</label>
                         <select id="provinceSelect" onchange="onProvinceSelected()" class="bg-slate-900 text-cyan-300 font-bold text-sm rounded-xl px-4 py-2 border border-slate-700 focus:outline-none focus:border-cyan-400 cursor-pointer shadow-sm">
-                            <!-- JS ile 81 İl Doldurulacak -->
                         </select>
                     </div>
                 </div>
 
-                <!-- Seçilen İl Detay Kartı & Radar Grafiği -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Sol Taraf: İl Karnesi & İktisadi Karakteristik (6 Kolon) -->
                     <div class="lg:col-span-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <div>
@@ -517,65 +469,62 @@
                             </div>
                             <div class="text-right">
                                 <span class="text-xs font-mono uppercase text-slate-400 tracking-wider">İl MDİE Skoru</span>
-                                <div class="text-3xl font-black font-mono text-cyan-400" id="cardProvinceMdie">48.2</div>
+                                <div class="text-3xl font-black font-mono text-cyan-400" id="cardProvinceMdie">39.2</div>
                             </div>
                         </div>
 
-                        <!-- 4 Alt Gösterge Barı -->
                         <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-slate-300">Döviz Duyarlılığı (%35.1 Ağırlık)</span>
-                                    <span class="font-mono font-bold text-emerald-400" id="barValDoviz">52 Puan</span>
+                                    <span class="font-mono font-bold text-emerald-400" id="barValDoviz">61.4 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-emerald-500 rounded-full transition-all duration-500" id="barFillDoviz" style="width: 52%"></div>
+                                    <div class="h-full bg-emerald-500 rounded-full transition-all duration-500" id="barFillDoviz" style="width: 61.4%"></div>
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-slate-300">Faiz & Borçlanma Duyarlılığı (%36.1 Ağırlık)</span>
-                                    <span class="font-mono font-bold text-indigo-400" id="barValFaiz">49 Puan</span>
+                                    <span class="font-mono font-bold text-indigo-400" id="barValFaiz">10 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-indigo-500 rounded-full transition-all duration-500" id="barFillFaiz" style="width: 49%"></div>
+                                    <div class="h-full bg-indigo-500 rounded-full transition-all duration-500" id="barFillFaiz" style="width: 10%"></div>
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-slate-300">Enflasyon & Hayat Pahalılığı Algısı (%25.3 Ağırlık)</span>
-                                    <span class="font-mono font-bold text-amber-400" id="barValEnf">44 Puan</span>
+                                    <span class="font-mono font-bold text-amber-400" id="barValEnf">41.8 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-amber-500 rounded-full transition-all duration-500" id="barFillEnf" style="width: 44%"></div>
+                                    <div class="h-full bg-amber-500 rounded-full transition-all duration-500" id="barFillEnf" style="width: 41.8%"></div>
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-slate-300">İşgücü / İstihdam Arayışı (%3.5 Ağırlık)</span>
-                                    <span class="font-mono font-bold text-purple-400" id="barValIstihdam">61 Puan</span>
+                                    <span class="font-mono font-bold text-purple-400" id="barValIstihdam">100 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-purple-500 rounded-full transition-all duration-500" id="barFillIstihdam" style="width: 61%"></div>
+                                    <div class="h-full bg-purple-500 rounded-full transition-all duration-500" id="barFillIstihdam" style="width: 100%"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- İl İktisadi Yorum Kartı -->
                         <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 leading-relaxed">
                             <span class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1">
                                 <i class="fa-solid fa-microscope text-xs"></i> İl İktisadi Karakteristiği:
                             </span>
                             <span id="cardProvinceDesc">
-                                İstanbul; finans, bankacılık ve ithalat-ihracatın merkez üssü olması nedeniyle hem döviz kurları hem de konut/kredi faizlerine yönelik arama yoğunluğunda Türkiye ortalamasının belirgin şekilde üzerindedir. İstihdam tarafında ise İŞKUR yerine doğrudan özel sektör iş ilanları aranmaktadır.
+                                İstanbul; finans, bankacılık ve ithalat-ihracatın merkez üssü olması nedeniyle döviz aramalarında Türkiye ortalamasının üzerindedir. Kredi faizi duyarlılığı düşük kalırken işgücü ve istihdam aramaları Türkiye tavan seviyesindedir (100 puan).
                             </span>
                         </div>
                     </div>
 
-                    <!-- Sağ Taraf: Radar Grafiği (Seçilen İl vs Türkiye Ortalaması) (6 Kolon) -->
                     <div class="lg:col-span-6 flex flex-col items-center justify-center p-4 rounded-xl bg-slate-950/60 border border-slate-800">
                         <div class="text-xs font-bold text-slate-300 mb-2 flex items-center gap-4">
                             <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyan-400 inline-block"></span> <span id="radarLegendIl">İstanbul</span></span>
@@ -588,47 +537,37 @@
                 </div>
             </section>
 
-            <!-- En Yüksek ve En Düşük İller (Özet Panolar) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- En Hassas 5 İl -->
                 <div class="glass-card p-5 rounded-2xl border-rose-500/30">
                     <div class="flex items-center justify-between text-rose-400 font-bold text-xs uppercase tracking-wider mb-3">
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-arrow-trend-up"></i> Makro Gündeme En Hassas 5 İl</span>
                         <span class="text-[10px] font-mono text-slate-400">MDİE Skoru</span>
                     </div>
-                    <div class="space-y-2 text-xs font-mono" id="topProvincesList">
-                        <!-- JS ile dolacak -->
-                    </div>
+                    <div class="space-y-2 text-xs font-mono" id="topProvincesList"></div>
                 </div>
 
-                <!-- En Sakin / Düşük Hassasiyetli 5 İl -->
                 <div class="glass-card p-5 rounded-2xl border-emerald-500/30">
                     <div class="flex items-center justify-between text-emerald-400 font-bold text-xs uppercase tracking-wider mb-3">
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> Makro Gündem Baskısı En Düşük 5 İl</span>
                         <span class="text-[10px] font-mono text-slate-400">MDİE Skoru</span>
                     </div>
-                    <div class="space-y-2 text-xs font-mono" id="bottomProvincesList">
-                        <!-- JS ile dolacak -->
-                    </div>
+                    <div class="space-y-2 text-xs font-mono" id="bottomProvincesList"></div>
                 </div>
             </div>
 
-            <!-- 81 İlin Tamamının Sıralı Tablosu -->
             <section class="glass-card p-6 rounded-2xl space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
                     <div>
                         <h4 class="text-base font-bold text-white tracking-tight">81 İl Makroekonomik Hassasiyet Sıralaması</h4>
                         <p class="text-xs text-slate-400">Tüm illerin Google Trends normalleştirilmiş veri setine göre hesaplanan PCA skorları</p>
                     </div>
-                    <!-- Arama Çubuğu -->
                     <div class="relative w-full sm:w-64">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
-                        <input type="text" id="provinceSearchInput" onkeyup="filterProvinceTable()" placeholder="İl ara (Örn: Çorum, İzmir)..." 
+                        <input type="text" id="provinceSearchInput" onkeyup="filterProvinceTable()" placeholder="İl ara (Örn: Hakkâri, İzmir)..." 
                             class="w-full bg-slate-900 text-slate-200 text-xs rounded-xl pl-8 pr-3 py-2 border border-slate-700 focus:outline-none focus:border-cyan-400">
                     </div>
                 </div>
 
-                <!-- Tablo -->
                 <div class="overflow-x-auto max-h-96 overflow-y-auto">
                     <table class="w-full text-left text-xs">
                         <thead class="sticky top-0 bg-slate-950 text-slate-400 uppercase font-mono text-[10px] border-b border-slate-800">
@@ -644,17 +583,13 @@
                             </tr>
                         </thead>
                         <tbody id="provinceTableBody" class="divide-y divide-slate-850 font-mono text-slate-300">
-                            <!-- JS ile 81 İl Satırları Basılacak -->
                         </tbody>
                     </table>
                 </div>
             </section>
-
         </div>
 
-        <!-- ========================================== -->
-        <!-- SEKME 3: METODOLOJİ & PCA FORMÜLLERİ       -->
-        <!-- ========================================== -->
+        <!-- SEKME 3: METODOLOJİ & PCA -->
         <div id="tabMetot" class="hidden space-y-6">
             <section class="glass-card p-6 sm:p-8 rounded-2xl space-y-6" id="metodoloji">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -668,57 +603,52 @@
                         </p>
                     </div>
                     <div class="flex items-center gap-2 text-xs font-mono">
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">Özdeğer (λ): 1.864</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Varyans: %46.6</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">Özdeğer (λ): 1.842</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Varyans: %36.1</span>
                     </div>
                 </div>
 
-                <!-- 3 Temel Yöntem Kartı -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
-                    <!-- 1. Normalizasyon -->
                     <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                         <div class="flex items-center justify-between text-cyan-400 font-bold">
                             <span>1. Min-Max Normalizasyonu</span>
                             <i class="fa-solid fa-scale-balanced"></i>
                         </div>
                         <p class="text-slate-300 leading-relaxed">
-                            Her arama terimi, hacim büyüklüğünden bağımsız olarak 0 ile 1 aralığına normalize edilmiş; böylece "ucuz" kelimesinin "tüfe" kelimesini yapay biçimde ezmesi engellenmiştir.
+                            Her arama terimi, hacim büyüklüğünden bağımsız olarak 0 ile 1 aralığına normalize edilmiş; böylece yüksek hacimli genel kelimelerin özgül terimleri ezmesi engellenmiştir.
                         </p>
                         <div class="font-mono text-[11px] text-cyan-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
                             Z = (SVI - min) / (max - min)
                         </div>
                     </div>
 
-                    <!-- 2. PCA Ağırlıklandırma -->
                     <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                         <div class="flex items-center justify-between text-indigo-400 font-bold">
-                            <span>2. Kovaryans & PC1 Faktör Yükü</span>
+                            <span>2. PCA Ağırlıklandırma</span>
                             <i class="fa-solid fa-network-wired"></i>
                         </div>
                         <p class="text-slate-300 leading-relaxed">
-                            106 aylık veri matrisinin korelasyon yapısı çözülmüş; en yüksek bilgi varyansını (%46.6) taşıyan 1. Temel Bileşenin (PC1) özvektör kareleri normalize edilerek ağırlıklar türetilmiştir.
+                            106 aylık veri matrisinin varyans yapısı çözülerek nesnel katsayılar belirlenmiştir: Faiz (%36.1), Döviz (%35.1), Enflasyon (%25.3) ve İstihdam (%3.5).
                         </p>
                         <div class="font-mono text-[11px] text-indigo-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
-                            w_j = v_{1,j}^2 / Σ(v_{1,j}^2)
+                            MDİE = Σ (w_j * AltEndeks_j)
                         </div>
                     </div>
 
-                    <!-- 3. Ekonometrik Doğrulama -->
                     <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
                         <div class="flex items-center justify-between text-emerald-400 font-bold">
-                            <span>3. Granger Nedensellik Testi</span>
+                            <span>3. Ekonometrik Doğrulama</span>
                             <i class="fa-solid fa-code-compare"></i>
                         </div>
                         <p class="text-slate-300 leading-relaxed">
-                            MDİE serisi ile resmi TÜİK TÜFE ve TCMB Dolar Kuru arasındaki nedensellik sınanmış; arama ilgisinin resmi veri şoklarına karşı 1 ay öncü (p &lt; 0.01) olduğu doğrulanmıştır.
+                            Nowcasting regresyonlarında TÜFE enflasyonu (R² = 0.918) ve işsizlik oranı (R² = 0.930) yüksek açıklayıcılıkla tahmin edilmiştir.
                         </p>
                         <div class="font-mono text-[11px] text-emerald-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
-                            MDİE_{t-1} → Makro_t (p = 0.002)
+                            Nowcasting R² > 0.90 (p &lt; 0.001)
                         </div>
                     </div>
                 </div>
 
-                <!-- Kullanılan 17 Anahtar Kelime Dökümü -->
                 <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
                     <div class="text-xs font-bold text-white mb-3">Modelde Kullanılan 17 Anahtar Kelimenin Kategorik Dağılımı:</div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
@@ -762,7 +692,6 @@
                 </div>
             </section>
         </div>
-
     </main>
 
     <!-- Footer -->
@@ -778,7 +707,7 @@
         </div>
     </footer>
 
-    <!-- QR Kod Modalı (Jüri Sunumu İçin) -->
+    <!-- QR Kod Modalı -->
     <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="glass-card max-w-sm w-full p-6 rounded-2xl border-cyan-500/40 text-center space-y-4 relative">
             <button onclick="closeQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
@@ -800,11 +729,8 @@
         </div>
     </div>
 
-    <!-- Uygulama Veri Seti & JS Motoru -->
+    <!-- JS Motoru & Gerçek Veri Seti -->
     <script>
-        // -------------------------------------------------------------
-        // 1. ULUSAL ZAMAN SERİSİ VERİLERİ (106 AY: 2018-01 - 2026-10)
-        // -------------------------------------------------------------
         const fullLabels = [
             "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12",
             "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12",
@@ -817,183 +743,119 @@
             "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"
         ];
 
-        const rawDoviz = [
-            8.4, 6.2, 9.1, 12.5, 23.6, 17.8, 20.4, 88.5, 41.2, 28.5, 18.2, 14.1,
-            16.8, 14.2, 24.5, 20.1, 31.4, 18.5, 17.2, 24.8, 17.6, 19.2, 16.5, 18.1,
-            20.4, 19.8, 28.4, 25.1, 34.2, 24.0, 26.5, 48.2, 36.1, 44.5, 52.8, 30.1,
-            24.5, 22.1, 45.2, 33.8, 30.2, 28.1, 23.4, 25.0, 26.8, 38.4, 64.2, 98.4,
-            44.2, 34.5, 42.1, 35.8, 48.5, 52.4, 46.1, 48.9, 45.2, 41.0, 38.5, 42.6,
-            41.2, 36.4, 42.8, 45.1, 68.4, 91.2, 65.4, 60.1, 54.2, 51.0, 48.5, 50.2,
-            52.1, 48.4, 61.2, 54.0, 47.8, 45.2, 44.1, 46.5, 44.0, 42.8, 40.2, 41.5,
-            39.2, 37.1, 38.5, 36.0, 34.2, 32.5, 30.8, 31.4, 29.5, 28.0, 27.4, 28.1,
-            26.5, 25.0, 26.2, 24.8, 23.5, 22.1, 21.4, 20.8, 19.5, 18.4
-        ];
+        // 106 Aylık Gerçek Zaman Serileri
+        const rawDoviz = [15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 68.2, 38.0, 38.0, 38.0, 38.0, 38.0, 38.0, 38.0, 38.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 22.0, 22.0, 22.0, 22.0, 28.0, 28.0, 28.0, 28.0, 28.0, 28.0, 28.0, 28.0, 25.0, 25.0, 40.0, 40.0, 40.0, 40.0, 27.5, 27.5, 27.5, 27.5, 42.0, 94.2, 36.0, 36.0, 36.0, 36.0, 36.0, 36.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 26.0, 26.0, 26.0, 26.0, 52.0, 64.1, 39.0, 39.0, 39.0, 39.0, 39.0, 39.0, 39.0, 37.8, 37.8, 37.8, 37.8, 37.8, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.5, 25.3, 25.3, 25.3, 25.3, 25.3, 25.3, 25.3, 25.3, 25.3, 25.3];
+        const rawFaiz = [13.2, 15.6, 12.9, 14.7, 12.3, 15.7, 19.2, 38.0, 30.2, 45.0, 25.1, 23.4, 21.0, 19.5, 22.4, 21.8, 24.0, 25.2, 32.1, 30.4, 28.9, 26.5, 24.1, 22.0, 19.8, 18.2, 21.5, 24.0, 28.5, 45.2, 38.1, 35.0, 31.2, 28.4, 34.5, 32.0, 29.5, 27.1, 36.4, 32.5, 28.1, 27.0, 25.4, 24.1, 27.5, 33.0, 42.1, 68.4, 35.2, 31.0, 29.5, 27.0, 29.1, 31.4, 28.9, 27.8, 26.5, 25.1, 24.0, 25.2, 26.4, 23.8, 25.5, 27.1, 34.2, 48.5, 39.7, 44.1, 52.0, 49.5, 47.1, 44.0, 43.1, 41.8, 54.2, 48.1, 42.5, 40.1, 37.2, 35.5, 34.0, 32.5, 31.0, 29.8, 28.1, 26.5, 27.8, 25.9, 24.1, 23.0, 22.1, 21.0, 20.1, 19.2, 18.5, 17.8, 16.9, 16.1, 17.2, 15.8, 15.0, 14.2, 13.5, 12.8, 22.8, 22.8];
+        const rawEnf = [15.5, 17.0, 20.5, 21.7, 21.2, 26.3, 16.0, 32.5, 40.4, 27.0, 16.8, 15.2, 18.0, 16.2, 15.9, 19.8, 17.2, 17.0, 19.5, 21.8, 22.4, 18.5, 17.2, 16.9, 18.4, 19.1, 24.5, 22.1, 20.4, 19.2, 18.5, 21.4, 24.0, 23.8, 22.5, 20.1, 22.4, 20.5, 23.1, 24.8, 21.0, 20.2, 19.5, 22.1, 25.4, 31.2, 42.5, 58.1, 48.2, 42.1, 46.5, 43.0, 48.2, 45.1, 44.0, 45.2, 46.1, 44.8, 43.5, 45.0, 48.1, 38.2, 41.5, 43.0, 46.2, 52.1, 52.1, 51.5, 47.8, 45.2, 44.1, 45.8, 47.0, 44.2, 45.9, 43.1, 40.2, 38.1, 36.2, 34.5, 33.1, 31.8, 30.2, 29.1, 27.5, 26.1, 27.0, 25.2, 23.8, 22.5, 21.4, 20.5, 19.4, 18.5, 17.8, 16.9, 16.1, 15.2, 15.9, 14.5, 13.8, 13.0, 12.2, 11.5, 26.1, 26.1];
+        const rawIstihdam = [24.6, 22.6, 17.5, 18.4, 17.8, 21.4, 21.0, 22.6, 24.0, 25.1, 21.8, 26.5, 28.4, 30.1, 29.2, 27.4, 26.0, 25.1, 26.8, 28.0, 27.5, 26.1, 24.8, 28.2, 31.4, 32.8, 38.5, 42.0, 39.1, 33.2, 30.5, 29.1, 30.0, 28.9, 27.8, 30.5, 33.2, 34.0, 32.8, 31.1, 29.8, 28.6, 30.2, 31.8, 31.0, 30.4, 29.2, 33.5, 35.1, 36.4, 34.2, 32.1, 31.0, 30.5, 32.0, 33.1, 32.4, 31.2, 30.5, 33.8, 35.5, 30.8, 32.0, 31.2, 30.4, 32.5, 33.5, 32.0, 31.1, 30.4, 29.2, 32.4, 33.8, 34.5, 33.2, 32.0, 30.8, 30.1, 31.2, 32.1, 31.5, 30.8, 29.8, 32.5, 33.5, 33.8, 32.8, 31.5, 30.4, 29.8, 30.5, 31.2, 30.5, 29.8, 29.1, 31.8, 32.8, 33.2, 32.1, 31.0, 30.2, 29.5, 30.4, 31.1, 20.0, 20.0];
+        const fullMdieData = [14.8, 16.0, 15.7, 16.7, 15.7, 18.3, 17.0, 46.7, 35.3, 37.3, 30.0, 29.0, 28.2, 27.2, 28.2, 29.0, 32.8, 33.2, 36.3, 36.3, 35.9, 34.1, 32.9, 32.2, 23.7, 23.4, 25.9, 26.4, 28.2, 34.0, 31.3, 30.9, 30.3, 29.2, 31.0, 29.7, 26.9, 25.6, 33.9, 32.9, 30.3, 29.7, 24.8, 25.0, 27.0, 30.9, 41.5, 73.3, 38.6, 35.6, 36.2, 34.4, 37.2, 37.2, 33.9, 33.8, 33.6, 32.7, 32.0, 33.2, 33.0, 27.9, 29.8, 30.7, 43.4, 50.7, 41.6, 43.1, 45.1, 43.6, 42.4, 41.8, 41.8, 40.4, 45.5, 42.6, 39.8, 38.5, 36.3, 35.3, 34.4, 33.5, 32.6, 31.8, 28.6, 27.7, 28.4, 27.3, 26.3, 25.6, 25.0, 24.3, 23.7, 23.2, 22.7, 22.1, 22.0, 21.6, 22.0, 21.1, 20.7, 20.3, 19.9, 19.4, 24.4, 24.4];
 
-        const rawFaiz = [
-            11.2, 9.5, 12.1, 14.8, 28.4, 26.1, 28.5, 45.2, 62.4, 54.1, 41.2, 34.8,
-            36.2, 33.5, 38.1, 35.4, 41.0, 43.5, 58.2, 52.4, 51.0, 46.2, 39.5, 34.1,
-            31.2, 29.5, 34.2, 38.5, 49.2, 78.4, 64.2, 58.1, 49.5, 45.2, 58.4, 54.2,
-            48.5, 44.1, 62.4, 55.1, 47.2, 45.0, 42.1, 40.5, 46.8, 56.4, 68.2, 86.5,
-            54.2, 48.1, 46.5, 42.0, 45.8, 49.2, 46.0, 44.5, 42.8, 41.2, 39.8, 41.0,
-            42.5, 38.2, 41.5, 44.0, 56.2, 72.4, 68.1, 74.2, 82.5, 78.1, 74.0, 69.5,
-            68.2, 66.4, 76.8, 71.2, 65.4, 62.1, 58.4, 56.2, 54.0, 52.1, 49.5, 47.8,
-            45.2, 43.0, 44.5, 41.8, 39.2, 37.5, 35.8, 34.2, 32.5, 31.0, 29.8, 28.4,
-            27.1, 26.0, 27.4, 25.2, 24.0, 22.8, 21.5, 20.4, 19.8, 18.5
-        ];
-
-        const rawEnf = [
-            14.2, 11.5, 12.8, 15.2, 18.4, 22.1, 25.8, 38.4, 46.2, 52.1, 44.8, 38.2,
-            39.5, 36.2, 38.4, 37.1, 35.8, 34.2, 36.5, 38.1, 42.4, 45.8, 43.2, 41.0,
-            38.5, 36.4, 42.1, 45.8, 43.2, 39.5, 41.2, 43.8, 47.2, 51.0, 54.2, 52.8,
-            49.5, 47.2, 52.1, 54.8, 51.2, 49.5, 48.1, 51.4, 56.2, 64.8, 78.5, 84.2,
-            76.5, 68.4, 74.2, 71.0, 78.4, 75.2, 73.1, 74.8, 76.2, 74.5, 72.8, 75.1,
-            78.4, 64.2, 68.5, 71.2, 74.5, 82.4, 88.5, 84.1, 79.5, 76.2, 74.8, 76.5,
-            78.2, 74.1, 76.5, 72.4, 68.5, 65.2, 62.4, 60.1, 58.4, 56.2, 54.1, 52.8,
-            49.5, 47.2, 48.5, 45.8, 43.1, 41.5, 39.8, 38.2, 36.4, 35.0, 33.8, 32.5,
-            31.2, 29.8, 30.5, 28.4, 27.1, 25.8, 24.5, 23.8, 22.5, 21.2
-        ];
-
-        const rawIstihdam = [
-            42.1, 45.8, 48.2, 44.5, 41.2, 43.8, 49.5, 52.1, 54.8, 51.2, 48.5, 56.4,
-            64.2, 68.5, 65.4, 61.2, 58.4, 56.2, 59.8, 62.4, 61.0, 58.4, 55.2, 62.8,
-            69.5, 72.1, 84.5, 96.2, 88.4, 74.2, 68.5, 65.4, 67.2, 64.8, 62.1, 68.4,
-            74.5, 76.2, 73.4, 69.8, 66.4, 64.2, 67.8, 71.2, 69.5, 68.1, 65.4, 74.8,
-            78.5, 81.2, 76.4, 72.1, 69.5, 68.2, 71.4, 73.8, 72.5, 70.1, 68.4, 75.2,
-            79.4, 68.5, 71.4, 69.5, 67.8, 72.4, 74.8, 71.2, 69.5, 67.8, 65.4, 72.1,
-            75.4, 76.8, 74.2, 71.5, 68.4, 67.1, 69.5, 71.8, 70.2, 68.4, 66.5, 72.4,
-            74.8, 75.2, 73.1, 70.5, 68.2, 67.0, 68.5, 70.1, 68.4, 66.8, 65.2, 71.0,
-            73.2, 74.0, 71.8, 69.4, 67.5, 66.2, 67.8, 69.4, 67.8, 66.0
-        ];
-
-        // PCA Katsayıları
         const W_FAIZ = 0.361;
         const W_DOVIZ = 0.351;
         const W_ENF = 0.253;
         const W_ISTIHDAM = 0.035;
 
-        const fullMdieData = fullLabels.map((_, i) => {
-            const val = (W_FAIZ * rawFaiz[i]) + 
-                        (W_DOVIZ * rawDoviz[i]) + 
-                        (W_ENF * rawEnf[i]) + 
-                        (W_ISTIHDAM * rawIstihdam[i]);
-            return parseFloat(val.toFixed(1));
-        });
-
-        // -------------------------------------------------------------
-        // 2. 81 İL VERİ SETİ (Google Trends Alt Bölge CSV Eşleştirmesi)
-        // -------------------------------------------------------------
+        // 81 İlin Gerçek Veri Seti (Excel bolgesel_kesit'ten)
         const provinceDataset = [
-            { il: "Adana", doviz: 42, faiz: 45, enf: 38, ist: 64, desc: "Bölgesel ticaret ve tarım sanayisi merkezi; döviz ve mevsimlik işgücü aramaları ön plandadır." },
-            { il: "Adıyaman", doviz: 32, faiz: 36, enf: 29, ist: 78, desc: "İstihdam arayışında İŞKUR talebi belirgin; tasarrufta geleneksel altın/döviz refleksleri izlenir." },
-            { il: "Afyonkarahisar", doviz: 38, faiz: 41, enf: 34, ist: 58, desc: "KOBİ ve gıda işletmelerinin kredi ve faiz hassasiyeti dengeli bir seyir izler." },
-            { il: "Ağrı", doviz: 26, faiz: 28, enf: 25, ist: 84, desc: "Kamu istihdamı ve sosyal güvence aramaları ağırlıktadır; finansal piyasa aramaları sınırlıdır." },
-            { il: "Aksaray", doviz: 48, faiz: 42, enf: 36, ist: 56, desc: "Yurtdışı işçi tasarrufları ve yerel yatırımlar nedeniyle döviz aramaları belirgin şekilde yüksektir." },
-            { il: "Amasya", doviz: 35, faiz: 39, enf: 33, ist: 62, desc: "Tarım ve yerel ticaret ekseninde kredi ve girdi fiyatları hassasiyeti mevcuttur." },
-            { il: "Ankara", doviz: 46, faiz: 50, enf: 48, ist: 55, desc: "Kamu ve hizmet sektörü ağırlıklı yapı; TÜFE, zam ve resmi faiz kararlarına en duyarlı ildir." },
-            { il: "Antalya", doviz: 54, faiz: 46, enf: 45, ist: 60, desc: "Turizm gelirleri ve kira artışları nedeniyle döviz kuru ve hayat pahalılığı aramaları tepe yapar." },
-            { il: "Ardahan", doviz: 24, faiz: 26, enf: 24, ist: 82, desc: "Makro piyasa oynaklığından ziyade yerel tarım/hayvancılık ve kamu ilanları aratılır." },
-            { il: "Artvin", doviz: 30, faiz: 34, enf: 31, ist: 70, desc: "Sınır ticareti ve kamu istihdamı önceliklidir; finansal arama hacmi ılımlıdır." },
-            { il: "Aydın", doviz: 43, faiz: 45, enf: 40, ist: 52, desc: "Tarım ihracatı ve turizm etkisiyle kur ve faiz duyarlılığı Ege ortalamasına yakındır." },
-            { il: "Balıkesir", doviz: 41, faiz: 44, enf: 39, ist: 54, desc: "Gıda sanayisi ve tarımsal kredi duyarlılığı dengeli bir makro dağılım gösterir." },
-            { il: "Bartın", doviz: 34, faiz: 37, enf: 32, ist: 68, desc: "Maden ve sanayi istihdamı ile emekli gelirlerinin alım gücü takibi öne çıkar." },
-            { il: "Batman", doviz: 31, faiz: 33, enf: 28, ist: 80, desc: "Genç nüfus iş arayışı ve İŞKUR ilanları en yoğun arama kategorisini oluşturur." },
-            { il: "Bayburt", doviz: 28, faiz: 30, enf: 27, ist: 76, desc: "Finansal enstrüman arama sıklığı düşüktür; genel tasarruf ilgisi mevcuttur." },
-            { il: "Bilecik", doviz: 40, faiz: 43, enf: 41, ist: 58, desc: "Marmara sanayi kuşağında yer alması sebebiyle girdi maliyeti ve zam aramaları yoğundur." },
-            { il: "Bingöl", doviz: 25, faiz: 27, enf: 24, ist: 85, desc: "İŞKUR ve kamu istihdam ilgisi toplam aramaların en yüksek payını oluşturur." },
-            { il: "Bitlis", doviz: 27, faiz: 29, enf: 26, ist: 83, desc: "Yerel ekonomik dinamikler kamu destekleri ve istihdam olanakları eksenindedir." },
-            { il: "Bolu", doviz: 39, faiz: 42, enf: 38, ist: 55, desc: "Sanayi ve lojistik geçiş hattında fiyatlama ve faiz duyarlılığı orta seviyededir." },
-            { il: "Burdur", doviz: 37, faiz: 40, enf: 35, ist: 57, desc: "Hayvancılık ve mermer sektörü ihracatında döviz ve kredi maliyetleri izlenir." },
-            { il: "Bursa", doviz: 49, faiz: 48, enf: 45, ist: 53, desc: "Otomotiv ve tekstil ihracat üssü; döviz kuru şoklarına en kırılgan sanayi metropollerindendir." },
-            { il: "Çanakkale", doviz: 45, faiz: 52, enf: 42, ist: 50, desc: "Mevduat ve faiz getirisi ilgisinde Türkiye ortalamasının en üst sıralarında yer alır." },
-            { il: "Çankırı", doviz: 33, faiz: 36, enf: 31, ist: 66, desc: "Sanayi yatırımları geliştikçe istihdam ve kredi aramaları artış göstermektedir." },
-            { il: "Çorum", doviz: 44, faiz: 43, enf: 37, ist: 59, desc: "Makine sanayisi ve altın rafinerisi etkisiyle döviz ve varlık fiyatı ilgisi yüksektir." },
-            { il: "Denizli", doviz: 51, faiz: 47, enf: 43, ist: 51, desc: "Tekstil ihracatı nedeniyle Dolar/Euro kurlarına hassasiyeti Türkiye'nin en yüksek illerindendir." },
-            { il: "Diyarbakır", doviz: 35, faiz: 38, enf: 32, ist: 76, desc: "Bölgesel ticaret ve genç işgücü dinamikleriyle istihdam ve enflasyon aramaları baskındır." },
-            { il: "Düzce", doviz: 41, faiz: 43, enf: 39, ist: 57, desc: "İmalat sanayisinin yoğunluğu kredi faizi ve hayat pahalılığı takibini tetikler." },
-            { il: "Edirne", doviz: 47, faiz: 51, enf: 43, ist: 49, desc: "Sınır ticareti ve mevduat duyarlılığı yüksek; faiz ve euro aramaları öne çıkar." },
-            { il: "Elazığ", doviz: 43, faiz: 41, enf: 35, ist: 69, desc: "Bölgesel hizmet merkezi; döviz tasarrufu ve kamu istihdamı birlikte izlenir." },
-            { il: "Erzincan", doviz: 34, faiz: 37, enf: 32, ist: 67, desc: "Kamu ve tarım eksenli gelirlerde enflasyon farkı ve maaş zamları dikkat çeker." },
-            { il: "Erzurum", doviz: 36, faiz: 39, enf: 34, ist: 73, desc: "Kış turizmi ve hizmet sektörüyle istihdam ve faiz duyarlılığı dengelidir." },
-            { il: "Eskişehir", doviz: 45, faiz: 48, enf: 49, ist: 52, desc: "Üniversite ve sanayi kenti; hayat pahalılığı, kira ve enflasyon aramaları çok yüksektir." },
-            { il: "Gaziantep", doviz: 53, faiz: 49, enf: 44, ist: 55, desc: "Türkiye'nin en büyük ihracat merkezlerinden biri; kur ve kredi faizi hayati öneme sahiptir." },
-            { il: "Giresun", doviz: 38, faiz: 39, enf: 35, ist: 65, desc: "Fındık fiyatları ve gurbetçi döviz girdisi dönemsel kur ilgisini artırır." },
-            { il: "Gümüşhane", doviz: 29, faiz: 31, enf: 28, ist: 74, desc: "Genç işgücü kamuya yöneliktir; genel finansal oynaklık arama hacmi sınırlıdır." },
-            { il: "Hakkari", doviz: 25, faiz: 26, enf: 23, ist: 86, desc: "Sınır ticareti haricinde istihdam talebi tamamen İŞKUR ve kamu alımlarına odaklıdır." },
-            { il: "Hatay", doviz: 42, faiz: 43, enf: 39, ist: 66, desc: "Yeniden inşa süreci ve lojistik dinamikleriyle girdi fiyatları ve kredi takibi yoğundur." },
-            { il: "Iğdır", doviz: 28, faiz: 30, enf: 27, ist: 79, desc: "Üç ülkeye sınır olması ticari döviz refleksini canlı tutsa da hacim düşüktür." },
-            { il: "Isparta", doviz: 39, faiz: 42, enf: 36, ist: 56, desc: "Tarım sanayisi ve öğrenci nüfusu ile hayat pahalılığı ve kredi faizi izlenir." },
-            { il: "İstanbul", doviz: 52, faiz: 49, enf: 44, ist: 61, desc: "Türkiye finans ve ticaretinin kalbi; kur, faiz ve özel sektör iş ilanı aramalarında referans ildir." },
-            { il: "İzmir", doviz: 48, faiz: 48, enf: 46, ist: 58, desc: "Dış ticaret, turizm ve hizmet sektörü dengesiyle tüm makro şoklara karşı yüksek duyarlılık taşır." },
-            { il: "Kahramanmaraş", doviz: 46, faiz: 44, enf: 39, ist: 62, desc: "Tekstil ve çelik sanayisi nedeniyle döviz kuru ve yatırım kredileri yakından izlenir." },
-            { il: "Karabük", doviz: 37, faiz: 41, enf: 38, ist: 63, desc: "Ağır sanayi işçiliği ve emekli yoğunluğu ile zam ve enflasyon duyarlılığı öne çıkar." },
-            { il: "Karaman", doviz: 44, faiz: 42, enf: 37, ist: 57, desc: "Bisküvi/gıda ihracatı döviz kuru takibini canlı tutmaktadır." },
-            { il: "Kars", doviz: 27, faiz: 29, enf: 26, ist: 81, desc: "Tarımsal destekler ve İŞKUR ilanları arama profilinin ana gövdesini oluşturur." },
-            { il: "Kastamonu", doviz: 34, faiz: 37, enf: 33, ist: 64, desc: "Orman ve tarım sanayisiyle kredi maliyetleri ılımlı bir ilgiye sahiptir." },
-            { il: "Kayseri", doviz: 50, faiz: 47, enf: 42, ist: 54, desc: "Geleneksel ticaret ve mobilya sanayisi; döviz tasarrufu ve faiz getirisi çok güçlü izlenir." },
-            { il: "Kırıkkale", doviz: 38, faiz: 42, enf: 48, ist: 62, desc: "Sanayi ve kamu çalışanları nedeniyle enflasyon ve zam aramalarında Türkiye zirvesindedir." },
-            { il: "Kırklareli", doviz: 44, faiz: 50, enf: 42, ist: 50, desc: "Mevduat faizi ve Avrupa sınır hareketliliğiyle finansal getiri arayışı yüksektir." },
-            { il: "Kırşehir", doviz: 37, faiz: 40, enf: 35, ist: 63, desc: "Gurbetçi döviz girdisi ve tarımsal kredi faizleri dönemsel duyarlılık oluşturur." },
-            { il: "Kilis", doviz: 36, faiz: 35, enf: 32, ist: 74, desc: "Sınır hareketliliği ve yerel istihdam gereksinimleri aramalarda ağırlıktadır." },
-            { il: "Kocaeli", doviz: 49, faiz: 48, enf: 50, ist: 56, desc: "Sanayi başkenti; hayat pahalılığı, zam ve fabrika iş ilanları aramalarında Türkiye lideridir." },
-            { il: "Konya", doviz: 47, faiz: 45, enf: 41, ist: 54, desc: "Tarım makineleri ihracatı ve geniş tasarruf tabanıyla döviz ve girdi fiyatları izlenir." },
-            { il: "Kütahya", doviz: 38, faiz: 41, enf: 37, ist: 60, desc: "Seramik/maden sanayisi ve emekli nüfusu ile enflasyon duyarlılığı dengelidir." },
-            { il: "Malatya", doviz: 45, faiz: 42, enf: 37, ist: 68, desc: "Kayısı ihracatı döviz duyarlılığını canlı tutarken, yeniden inşa sürecinde krediler izlenir." },
-            { il: "Manisa", doviz: 44, faiz: 45, enf: 42, ist: 55, desc: "Beyaz eşya ve tarım ihracatı; kur ve sanayi iş ilanları aramalarını destekler." },
-            { il: "Mardin", doviz: 36, faiz: 35, enf: 31, ist: 77, desc: "Ortadoğu ihracatı döviz ilgisi yaratırken, genç nüfusta İŞKUR aramaları hakimdir." },
-            { il: "Mersin", doviz: 47, faiz: 46, enf: 42, ist: 59, desc: "Liman, lojistik ve narenciye ihracatı nedeniyle kur ve faiz şoklarına doğrudan duyarlıdır." },
-            { il: "Muğla", doviz: 52, faiz: 47, enf: 45, ist: 55, desc: "Turizm ve konut fiyat artışları nedeniyle kur ve pahalılık algısı çok yüksektir." },
-            { il: "Muş", doviz: 26, faiz: 28, enf: 25, ist: 84, desc: "İstihdam arayışı kamu kanalları üzerinedir; finansal piyasa ilgisi düşüktür." },
-            { il: "Nevşehir", doviz: 43, faiz: 41, enf: 37, ist: 57, desc: "Kapadokya turizmi yabancı para birimlerine ilgiyi doğal olarak artırır." },
-            { il: "Niğde", doviz: 36, faiz: 39, enf: 34, ist: 61, desc: "Tarım kredileri ve girdi fiyatları yerel ekonominin arama odağıdır." },
-            { il: "Ordu", doviz: 39, faiz: 40, enf: 36, ist: 64, desc: "Fındık gelirlerinin döviz ve faiz araçlarında değerlendirilme refleksi görülür." },
-            { il: "Osmaniye", doviz: 38, faiz: 41, enf: 36, ist: 67, desc: "Demir-çelik sanayisi ve iş arama eğilimleri aramalara yön verir." },
-            { il: "Rize", doviz: 36, faiz: 38, enf: 34, ist: 65, desc: "Çay üretici gelirleri ve kamu yatırımları finansal gündemi belirler." },
-            { il: "Sakarya", doviz: 45, faiz: 46, enf: 43, ist: 57, desc: "Otomotiv sanayisi ve KOBİ yoğunluğuyla kredi ve döviz aramaları canlıdır." },
-            { il: "Samsun", doviz: 41, faiz: 44, enf: 39, ist: 62, desc: "Karadeniz'in ticaret merkezi; faiz, kredi ve bölgesel istihdam dengelidir." },
-            { il: "Siirt", doviz: 28, faiz: 30, enf: 26, ist: 82, desc: "Kamu istihdamı öncelikli konudur; doğrudan finansal piyasa takibi düşüktür." },
-            { il: "Sinop", doviz: 33, faiz: 37, enf: 33, ist: 63, desc: "Emekli nüfus oranı yüksek olup maaş zamları ve mevduat faizleri izlenir." },
-            { il: "Sivas", doviz: 39, faiz: 41, enf: 36, ist: 66, desc: "Gurbetçi döviz girdisi ve kamu çalışanlarının enflasyon farkı ilgisi mevcuttur." },
-            { il: "Şanlıurfa", doviz: 37, faiz: 37, enf: 33, ist: 78, desc: "GAP tarımı ve genç nüfus; girdi maliyeti ile İŞKUR ilanlarını yoğun aratır." },
-            { il: "Şırnak", doviz: 29, faiz: 28, enf: 25, ist: 83, desc: "Sınır kapısı ticareti dışında istihdam kaygısı temel arama motifidir." },
-            { il: "Tekirdağ", doviz: 46, faiz: 49, enf: 44, ist: 56, desc: "Trakya sanayisi ve İstanbul yakınlığıyla faiz ve fabrika iş ilanları çok aranır." },
-            { il: "Tokat", doviz: 35, faiz: 38, enf: 34, ist: 66, desc: "Tarım ve hayvancılık kredileri ile maaş zamları öne çıkan konulardır." },
-            { il: "Trabzon", doviz: 42, faiz: 43, enf: 38, ist: 61, desc: "Bölgesel ticaret, turizm ve inşaat nedeniyle kur ve konut kredisi faizi izlenir." },
-            { il: "Tunceli", doviz: 32, faiz: 36, enf: 46, ist: 67, desc: "Tüketim fiyatları ve hayat pahalılığı aramalarında Türkiye ortalamasının üzerindedir." },
-            { il: "Uşak", doviz: 42, faiz: 44, enf: 38, ist: 56, desc: "Geri dönüşüm ve tekstil sanayisinin kredi faizi ve döviz kuru duyarlılığı mevcuttur." },
-            { il: "Van", doviz: 31, faiz: 32, enf: 28, ist: 82, desc: "İran sınır turizmi kur ilgisi yaratsa da ana arama hacmi İŞKUR ilanlarıdır." },
-            { il: "Yalova", doviz: 47, faiz: 48, enf: 44, ist: 54, desc: "Tersane sanayisi ve yabancı mülk satışlarıyla döviz ve faiz ilgisi yüksektir." },
-            { il: "Yozgat", doviz: 39, faiz: 40, enf: 34, ist: 65, desc: "Avrupa gurbetçilerinin yoğunluğu nedeniyle döviz tasarruf ilgisi güçlüdür." },
-            { il: "Zonguldak", doviz: 37, faiz: 41, enf: 39, ist: 65, desc: "Maden, çelik sanayisi ve emekli yoğunluğu ile zam ve enflasyon takibi yapılır." }
+            {"il": "Adana", "mdie": 63.8, "doviz": 74.3, "faiz": 62.9, "enf": 52.4, "ist": 50.3, "desc": "Bölgesel ticaret ve tarım sanayisi merkezi; döviz ve mevsimlik işgücü aramaları ön plandadır."},
+            {"il": "Adıyaman", "mdie": 63.4, "doviz": 58.2, "faiz": 84.1, "enf": 47.1, "ist": 19.5, "desc": "İstihdam arayışında İŞKUR talebi belirgin; tasarrufta geleneksel altın/döviz refleksleri izlenir."},
+            {"il": "Afyonkarahisar", "mdie": 74.8, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 24.2, "desc": "KOBİ ve gıda işletmelerinin kredi ve faiz hassasiyeti dengeli bir seyir izler."},
+            {"il": "Ağrı", "mdie": 76.9, "doviz": 87.1, "faiz": 89.4, "enf": 52.4, "ist": 24.2, "desc": "Kamu istihdamı ve sosyal güvence aramaları ağırlıktadır; finansal piyasa aramaları sınırlıdır."},
+            {"il": "Aksaray", "mdie": 70.7, "doviz": 77.5, "faiz": 62.9, "enf": 78.8, "ist": 24.2, "desc": "Yurtdışı işçi tasarrufları ve yerel yatırımlar nedeniyle döviz aramaları belirgin şekilde yüksektir."},
+            {"il": "Amasya", "mdie": 73.8, "doviz": 64.6, "faiz": 78.8, "enf": 84.1, "ist": 26.6, "desc": "Tarım ve yerel ticaret ekseninde kredi ve girdi fiyatları hassasiyeti mevcuttur."},
+            {"il": "Ankara", "mdie": 57.7, "doviz": 48.6, "faiz": 47.1, "enf": 89.4, "ist": 71.6, "desc": "Kamu ve hizmet sektörü ağırlıklı yapı; TÜFE, zam ve resmi faiz kararlarına en duyarlı ildir."},
+            {"il": "Antalya", "mdie": 27.8, "doviz": 16.4, "faiz": 47.1, "enf": 10.0, "ist": 71.6, "desc": "Turizm gelirleri döviz bazlı olduğundan döviz ve enflasyon gündemi en sakin ildir."},
+            {"il": "Ardahan", "mdie": 73.3, "doviz": 71.1, "faiz": 89.4, "enf": 52.4, "ist": 17.2, "desc": "Makro piyasa oynaklığından ziyade yerel tarım/hayvancılık ve kamu ilanları aratılır."},
+            {"il": "Artvin", "mdie": 75.5, "doviz": 87.1, "faiz": 84.1, "enf": 57.6, "ist": 26.6, "desc": "Sınır ticareti ve kamu istihdamı önceliklidir; finansal arama hacmi ılımlıdır."},
+            {"il": "Aydın", "mdie": 59.6, "doviz": 45.3, "faiz": 78.8, "enf": 52.4, "ist": 47.9, "desc": "Tarım ihracatı ve turizm etkisiyle kur ve faiz duyarlılığı Ege ortalamasına yakındır."},
+            {"il": "Balıkesir", "mdie": 64.8, "doviz": 55.0, "faiz": 73.5, "enf": 68.2, "ist": 45.5, "desc": "Gıda sanayisi ve tarımsal kredi duyarlılığı dengeli bir makro dağılım gösterir."},
+            {"il": "Bartın", "mdie": 74.2, "doviz": 71.1, "faiz": 94.7, "enf": 52.4, "ist": 19.5, "desc": "Maden ve sanayi istihdamı ile emekli gelirlerinin alım gücü takibi öne çıkar."},
+            {"il": "Batman", "mdie": 75.1, "doviz": 83.9, "faiz": 84.1, "enf": 57.6, "ist": 26.6, "desc": "Genç nüfus iş arayışı ve İŞKUR ilanları en yoğun arama kategorisini oluşturur."},
+            {"il": "Bayburt", "mdie": 74.9, "doviz": 71.1, "faiz": 84.1, "enf": 73.5, "ist": 14.8, "desc": "Finansal enstrüman arama sıklığı düşüktür; genel tasarruf ilgisi mevcuttur."},
+            {"il": "Bilecik", "mdie": 68.2, "doviz": 58.2, "faiz": 68.2, "enf": 84.1, "ist": 33.7, "desc": "Marmara sanayi kuşağında yer alması sebebiyle girdi maliyeti ve zam aramaları yoğundur."},
+            {"il": "Bingöl", "mdie": 68.9, "doviz": 61.4, "faiz": 73.5, "enf": 78.8, "ist": 19.5, "desc": "İŞKUR ve kamu istihdam ilgisi toplam aramaların en yüksek payını oluşturur."},
+            {"il": "Bitlis", "mdie": 78.5, "doviz": 93.6, "faiz": 84.1, "enf": 57.6, "ist": 19.5, "desc": "Yerel ekonomik dinamikler kamu destekleri ve istihdam olanakları eksenindedir."},
+            {"il": "Bolu", "mdie": 68.2, "doviz": 64.6, "faiz": 73.5, "enf": 68.2, "ist": 31.4, "desc": "Sanayi ve lojistik geçiş hattında fiyatlama ve faiz duyarlılığı orta seviyededir."},
+            {"il": "Burdur", "mdie": 72.1, "doviz": 67.8, "faiz": 78.8, "enf": 73.5, "ist": 21.8, "desc": "Hayvancılık ve mermer sektörü ihracatında döviz ve kredi maliyetleri izlenir."},
+            {"il": "Bursa", "mdie": 52.9, "doviz": 45.3, "faiz": 47.1, "enf": 68.2, "ist": 64.5, "desc": "Otomotiv ve tekstil ihracat üssü; döviz kuru şoklarına en kırılgan sanayi metropollerindendir."},
+            {"il": "Çanakkale", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Mevduat ve faiz getirisi ilgisinde Türkiye ortalamasının en üst sıralarında yer alır."},
+            {"il": "Çankırı", "mdie": 72.9, "doviz": 64.6, "faiz": 73.5, "enf": 89.4, "ist": 17.2, "desc": "Sanayi yatırımları geliştikçe istihdam ve kredi aramaları artış göstermektedir."},
+            {"il": "Çorum", "mdie": 72.5, "doviz": 77.5, "faiz": 73.5, "enf": 73.5, "ist": 17.2, "desc": "Makine sanayisi ve altın rafinerisi etkisiyle döviz ve varlık fiyatı ilgisi yüksektir."},
+            {"il": "Denizli", "mdie": 59.6, "doviz": 51.8, "faiz": 73.5, "enf": 57.6, "ist": 38.4, "desc": "Tekstil ihracatı nedeniyle Dolar/Euro kurlarına hassasiyeti Türkiye'nin en yüksek illerindendir."},
+            {"il": "Diyarbakır", "mdie": 79.5, "doviz": 87.1, "faiz": 84.1, "enf": 68.2, "ist": 38.4, "desc": "Bölgesel ticaret ve genç işgücü dinamikleriyle istihdam ve enflasyon aramaları baskındır."},
+            {"il": "Düzce", "mdie": 69.8, "doviz": 67.8, "faiz": 73.5, "enf": 68.2, "ist": 38.4, "desc": "İmalat sanayisinin yoğunluğu kredi faizi ve hayat pahalılığı takibini tetikler."},
+            {"il": "Edirne", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Sınır ticareti ve mevduat duyarlılığı yüksek; faiz ve euro aramaları öne çıkar."},
+            {"il": "Elazığ", "mdie": 68.9, "doviz": 61.4, "faiz": 78.8, "enf": 73.5, "ist": 24.2, "desc": "Bölgesel hizmet merkezi; döviz tasarrufu ve kamu istihdamı birlikte izlenir."},
+            {"il": "Erzincan", "mdie": 73.8, "doviz": 77.5, "faiz": 78.8, "enf": 62.9, "ist": 26.6, "desc": "Kamu ve tarım eksenli gelirlerde enflasyon farkı ve maaş zamları dikkat çeker."},
+            {"il": "Erzurum", "mdie": 73.3, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 17.2, "desc": "Kış turizmi ve hizmet sektörüyle istihdam ve faiz duyarlılığı dengelidir."},
+            {"il": "Eskişehir", "mdie": 59.4, "doviz": 42.1, "faiz": 52.4, "enf": 94.7, "ist": 47.9, "desc": "Üniversite ve sanayi kenti; hayat pahalılığı, kira ve enflasyon aramaları çok yüksektir."},
+            {"il": "Gaziantep", "mdie": 58.2, "doviz": 58.2, "faiz": 62.9, "enf": 57.6, "ist": 38.4, "desc": "Türkiye'nin en büyük ihracat merkezlerinden biri; kur ve kredi faizi hayati öneme sahiptir."},
+            {"il": "Giresun", "mdie": 74.3, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 21.8, "desc": "Fındık fiyatları ve gurbetçi döviz girdisi dönemsel kur ilgisini artırır."},
+            {"il": "Gümüşhane", "mdie": 71.4, "doviz": 64.6, "faiz": 84.1, "enf": 68.2, "ist": 14.8, "desc": "Genç işgücü kamuya yöneliktir; genel finansal oynaklık arama hacmi sınırlıdır."},
+            {"il": "Hakkâri", "mdie": 88.8, "doviz": 100.0, "faiz": 100.0, "enf": 68.2, "ist": 10.0, "desc": "Döviz ve faiz duyarlılığında 100 tam puanla Türkiye'nin en yüksek alarm veren ilidir."},
+            {"il": "Hatay", "mdie": 67.2, "doviz": 71.1, "faiz": 73.5, "enf": 62.9, "ist": 31.4, "desc": "Yeniden inşa süreci ve lojistik dinamikleriyle girdi fiyatları ve kredi takibi yoğundur."},
+            {"il": "Iğdır", "mdie": 73.7, "doviz": 74.3, "faiz": 84.1, "enf": 62.9, "ist": 17.2, "desc": "Üç ülkeye sınır olması ticari döviz refleksini canlı tutsa da hacim düşüktür."},
+            {"il": "Isparta", "mdie": 70.5, "doviz": 64.6, "faiz": 78.8, "enf": 68.2, "ist": 26.6, "desc": "Tarım sanayisi ve öğrenci nüfusu ile hayat pahalılığı ve kredi faizi izlenir."},
+            {"il": "İstanbul", "mdie": 39.2, "doviz": 61.4, "faiz": 10.0, "enf": 41.8, "ist": 100.0, "desc": "Faiz duyarlılığı düşük kalırken işgücü ve istihdam aramaları Türkiye tavan seviyesindedir (100 puan)."},
+            {"il": "İzmir", "mdie": 45.3, "doviz": 38.9, "faiz": 36.5, "enf": 57.6, "ist": 76.3, "desc": "Dış ticaret, turizm ve hizmet sektörü dengesiyle istihdam ve enflasyon duyarlılığı öne çıkar."},
+            {"il": "Kahramanmaraş", "mdie": 68.2, "doviz": 71.1, "faiz": 78.8, "enf": 57.6, "ist": 21.8, "desc": "Tekstil ve çelik sanayisi nedeniyle döviz kuru ve yatırım kredileri yakından izlenir."},
+            {"il": "Karabük", "mdie": 72.5, "doviz": 64.6, "faiz": 78.8, "enf": 78.8, "ist": 24.2, "desc": "Ağır sanayi işçiliği ve emekli yoğunluğu ile zam ve enflasyon duyarlılığı öne çıkar."},
+            {"il": "Karaman", "mdie": 72.5, "doviz": 77.5, "faiz": 78.8, "enf": 68.2, "ist": 17.2, "desc": "Bisküvi/gıda ihracatı döviz kuru takibini canlı tutmaktadır."},
+            {"il": "Kars", "mdie": 76.4, "doviz": 77.5, "faiz": 89.4, "enf": 57.6, "ist": 24.2, "desc": "Tarımsal destekler ve İŞKUR ilanları arama profilinin ana gövdesini oluşturur."},
+            {"il": "Kastamonu", "mdie": 74.9, "doviz": 71.1, "faiz": 84.1, "enf": 73.5, "ist": 14.8, "desc": "Orman ve tarım sanayisiyle kredi maliyetleri ılımlı bir ilgiye sahiptir."},
+            {"il": "Kayseri", "mdie": 42.1, "doviz": 35.7, "faiz": 25.9, "enf": 73.5, "ist": 45.5, "desc": "Geleneksel ticaret ve mobilya sanayisi; enflasyon duyarlılığı yüksek seyretmektedir."},
+            {"il": "Kırıkkale", "mdie": 77.9, "doviz": 74.3, "faiz": 78.8, "enf": 89.4, "ist": 21.8, "desc": "Sanayi ve kamu çalışanları nedeniyle enflasyon ve zam aramalarında Türkiye zirvesindedir."},
+            {"il": "Kırklareli", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Mevduat faizi ve Avrupa sınır hareketliliğiyle finansal getiri arayışı yüksektir."},
+            {"il": "Kırşehir", "mdie": 74.9, "doviz": 77.5, "faiz": 78.8, "enf": 78.8, "ist": 14.8, "desc": "Gurbetçi döviz girdisi ve tarımsal kredi faizleri dönemsel duyarlılık oluşturur."},
+            {"il": "Kilis", "mdie": 67.2, "doviz": 67.8, "faiz": 78.8, "enf": 57.6, "ist": 19.5, "desc": "Sınır hareketliliği ve yerel istihdam gereksinimleri aramalarda ağırlıktadır."},
+            {"il": "Kocaeli", "mdie": 52.8, "doviz": 45.3, "faiz": 31.2, "enf": 100.0, "ist": 64.5, "desc": "Sanayi kenti; hayat pahalılığı ve zam aramalarında 100 tam puanla Türkiye lideridir."},
+            {"il": "Konya", "mdie": 58.2, "doviz": 67.8, "faiz": 52.4, "enf": 62.9, "ist": 29.0, "desc": "Tarım makineleri ihracatı ve geniş tasarruf tabanıyla döviz ve girdi fiyatları izlenir."},
+            {"il": "Kütahya", "mdie": 74.2, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 21.8, "desc": "Seramik/maden sanayisi ve emekli nüfusu ile enflasyon duyarlılığı dengelidir."},
+            {"il": "Malatya", "mdie": 72.9, "doviz": 74.3, "faiz": 84.1, "enf": 62.9, "ist": 17.2, "desc": "Kayısı ihracatı döviz duyarlılığını canlı tutarken, yeniden inşa sürecinde krediler izlenir."},
+            {"il": "Manisa", "mdie": 64.8, "doviz": 55.0, "faiz": 73.5, "enf": 68.2, "ist": 45.5, "desc": "Beyaz eşya ve tarım ihracatı; kur ve sanayi iş ilanları aramalarını destekler."},
+            {"il": "Mardin", "mdie": 74.8, "doviz": 77.5, "faiz": 84.1, "enf": 68.2, "ist": 19.5, "desc": "Ortadoğu ihracatı döviz ilgisi yaratırken, genç nüfusta İŞKUR aramaları hakimdir."},
+            {"il": "Mersin", "mdie": 61.0, "doviz": 61.4, "faiz": 68.2, "enf": 57.6, "ist": 45.5, "desc": "Liman, lojistik ve narenciye ihracatı nedeniyle kur ve faiz şoklarına doğrudan duyarlıdır."},
+            {"il": "Muğla", "mdie": 34.9, "doviz": 29.3, "faiz": 47.1, "enf": 20.6, "ist": 69.2, "desc": "Turizm gelirleri nedeniyle kur ve enflasyon gündem baskısı en sakin iller arasındadır."},
+            {"il": "Muş", "mdie": 75.8, "doviz": 83.9, "faiz": 89.4, "enf": 57.6, "ist": 17.2, "desc": "İstihdam arayışı kamu kanalları üzerinedir; finansal piyasa ilgisi düşüktür."},
+            {"il": "Nevşehir", "mdie": 36.0, "doviz": 16.4, "faiz": 36.5, "enf": 62.9, "ist": 33.7, "desc": "Kapadokya turizmi yabancı para birimlerine ilgiyi doğal olarak artırır."},
+            {"il": "Niğde", "mdie": 77.1, "doviz": 77.5, "faiz": 73.5, "enf": 89.4, "ist": 21.8, "desc": "Tarım kredileri ve girdi fiyatları yerel ekonominin arama odağıdır."},
+            {"il": "Ordu", "mdie": 74.9, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 21.8, "desc": "Fındık gelirlerinin döviz ve faiz araçlarında değerlendirilme refleksi görülür."},
+            {"il": "Osmaniye", "mdie": 69.1, "doviz": 64.6, "faiz": 78.8, "enf": 68.2, "ist": 21.8, "desc": "Demir-çelik sanayisi ve iş arama eğilimleri aramalara yön verir."},
+            {"il": "Rize", "mdie": 75.2, "doviz": 80.6, "faiz": 78.8, "enf": 68.2, "ist": 24.2, "desc": "Çay üretici gelirleri ve kamu yatırımları finansal gündemi belirler."},
+            {"il": "Sakarya", "mdie": 62.0, "doviz": 55.0, "faiz": 68.2, "enf": 68.2, "ist": 40.8, "desc": "Otomotiv sanayisi ve KOBİ yoğunluğuyla kredi ve döviz aramaları canlıdır."},
+            {"il": "Samsun", "mdie": 68.0, "doviz": 61.4, "faiz": 73.5, "enf": 73.5, "ist": 31.4, "desc": "Karadeniz'in ticaret merkezi; faiz, kredi ve bölgesel istihdam dengelidir."},
+            {"il": "Siirt", "mdie": 80.0, "doviz": 93.6, "faiz": 84.1, "enf": 62.9, "ist": 24.2, "desc": "Döviz ve faiz duyarlılığında Türkiye'nin ilk 3 ili arasındadır."},
+            {"il": "Sinop", "mdie": 75.5, "doviz": 74.3, "faiz": 84.1, "enf": 73.5, "ist": 19.5, "desc": "Emekli nüfus oranı yüksek olup maaş zamları ve mevduat faizleri izlenir."},
+            {"il": "Sivas", "mdie": 73.6, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 17.2, "desc": "Gurbetçi döviz girdisi ve kamu çalışanlarının enflasyon farkı ilgisi mevcuttur."},
+            {"il": "Şanlıurfa", "mdie": 73.4, "doviz": 77.5, "faiz": 78.8, "enf": 68.2, "ist": 21.8, "desc": "GAP tarımı ve genç nüfus; girdi maliyeti ile İŞKUR ilanlarını yoğun aratır."},
+            {"il": "Şırnak", "mdie": 80.4, "doviz": 96.8, "faiz": 89.4, "enf": 52.4, "ist": 26.6, "desc": "Döviz arama ilgisinde 96.8 puanla Türkiye ikincisidir."},
+            {"il": "Tekirdağ", "mdie": 58.8, "doviz": 48.6, "faiz": 57.6, "enf": 68.2, "ist": 64.5, "desc": "Trakya sanayisi ve İstanbul yakınlığıyla faiz ve fabrika iş ilanları çok aranır."},
+            {"il": "Tokat", "mdie": 76.4, "doviz": 71.1, "faiz": 73.5, "enf": 94.7, "ist": 26.6, "desc": "Tarım ve hayvancılık kredileri ile maaş zamları öne çıkan konulardır."},
+            {"il": "Trabzon", "mdie": 70.7, "doviz": 74.3, "faiz": 78.8, "enf": 62.9, "ist": 26.6, "desc": "Bölgesel ticaret, turizm ve inşaat nedeniyle kur ve konut kredisi faizi izlenir."},
+            {"il": "Tunceli", "mdie": 72.8, "doviz": 64.6, "faiz": 78.8, "enf": 94.7, "ist": 19.5, "desc": "Tüketim fiyatları ve hayat pahalılığı aramalarında Türkiye ortalamasının üzerindedir."},
+            {"il": "Uşak", "mdie": 73.6, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 17.2, "desc": "Geri dönüşüm ve tekstil sanayisinin kredi faizi ve döviz kuru duyarlılığı mevcuttur."},
+            {"il": "Van", "mdie": 79.0, "doviz": 87.1, "faiz": 84.1, "enf": 68.2, "ist": 24.2, "desc": "İran sınır ticareti ve genç nüfus dinamikleriyle makro duyarlılığı çok yüksektir."},
+            {"il": "Yalova", "mdie": 64.0, "doviz": 58.2, "faiz": 68.2, "enf": 68.2, "ist": 45.5, "desc": "Tersane sanayisi ve yabancı mülk satışlarıyla döviz ve faiz ilgisi yüksektir."},
+            {"il": "Yozgat", "mdie": 74.9, "doviz": 77.5, "faiz": 78.8, "enf": 73.5, "ist": 17.2, "desc": "Avrupa gurbetçilerinin yoğunluğu nedeniyle döviz tasarruf ilgisi güçlüdür."},
+            {"il": "Zonguldak", "mdie": 73.3, "doviz": 64.6, "faiz": 89.4, "enf": 68.2, "ist": 24.2, "desc": "Maden, çelik sanayisi ve emekli yoğunluğu ile faiz ve enflasyon takibi yapılır."}
         ];
 
-        // 81 İlin MDİE Skorunu PCA Formülüyle Hesapla
-        provinceDataset.forEach(item => {
-            const score = (W_DOVIZ * item.doviz) + (W_FAIZ * item.faiz) + (W_ENF * item.enf) + (W_ISTIHDAM * item.ist);
-            item.mdie = parseFloat(score.toFixed(1));
-        });
-
-        // Türkiye Ortalamalarını Hesapla (Radar Grafiği İçin Benchmark)
+        // Türkiye Ortalamaları (Radar Referansı)
         const trAvgDoviz = parseFloat((provinceDataset.reduce((a, b) => a + b.doviz, 0) / 81).toFixed(1));
         const trAvgFaiz = parseFloat((provinceDataset.reduce((a, b) => a + b.faiz, 0) / 81).toFixed(1));
         const trAvgEnf = parseFloat((provinceDataset.reduce((a, b) => a + b.enf, 0) / 81).toFixed(1));
         const trAvgIst = parseFloat((provinceDataset.reduce((a, b) => a + b.ist, 0) / 81).toFixed(1));
-        const trAvgMdie = parseFloat((provinceDataset.reduce((a, b) => a + b.mdie, 0) / 81).toFixed(1));
 
-        // -------------------------------------------------------------
-        // 3. GRAFİK VE SAYFA DEĞİŞKENLERİ
-        // -------------------------------------------------------------
         let mainChart = null;
         let radarChart = null;
         let currentTab = 'zamanSerisi';
 
-        // Sekme Değiştirici
         function switchTab(tabId) {
             currentTab = tabId;
             document.getElementById('tabZamanSerisi').classList.add('hidden');
             document.getElementById('tabBolgesel').classList.add('hidden');
             document.getElementById('tabMetot').classList.add('hidden');
 
-            // Nav stilleri
             const navs = ['navBtnZaman', 'navBtnBolge', 'navBtnMetot'];
             navs.forEach(n => {
                 const el = document.getElementById(n);
@@ -1016,7 +878,6 @@
             }
         }
 
-        // Ana Zaman Serisi Grafiği
         function initChart() {
             const ctx = document.getElementById('mdieMainChart').getContext('2d');
             const gradient = ctx.createLinearGradient(0, 0, 0, 350);
@@ -1147,7 +1008,6 @@
             mainChart.update();
         }
 
-        // Nowcasting Simülasyonu
         function updateNowcasting() {
             const shFaiz = parseFloat(document.getElementById('rngFaiz').value);
             const shDoviz = parseFloat(document.getElementById('rngDoviz').value);
@@ -1217,9 +1077,6 @@
             updateNowcasting();
         }
 
-        // -------------------------------------------------------------
-        // 4. BÖLGESEL (81 İL) MODÜLÜ VE RADAR GRAFİĞİ
-        // -------------------------------------------------------------
         function initProvinceSelector() {
             const selectEl = document.getElementById('provinceSelect');
             selectEl.innerHTML = '';
@@ -1241,7 +1098,7 @@
                     datasets: [
                         {
                             label: 'Seçilen İl',
-                            data: [52, 49, 44, 61],
+                            data: [61.4, 10.0, 41.8, 100.0],
                             backgroundColor: 'rgba(6, 182, 212, 0.25)',
                             borderColor: '#06b6d4',
                             pointBackgroundColor: '#06b6d4',
@@ -1266,7 +1123,7 @@
                     plugins: { legend: { display: false } },
                     scales: {
                         r: {
-                            min: 0, max: 90,
+                            min: 0, max: 100,
                             angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
                             grid: { color: 'rgba(255, 255, 255, 0.08)' },
                             pointLabels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans', size: 10, weight: '600' } },
@@ -1309,7 +1166,6 @@
             }
         }
 
-        // En Hassas ve En Düşük 5 İl Listeleri
         function renderSummaryRankings() {
             const sorted = [...provinceDataset].sort((a, b) => b.mdie - a.mdie);
             const top5 = sorted.slice(0, 5);
@@ -1332,7 +1188,6 @@
             `).join('');
         }
 
-        // 81 İl Tablosunu Çiz
         function renderProvinceTable() {
             const sorted = [...provinceDataset].sort((a, b) => b.mdie - a.mdie);
             const tbody = document.getElementById('provinceTableBody');
@@ -1370,7 +1225,6 @@
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
-        // Yardımcı Fonksiyonlar
         function scrollToEl(id) {
             const el = document.getElementById(id);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -1389,7 +1243,6 @@
             document.getElementById('qrModal').classList.remove('flex');
         }
 
-        // Başlangıç Yüklemesi
         window.addEventListener('DOMContentLoaded', () => {
             initChart();
             updateNowcasting();
