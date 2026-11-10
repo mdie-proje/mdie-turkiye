@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makroekonomik Arama İlgisi Endeksi | MDİE Paneli</title>
+    <title>Makroekonominin Dijital Ayak İzleri: Google Trends Tabanlı Makroekonomik Değişken Arama İlgisi Endeksi</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
@@ -105,7 +105,7 @@
                             <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 hidden md:inline-block">mdie-proje</span>
                         </div>
                         <h1 class="text-base sm:text-lg font-bold text-slate-100 tracking-tight leading-tight">
-                            Makroekonomik Arama İlgisi Endeksi
+                            MDİE · Türkiye
                         </h1>
                     </div>
                 </div>
@@ -166,10 +166,10 @@
                         <span>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması</span>
                     </div>
                     <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                        Makroekonomik Arama İlgisi Endeksi (MDİE) · Türkiye Panel Prototipi
+                        Makroekonominin Dijital Ayak İzleri: Google Trends Tabanlı Makroekonomik Değişken Arama İlgisi Endeksi
                     </h2>
                     <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Proje, Google Trends arama ilgisini seçilmiş TCMB ve TÜİK göstergeleriyle karşılaştırır. Kapsam <strong>Ocak 2018–Ekim 2026 arasında 106 aylık ulusal seri</strong> ve <strong>81 il için raporlanmış kesittir</strong>. Arama ilgisi ekonomik koşulların doğrudan ölçüsü değildir; raporlanan ağırlıklar ve il puanları ham veriyle doğrulanmalıdır.
+                        Proje, Google Trends arama ilgisini seçilmiş TCMB ve TÜİK göstergeleriyle karşılaştırır. Kapsam <strong>Ocak 2018–Ekim 2026 arasında 106 aylık ulusal seri</strong> ve <strong>81 il için raporlanmış kesittir</strong>.
                     </p>
                 </div>
                 <!-- Hızlı Erişim Butonları -->
@@ -480,28 +480,6 @@
                     </div>
                 </div>
             
-                <!-- Veri kaynakları ve statik HTML prototipinin kapsamı -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl border-emerald-500/30 space-y-4 relative overflow-hidden mt-6">
-                    <div class="space-y-4 pb-4 border-b border-slate-800">
-                        <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20">
-                                <i class="fa-brands fa-python"></i>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <h4 class="text-base font-bold text-white tracking-tight">Veri Kaynağından Güncelle</h4>
-                                    <span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[10px] font-mono font-bold">Sunucu bağlantısı bekleniyor</span>
-                                </div>
-                                <p class="text-xs text-slate-400 mt-1">Veri çekme kodu bu HTML dosyasının içindedir. Düğme, yayımlanan aylık veri dosyasını yükler.</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-center">
-                            <button id="refreshSourceData" type="button" class="w-full sm:w-auto sm:min-w-64 min-h-12 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold text-center whitespace-nowrap shadow-lg shadow-emerald-500/15"><i class="fa-solid fa-rotate"></i><span>Veri çek</span></button>
-                        </div>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/90 text-xs text-slate-300 space-y-2" id="sourceDataStatus" role="status" aria-live="polite"><p class="font-semibold text-cyan-300">Veri çekmeye hazır</p><p>Veri kaynağı bağlantısı kurulduğunda bu bölümde güncelleme zamanı ve kaynak bilgisi görünür.</p></div>
-                </div>
             </section>
         </div>
 
@@ -950,7 +928,7 @@
                 <span>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması İçin Geliştirilmiştir.</span>
             </div>
             <div class="font-mono text-slate-500">
-                Makroekonomik Arama İlgisi Endeksi © 2026 • GitHub Pages: mdie-proje
+                MDİE · GitHub Pages: mdie-proje
             </div>
         </div>
     </footer>
@@ -1599,58 +1577,6 @@
             document.getElementById('qrModal').classList.remove('flex');
         }
 
-        // Sunucuda yayımlanan veri dosyasını yükler; API anahtarları bu HTML içinde bulunmaz.
-        function applyPublishedRows(rows) {
-            if (!Array.isArray(rows) || !rows.length) throw new Error('Veri dosyasında aylık gözlem bulunamadı.');
-            const keys = ['faiz', 'doviz', 'enflasyon', 'istihdam'];
-            const records = rows.map((row, index) => {
-                if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(row.month || '')) throw new Error(`${index + 1}. kaydın ay bilgisi YYYY-AA biçiminde değil.`);
-                const values = keys.map(key => Number(row[key]));
-                if (values.some(value => !Number.isFinite(value) || value < 0 || value > 100)) throw new Error(`${index + 1}. kayıtta endeks değerleri 0–100 aralığında olmalı.`);
-                return { month: row.month, values };
-            }).sort((a, b) => a.month.localeCompare(b.month));
-            if (new Set(records.map(record => record.month)).size !== records.length) throw new Error('Veri dosyasında yinelenen aylar var.');
-            fullLabels.splice(0, fullLabels.length, ...records.map(record => record.month));
-            rawFaiz.splice(0, rawFaiz.length, ...records.map(record => record.values[0]));
-            rawDoviz.splice(0, rawDoviz.length, ...records.map(record => record.values[1]));
-            rawEnf.splice(0, rawEnf.length, ...records.map(record => record.values[2]));
-            rawIstihdam.splice(0, rawIstihdam.length, ...records.map(record => record.values[3]));
-            const rebuilt = records.map(record => Number((W_FAIZ*record.values[0] + W_DOVIZ*record.values[1] + W_ENF*record.values[2] + W_ISTIHDAM*record.values[3]).toFixed(1)));
-            fullMdieData.splice(0, fullMdieData.length, ...rebuilt);
-            setTimeframe('all');
-            const last = records[records.length - 1];
-            const maxValue = Math.max(...rebuilt); const maxIndex = rebuilt.indexOf(maxValue);
-            document.getElementById('kpiHistoricalMax').textContent = maxValue.toFixed(1);
-            document.getElementById('kpiHistoricalMaxLabel').textContent = `${fullLabels[maxIndex]} · güncel seri`;
-            document.getElementById('kpiCurrentMdie').textContent = rebuilt[rebuilt.length - 1].toFixed(1);
-            const dateLabel = document.querySelector('#kpiCurrentMdie')?.closest('.glass-card')?.querySelector('.mt-3 span');
-            if (dateLabel) dateLabel.textContent = `${last.month} · güncel veri`;
-            updateSenaryo();
-        }
-
-        async function refreshPublishedData() {
-            const status = document.getElementById('sourceDataStatus');
-            const button = document.getElementById('refreshSourceData');
-            button.disabled = true;
-            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span>Veri çekiliyor</span>';
-            status.innerHTML = '<p class="font-semibold text-cyan-300">Veri kaynağına bağlanılıyor…</p>';
-            try {
-                const response = await fetch(`data/live-data.json?t=${Date.now()}`, { cache: 'no-store' });
-                if (!response.ok) throw new Error('Veri sunucuda henüz yayımlanmamış.');
-                const payload = await response.json();
-                if (payload.schemaVersion !== 1) throw new Error('Veri dosyasının sürümü desteklenmiyor.');
-                applyPublishedRows(payload.data);
-                const sources = Array.isArray(payload.sources) ? payload.sources.join(', ') : 'Kaynak bilgisi belirtilmemiş';
-                const updated = payload.updatedAt ? new Date(payload.updatedAt).toLocaleString('tr-TR') : 'Tarih belirtilmemiş';
-                status.innerHTML = `<p class="font-semibold text-emerald-300">Veri güncellendi · ${updated}</p><p>Kaynaklar: ${sources} · ${payload.data.length} aylık gözlem</p>`;
-            } catch (err) {
-                const message = err instanceof TypeError ? 'Veri sunucusuna ulaşılamadı. Sunucu bağlantısı henüz kurulmamış olabilir.' : err.message;
-                status.innerHTML = `<p class="font-semibold text-amber-300">Veri çekilemedi</p><p>${String(message).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</p>`;
-            } finally {
-                button.disabled = false;
-                button.innerHTML = '<i class="fa-solid fa-rotate"></i><span>Veri çek</span>';
-            }
-        }
 
         // Başlangıç Yüklemesi
         window.addEventListener('DOMContentLoaded', () => {
@@ -1663,7 +1589,6 @@
             renderSummaryRankings();
             renderProvinceTable();
 
-            document.getElementById('refreshSourceData')?.addEventListener('click', refreshPublishedData);
         });
     </script>
 </body>
