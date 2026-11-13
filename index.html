@@ -101,7 +101,7 @@
                             <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 tracking-wider uppercase">
                                 TÜBİTAK 2204-A
                             </span>
-                            <span class="text-xs font-mono text-slate-400 hidden sm:inline-block">Ekonomi • Finansal Okuryazarlık</span>
+                            <span class="text-xs font-mono text-slate-400 hidden sm:inline-block">Sosyoloji • Finansal Okuryazarlık</span>
                             <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 hidden md:inline-block">mdie-proje</span>
                         </div>
                         <h1 class="text-base sm:text-lg font-bold text-slate-100 tracking-tight leading-tight">
@@ -169,14 +169,14 @@
                         Makroekonominin Dijital Ayak İzleri: Google Trends Tabanlı Makroekonomik Değişken Arama İlgisi Endeksi
                     </h2>
                     <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Proje, Google Trends arama ilgisini seçilmiş TCMB ve TÜİK göstergeleriyle karşılaştırır. Kapsam <strong>Ocak 2018–Ekim 2026 arasında 106 aylık ulusal seri</strong> ve <strong>81 il için raporlanmış kesittir</strong>.
+                        Proje, Google Trends arama ilgisi ile seçilmiş TCMB ve TÜİK göstergeleri arasındaki ilişkileri inceler. Döviz, faiz, enflasyon ve istihdam/iş arama serileri <strong>Ocak 2018–Ekim 2026 dönemindeki 106 aylık ulusal veride</strong> değerlendirilmiş; <strong>81 il için ayrı PCA ile göreli arama profilleri</strong> oluşturulmuştur.
                     </p>
                 </div>
                 <!-- Hızlı Erişim Butonları -->
                 <div class="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
                     <button onclick="switchTab('bolgesel')" class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wide transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-location-dot"></i>
-                        81 İl Endeks Haritası
+                        81 İl Arama Profili Haritası
                     </button>
                     <button onclick="switchTab('zamanSerisi'); scrollToEl('senaryo');" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 font-medium text-xs transition-all flex items-center justify-center gap-2">
                         <i class="fa-solid fa-sliders"></i>
@@ -189,20 +189,20 @@
         <!-- KPI Metrikleri (4 Ana Gösterge Kartı) -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <!-- Güncel MDİE Skoru -->
+            <!-- Güncel İl PC1 Skoru -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-cyan-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Çalışma MDİE Puanı</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Son gözlem MDİE</span>
                     <i class="fa-solid fa-gauge-high text-cyan-400 text-sm"></i>
                 </div>
                 <div class="flex items-baseline space-x-2">
-                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiCurrentMdie">24.4</span>
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiCurrentMdie">40.5</span>
                     <span class="text-xs text-slate-400 font-mono">/ 100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
-                    <span class="text-slate-400 font-medium">Ekim 2026 · gömülü seri</span>
+                    <span class="text-slate-400 font-medium">Ekim 2026 · örneklem sonu</span>
                     <span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold">
-                        <i class="fa-solid fa-circle-check mr-1"></i> Göreli puan: alt bant
+                        Örneklem içi 0–100 ölçeği
                     </span>
                 </div>
             </div>
@@ -210,17 +210,17 @@
             <!-- Tarihsel Zirve (Aralık 2021) -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-rose-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Gömülü seride en yüksek puan</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Örneklemdeki en yüksek MDİE</span>
                     <i class="fa-solid fa-fire text-rose-400 text-sm"></i>
                 </div>
                 <div class="flex items-baseline space-x-2">
-                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiHistoricalMax">73.3</span>
+                    <span class="text-3xl font-extrabold font-mono text-white tracking-tight" id="kpiHistoricalMax">100.0</span>
                     <span class="text-xs text-slate-400 font-mono">/ 100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
-                    <span class="text-slate-300 font-medium" id="kpiHistoricalMaxLabel">Aralık 2021 · gömülü seri</span>
+                    <span class="text-slate-300 font-medium" id="kpiHistoricalMaxLabel">Aralık 2021 · örneklem maksimumu</span>
                     <span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20 text-[10px] font-bold">
-                        Tarihi Tepe
+                        Örneklem maksimumu
                     </span>
                 </div>
             </div>
@@ -228,18 +228,19 @@
             <!-- Model Ağırlıkları (PCA Özeti) -->
             <div class="glass-card p-5 rounded-2xl glass-card-hover border-indigo-500/30 relative">
                 <div class="flex items-center justify-between text-slate-400 mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Raporda bildirilen ağırlıklar</span>
-                    <i class="fa-solid fa-pie-chart text-indigo-400 text-sm"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Ulusal PC1 katsayıları</span>
+                    <i class="fa-solid fa-chart-pie text-indigo-400 text-sm"></i>
                 </div>
                 <div class="flex items-baseline space-x-1.5 font-mono text-xs">
-                    <span class="text-white font-bold">Faiz: %36.1</span>
+                    <span class="text-white font-bold">Faiz: +0,590</span>
                     <span class="text-slate-500">•</span>
-                    <span class="text-cyan-300 font-bold">Döviz: %35.1</span>
+                    <span class="text-cyan-300 font-bold">Döviz: +0,289</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs pt-3 border-t border-slate-800">
-                    <span class="text-amber-300 font-mono">Enflasyon: %25.3</span>
-                    <span class="text-purple-300 font-mono">İstihdam: %3.5</span>
+                    <span class="text-amber-300 font-mono">Enflasyon: +0,498</span>
+                    <span class="text-purple-300 font-mono">İstihdam: −0,566</span>
                 </div>
+                <div class="mt-2 text-[10px] text-slate-400">PC1 açıklanan varyans: %49,84</div>
             </div>
 
             <!-- İl Kapsamı (81 İl) -->
@@ -269,13 +270,13 @@
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                     <div>
                         <div class="flex items-center gap-2">
-                            <h3 class="text-lg font-bold text-white tracking-tight">MDİE ve Alt Bileşenlerin Tarihsel Seyri</h3>
+                            <h3 class="text-lg font-bold text-white tracking-tight">MDİE ve Arama İlgisi Serilerinin Zaman İçindeki Seyri</h3>
                             <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-semibold">
                                 106 Aylık Kesintisiz Seri
                             </span>
                         </div>
                         <p class="text-xs text-slate-400 mt-1">
-                            Türkiye ekonomisindeki kur atağı (2018), pandemi (2020), faiz indirim döngüsü & kur şoku (2021) ve parasal sıkılaşma (2023) dönemlerindeki arama ilgisi tepkileri.
+                            Dört arama ilgisi serisi ile MDİE’nin 106 aylık örneklem içindeki değişimi. MDİE, PC1 skorlarının örneklem min–max değerleri kullanılarak 0–100 aralığına ölçeklenmiştir.
                         </p>
                     </div>
 
@@ -294,31 +295,31 @@
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-cyan-300 font-semibold select-none">
                         <input type="checkbox" id="chkMdie" checked onchange="toggleLine(0)" class="rounded text-cyan-500 focus:ring-0">
                         <span class="w-3 h-1 rounded-full bg-cyan-400 inline-block"></span>
-                        MDİE (Bileşik Endeks)
+                        MDİE (ulusal PC1, 0–100)
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-emerald-300 font-medium select-none">
                         <input type="checkbox" id="chkDoviz" onchange="toggleLine(1)" class="rounded text-emerald-500 focus:ring-0">
                         <span class="w-3 h-1 rounded-full bg-emerald-400 inline-block"></span>
-                        Döviz Alt Endeksi (%35.1)
+                        Döviz arama ilgisi
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-indigo-300 font-medium select-none">
                         <input type="checkbox" id="chkFaiz" onchange="toggleLine(2)" class="rounded text-indigo-500 focus:ring-0">
                         <span class="w-3 h-1 rounded-full bg-indigo-400 inline-block"></span>
-                        Faiz & Kredi Alt Endeksi (%36.1)
+                        Faiz/kredi arama ilgisi
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-amber-300 font-medium select-none">
                         <input type="checkbox" id="chkEnf" onchange="toggleLine(3)" class="rounded text-amber-500 focus:ring-0">
                         <span class="w-3 h-1 rounded-full bg-amber-400 inline-block"></span>
-                        Enflasyon Alt Endeksi (%25.3)
+                        Enflasyon arama ilgisi
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 text-purple-300 font-medium select-none">
                         <input type="checkbox" id="chkIstihdam" onchange="toggleLine(4)" class="rounded text-purple-500 focus:ring-0">
                         <span class="w-3 h-1 rounded-full bg-purple-400 inline-block"></span>
-                        İşgücü / İstihdam (%3.5)
+                        İstihdam/iş arama ilgisi
                     </label>
                 </div>
 
@@ -327,32 +328,11 @@
                     <canvas id="mdieMainChart"></canvas>
                 </div>
 
-                <!-- Tarihsel Kırılma Notları -->
+                <!-- Örneklem Özeti -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 border-t border-slate-800 text-xs">
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="font-bold text-amber-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-bolt text-xs"></i> Ağustos 2018 (MDİE: 46.7)
-                        </div>
-                        <p class="text-slate-400 leading-relaxed">
-                            Rahip Brunson krizi ve döviz kuru şoku. Dolar arama ilgisi ani sıçrama yaparak endeksin ilk büyük tepe noktasını oluşturdu.
-                        </p>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="font-bold text-rose-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-triangle-exclamation text-xs"></i> Aralık 2021 (MDİE: 73.3 - Rekor)
-                        </div>
-                        <p class="text-slate-400 leading-relaxed">
-                            Kur atağı, faiz indirimleri ve KKM ilanı. Dolar ve faiz aramaları tarihin en yüksek eşgüdümlü rekoruna ulaştı.
-                        </p>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-arrows-rotate text-xs"></i> Temmuz 2023 (MDİE: 50.7)
-                        </div>
-                        <p class="text-slate-400 leading-relaxed">
-                            Seçimler sonrası kur düzeltmesi, parasal sıkılaşma ve KDV/ÖTV zamları ile enflasyon aramalarının eşanlı tırmanışı.
-                        </p>
-                    </div>
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800"><div class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-calendar text-xs"></i> Örneklem: Ocak 2018–Ekim 2026</div><p class="text-slate-400 leading-relaxed">Ulusal MDİE, 106 aylık Google Trends arama ilgisi serisinden hesaplanmıştır.</p></div>
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800"><div class="font-bold text-amber-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-arrow-trend-down text-xs"></i> En düşük MDİE: Mart 2020</div><p class="text-slate-400 leading-relaxed">Örneklem içindeki en düşük puan, min–max dönüşümünde 0 olarak ölçeklenmiştir.</p></div>
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800"><div class="font-bold text-rose-400 flex items-center gap-1.5 mb-1"><i class="fa-solid fa-arrow-trend-up text-xs"></i> En yüksek MDİE: Aralık 2021</div><p class="text-slate-400 leading-relaxed">Örneklem içindeki en yüksek puan 100 olarak ölçeklenmiştir. Ulusal PC1 toplam varyansın %49,84’ünü açıklar.</p></div>
                 </div>
             </section>
 
@@ -365,8 +345,8 @@
                                 <i class="fa-solid fa-sliders"></i>
                             </span>
                             <div>
-                                <h3 class="text-lg font-bold text-white tracking-tight">MDİE Ağırlık Senaryo Simülatörü</h3>
-                                <p class="text-xs text-slate-400">Kaydırıcılar, alt arama ilgisi puanlarında varsayımsal değişimlerin bileşik puana etkisini gösterir; tahmin üretmez.</p>
+                                <h3 class="text-lg font-bold text-white tracking-tight">MDİE Varsayımsal Senaryo Aracı</h3>
+                                <p class="text-xs text-slate-400">Kaydırıcılar, son gözlemdeki arama ilgisi değerlerini varsayımsal olarak değiştirip aynı PCA ve ölçekleme formülüyle MDİE puanını yeniden hesaplar; bu değer bir tahmin değildir.</p>
                             </div>
                         </div>
                     </div>
@@ -382,7 +362,7 @@
                         <!-- Slider 1: Faiz -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="font-medium text-slate-200">Faiz ve kredi arama ilgisi (mevcut ağırlık: %36,1)</span>
+                                <span class="font-medium text-slate-200">Faiz ve kredi arama ilgisinde varsayımsal değişim</span>
                                 <span class="font-mono font-bold text-indigo-400 text-sm" id="lblFaiz">+0%</span>
                             </div>
                             <input type="range" id="rngFaiz" min="-50" max="50" value="0" step="1" 
@@ -398,7 +378,7 @@
                         <!-- Slider 2: Döviz -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="font-medium text-slate-200">Döviz arama ilgisi (mevcut ağırlık: %35,1)</span>
+                                <span class="font-medium text-slate-200">Döviz arama ilgisinde varsayımsal değişim</span>
                                 <span class="font-mono font-bold text-emerald-400 text-sm" id="lblDoviz">+0%</span>
                             </div>
                             <input type="range" id="rngDoviz" min="-50" max="50" value="0" step="1" 
@@ -414,7 +394,7 @@
                         <!-- Slider 3: Enflasyon -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="font-medium text-slate-200">Enflasyon arama ilgisi (mevcut ağırlık: %25,3)</span>
+                                <span class="font-medium text-slate-200">Enflasyon arama ilgisinde varsayımsal değişim</span>
                                 <span class="font-mono font-bold text-amber-400 text-sm" id="lblEnf">+0%</span>
                             </div>
                             <input type="range" id="rngEnf" min="-50" max="50" value="0" step="1" 
@@ -430,7 +410,7 @@
                         <!-- Slider 4: İstihdam -->
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="font-medium text-slate-200">İstihdam arama ilgisi (mevcut ağırlık: %3,5)</span>
+                                <span class="font-medium text-slate-200">İstihdam/iş arama ilgisinde varsayımsal değişim</span>
                                 <span class="font-mono font-bold text-purple-400 text-sm" id="lblIstihdam">+0%</span>
                             </div>
                             <input type="range" id="rngIstihdam" min="-50" max="50" value="0" step="1" 
@@ -444,39 +424,10 @@
                         </div>
                     </div>
 
-                    <!-- Sağ Kolon: Simüle Edilen Sonuç ve Sinyal Paneli (5 Kolon) -->
+                    <!-- Sağ Kolon: Varsayımsal Sonuç -->
                     <div class="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-4">
-                        <div>
-                            <span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">Senaryo Sonucu MDİE (Gösterim)</span>
-                            <div class="flex items-baseline space-x-3 mt-1">
-                                <span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">24.4</span>
-                                <span class="text-xs font-mono text-slate-400">/ 100</span>
-                                <span class="text-xs font-bold px-2 py-0.5 rounded-full" id="simRiskBadge">
-                                    Alt puan bandı
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Senaryo göstergeleri -->
-                        <div class="space-y-3 pt-3 border-t border-slate-800 text-xs">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-400">Senaryo döviz bileşeni:</span>
-                                <span class="font-bold text-white font-mono" id="simDovizSignal">Göreli puan: alt bant</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-400">Senaryo enflasyon bileşeni:</span>
-                                <span class="font-bold text-white font-mono" id="simEnfSignal">Alt puan bandı</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-400">Örnek puan bandı:</span>
-                                <span class="font-bold font-mono text-emerald-400" id="simAlarmLevel">Göreli aralık</span>
-                            </div>
-                        </div>
-
-                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
-                            <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>
-                            <strong>Yorum:</strong> Bu araç yalnızca mevcut ağırlıklarla yapılan varsayımsal puan hesabını gösterir; ekonomik koşulu, risk düzeyini veya geleceği ölçmez. Ağırlıklar ham veri ve analiz çıktısıyla doğrulanmalıdır.
-                        </div>
+                        <div><span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">Varsayımsal MDİE puanı</span><div class="flex items-baseline space-x-3 mt-1"><span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">40.5</span><span class="text-xs font-mono text-slate-400">/ 100</span></div><p class="text-xs text-slate-400 mt-2" id="simDelta">Son gözlemle fark: 0,0 puan</p></div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 leading-relaxed"><i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i><strong>Senaryo açıklaması:</strong> Gösterim, dört serinin PCA katsayıları ve örneklem min–max aralığı kullanılarak hesaplanır. Varsayımsal karşılaştırma amaçlıdır; gelecek dönem değeri olarak yorumlanmaz.</div>
                     </div>
                 </div>
             
@@ -493,11 +444,11 @@
             <section class="glass-card p-5 sm:p-6 rounded-2xl space-y-4 border-cyan-500/20" aria-labelledby="mapTitle">
                 <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
                     <div>
-                        <h4 id="mapTitle" class="text-base sm:text-lg font-bold text-white">Türkiye Endeks Haritası</h4>
+                        <h4 id="mapTitle" class="text-base sm:text-lg font-bold text-white">81 İl Göreli Arama Profilleri Haritası</h4>
                         <p class="text-xs text-slate-400 mt-1">Bir gösterge seçin; renkler çalışma kesitindeki göreli Google Trends puanlarını gösterir.</p>
                     </div>
-                    <div class="flex flex-wrap gap-2" id="mapMetricControls" role="group" aria-label="Haritada gösterilecek endeks">
-                        <button type="button" data-metric="mdie" class="map-metric-btn active">MDİE</button>
+                    <div class="flex flex-wrap gap-2" id="mapMetricControls" role="group" aria-label="Haritada gösterilecek göreli arama profili">
+                        <button type="button" data-metric="mdie" class="map-metric-btn active">İl PC1</button>
                         <button type="button" data-metric="doviz" class="map-metric-btn">Döviz</button>
                         <button type="button" data-metric="faiz" class="map-metric-btn">Faiz</button>
                         <button type="button" data-metric="enf" class="map-metric-btn">Enflasyon</button>
@@ -596,8 +547,8 @@
                         <div class="mt-1 flex items-center justify-between text-[10px] text-slate-500 gap-2"><span id="mapScaleMin">En düşük</span><span id="mapScaleAverage" class="text-center">Türkiye ortalaması</span><span id="mapScaleMax" class="text-right">En yüksek</span></div>
                     </div>
                     <aside class="lg:col-span-3 rounded-xl bg-slate-950/70 border border-slate-800 p-4 min-h-[150px] flex flex-col justify-center" aria-live="polite">
-                        <div class="text-[10px] uppercase tracking-wider text-slate-500" id="mapMetricLabel">Seçili ilin MDİE skoru</div>
-                        <div class="text-4xl font-black font-mono text-cyan-300 mt-1" id="mapSelectedScore">39.2</div>
+                        <div class="text-[10px] uppercase tracking-wider text-slate-500" id="mapMetricLabel">Seçili ilin PC1 skoru</div>
+                        <div class="text-4xl font-black font-mono text-cyan-300 mt-1" id="mapSelectedScore">0.0</div>
                         <div class="text-lg font-bold text-white mt-1" id="mapSelectedProvince">İstanbul</div>
                         <div class="text-xs text-slate-400 mt-2" id="mapSelectedRank">81 il arasında sıralaması hesaplanıyor</div>
                         <div class="text-xs text-slate-400 mt-1" id="mapSelectedVsAverage">Türkiye ortalamasına göre fark hesaplanıyor</div>
@@ -616,8 +567,8 @@
                                 <i class="fa-solid fa-city"></i>
                             </span>
                             <div>
-                                <h3 class="text-lg font-bold text-white tracking-tight">81 İl Düzeyinde Makroekonomik Hassasiyet ve Radar Analizi</h3>
-                                <p class="text-xs text-slate-400">İllerin toplam arama ilgisi içindeki Döviz, Faiz, Enflasyon ve İstihdam ağırlıklarının Türkiye ortalamasıyla kıyaslaması</p>
+                                <h3 class="text-lg font-bold text-white tracking-tight">81 İl İçin Göreli Arama İlgisi Profilleri</h3>
+                                <p class="text-xs text-slate-400">Dört arama ilgisi göstergesinin il profili, 81 il ortalamasıyla birlikte gösterilir; PC1 skorları ayrı PCA ile hesaplanmıştır.</p>
                             </div>
                         </div>
                     </div>
@@ -634,7 +585,7 @@
                 <!-- Seçilen İl Detay Kartı & Radar Grafiği -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
-                    <!-- Sol Taraf: İl Karnesi & İktisadi Karakteristik (6 Kolon) -->
+                    <!-- Sol Taraf: İl Arama Profili (6 Kolon) -->
                     <div class="lg:col-span-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <div>
@@ -642,8 +593,8 @@
                                 <h4 class="text-3xl font-extrabold text-white mt-0.5" id="cardProvinceName">İstanbul</h4>
                             </div>
                             <div class="text-right">
-                                <span class="text-xs font-mono uppercase text-slate-400 tracking-wider">İl MDİE Skoru</span>
-                                <div class="text-3xl font-black font-mono text-cyan-400" id="cardProvinceMdie">39.2</div>
+                                <span class="text-xs font-mono uppercase text-slate-400 tracking-wider">İl PC1 Skoru (0–100)</span>
+                                <div class="text-3xl font-black font-mono text-cyan-400" id="cardProvinceMdie">0.0</div>
                             </div>
                         </div>
 
@@ -651,7 +602,7 @@
                         <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Döviz Duyarlılığı (%35.1 Ağırlık)</span>
+                                    <span class="text-slate-300">Döviz arama ilgisi</span>
                                     <span class="font-mono font-bold text-emerald-400" id="barValDoviz">61.4 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -661,7 +612,7 @@
 
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Faiz & Borçlanma Duyarlılığı (%36.1 Ağırlık)</span>
+                                    <span class="text-slate-300">Faiz/kredi arama ilgisi</span>
                                     <span class="font-mono font-bold text-indigo-400" id="barValFaiz">10 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -671,7 +622,7 @@
 
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Enflasyon & Hayat Pahalılığı Algısı (%25.3 Ağırlık)</span>
+                                    <span class="text-slate-300">Enflasyon arama ilgisi</span>
                                     <span class="font-mono font-bold text-amber-400" id="barValEnf">41.8 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -681,7 +632,7 @@
 
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">İşgücü / İstihdam Arayışı (%3.5 Ağırlık)</span>
+                                    <span class="text-slate-300">İstihdam/iş arama ilgisi</span>
                                     <span class="font-mono font-bold text-purple-400" id="barValIstihdam">100 Puan</span>
                                 </div>
                                 <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -690,14 +641,12 @@
                             </div>
                         </div>
 
-                        <!-- İl İktisadi Yorum Kartı -->
+                        <!-- İl Arama Profili Notu -->
                         <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 leading-relaxed">
                             <span class="font-bold text-cyan-400 flex items-center gap-1.5 mb-1">
-                                <i class="fa-solid fa-microscope text-xs"></i> İl İktisadi Karakteristiği:
+                                <i class="fa-solid fa-microscope text-xs"></i> İl arama profili:
                             </span>
-                            <span id="cardProvinceDesc">
-                                İstanbul; finans, bankacılık ve ithalat-ihracatın merkez üssü olması nedeniyle hem döviz kurları hem de konut/kredi faizlerine yönelik arama yoğunluğunda Türkiye ortalamasının belirgin şekilde üzerindedir. İstihdam tarafında ise İŞKUR yerine doğrudan özel sektör iş ilanları aranmaktadır.
-                            </span>
+                            <span id="cardProvinceDesc">Seçili ilin PC1 skoru ve dört arama ilgisi göstergesi, bu 81 il kesitindeki göreli profilini sunar. Radar grafiği il değerlerini 81 il ortalamasıyla karşılaştırır.</span>
                         </div>
                     </div>
 
@@ -716,22 +665,22 @@
 
             <!-- En Yüksek ve En Düşük İller (Özet Panolar) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Göreli arama ilgisi puanı en yüksek 5 il -->
+                <!-- PC1 skoru en yüksek 5 il -->
                 <div class="glass-card p-5 rounded-2xl border-rose-500/30">
                     <div class="flex items-center justify-between text-rose-400 font-bold text-xs uppercase tracking-wider mb-3">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-arrow-trend-up"></i> Göreli arama ilgisi puanı en yüksek 5 il</span>
-                        <span class="text-[10px] font-mono text-slate-400">MDİE Skoru</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-arrow-trend-up"></i> PC1 skoru en yüksek 5 il</span>
+                        <span class="text-[10px] font-mono text-slate-400">İl PC1</span>
                     </div>
                     <div class="space-y-2 text-xs font-mono" id="topProvincesList">
                         <!-- JS ile dolacak -->
                     </div>
                 </div>
 
-                <!-- En Sakin / Düşük Hassasiyetli 5 İl -->
+                <!-- PC1 skoru en düşük 5 il -->
                 <div class="glass-card p-5 rounded-2xl border-emerald-500/30">
                     <div class="flex items-center justify-between text-emerald-400 font-bold text-xs uppercase tracking-wider mb-3">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> Göreli arama ilgisi puanı düşük 5 il</span>
-                        <span class="text-[10px] font-mono text-slate-400">MDİE Skoru</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> PC1 skoru en düşük 5 il</span>
+                        <span class="text-[10px] font-mono text-slate-400">İl PC1</span>
                     </div>
                     <div class="space-y-2 text-xs font-mono" id="bottomProvincesList">
                         <!-- JS ile dolacak -->
@@ -743,8 +692,8 @@
             <section class="glass-card p-6 rounded-2xl space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
                     <div>
-                        <h4 class="text-base font-bold text-white tracking-tight">81 İl Makroekonomik Hassasiyet Sıralaması</h4>
-                        <p class="text-xs text-slate-400">Tüm illerin Google Trends normalleştirilmiş veri setine göre hesaplanan PCA skorları</p>
+                        <h4 class="text-base font-bold text-white tracking-tight">81 İl İçin PC1 Skorları</h4>
+                        <p class="text-xs text-slate-400">81 il için ayrı PCA ile elde edilen ve 0–100 aralığına ölçeklenen PC1 skorları</p>
                     </div>
                     <!-- Arama Çubuğu -->
                     <div class="relative w-full sm:w-64">
@@ -761,11 +710,11 @@
                             <tr>
                                 <th class="p-3">Sıra</th>
                                 <th class="p-3">İl Adı</th>
-                                <th class="p-3">MDİE Skoru</th>
-                                <th class="p-3">Döviz Duyarlılığı</th>
-                                <th class="p-3">Faiz Duyarlılığı</th>
-                                <th class="p-3">Enflasyon Algısı</th>
-                                <th class="p-3">İstihdam İlgisi</th>
+                                <th class="p-3">PC1 Skoru</th>
+                                <th class="p-3">Döviz Arama İlgisi</th>
+                                <th class="p-3">Faiz Arama İlgisi</th>
+                                <th class="p-3">Enflasyon Arama İlgisi</th>
+                                <th class="p-3">İstihdam/İş Arama</th>
                                 <th class="p-3">İncele</th>
                             </tr>
                         </thead>
@@ -790,58 +739,20 @@
                             <h3 class="text-lg font-bold text-white tracking-tight">Araştırma Yöntemi, Endeksin Hesabı ve Bulgular</h3>
                         </div>
                         <p class="text-xs text-slate-400 mt-1">
-                            Google Trends arama ilgisi alt endeksleri, 106 aylık ulusal seri üzerinde PCA ile ağırlıklandırılmış; sonuçlar TCMB ve TÜİK göstergeleriyle karşılaştırılmıştır.
+                            Dört ulusal Google Trends arama ilgisi serisi PCA ile birleştirilmiş; ulusal MDİE ve 81 il için ayrı PCA profilleri hesaplanmıştır. Bulgular seçilmiş TCMB ve TÜİK göstergeleriyle karşılaştırılmıştır.
                         </p>
                     </div>
                     <div class="flex items-center gap-2 text-xs font-mono">
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">Özdeğer (λ): 1.444</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Varyans: %36.1</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">Ulusal PC1 özdeğeri: 1,994</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Açıklanan varyans: %49,84</span>
                     </div>
                 </div>
 
-                <!-- 3 Temel Yöntem Kartı -->
+                <!-- Üç yöntem kartı: ulusal endeks, ölçekleme ve il PCA -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
-                    <!-- 1. Normalizasyon -->
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                        <div class="flex items-center justify-between text-cyan-400 font-bold">
-                            <span>1. Min-Max Normalizasyonu</span>
-                            <i class="fa-solid fa-scale-balanced"></i>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Her arama terimi, hacim büyüklüğünden bağımsız olarak 0 ile 1 aralığına normalize edilmiş; böylece "ucuz" kelimesinin "tüfe" kelimesini yapay biçimde ezmesi engellenmiştir.
-                        </p>
-                        <div class="font-mono text-[11px] text-cyan-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
-                            Z = (SVI - min) / (max - min)
-                        </div>
-                    </div>
-
-                    <!-- 2. PCA Ağırlıklandırma -->
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                        <div class="flex items-center justify-between text-indigo-400 font-bold">
-                            <span>2. PCA Varyans Ağırlıkları</span>
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Proje raporunda verilen normalize edilmiş varyans payları kullanılmıştır: faiz %36,1; döviz %35,1; enflasyon %25,3; istihdam/iş arama %3,5. Ağırlıklar toplamı %100’dür.
-                        </p>
-                        <div class="font-mono text-[11px] text-indigo-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
-                            MDİE = Σ (w_j * AltEndeks_j)
-                        </div>
-                    </div>
-
-                    <!-- 3. Ekonometrik Doğrulama -->
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                        <div class="flex items-center justify-between text-emerald-400 font-bold">
-                            <span>3. Model Bulguları</span>
-                            <i class="fa-solid fa-code-compare"></i>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Raporlanan modellerde TÜFE için R²=0,9176 ve işsizlik oranı için R²=0,9298’dir. Bunlar örneklem içi açıklayıcılık değerleridir; tek başına tahmin doğruluğu kanıtı değildir.
-                        </p>
-                        <div class="font-mono text-[11px] text-emerald-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">
-                            Sonuçları resmi göstergelerle karşılaştırın
-                        </div>
-                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2"><div class="flex items-center justify-between text-cyan-400 font-bold"><span>1. Z-Skor Standartlaştırma</span><i class="fa-solid fa-scale-balanced"></i></div><p class="text-slate-300 leading-relaxed">Dört ulusal arama ilgisi serisi PCA öncesinde standartlaştırılmıştır. Böylece farklı ortalama ve standart sapmalara sahip seriler aynı ölçekte değerlendirilmiştir.</p><div class="font-mono text-[11px] text-cyan-300 bg-slate-950 p-2 rounded border border-slate-800 text-center">zⱼ = (xⱼ − ortalamaⱼ) / ssⱼ</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2"><div class="flex items-center justify-between text-indigo-400 font-bold"><span>2. Ulusal PCA ve MDİE</span><i class="fa-solid fa-network-wired"></i></div><p class="text-slate-300 leading-relaxed">Ulusal PC1’in özdeğeri 1,994; açıkladığı varyans %49,84’tür. PC1 skor katsayıları standartlaştırılmış serilere uygulanmış, sonuç 0–100 aralığına ölçeklenmiştir.</p><div class="font-mono text-[10px] text-indigo-300 bg-slate-950 p-2 rounded border border-slate-800 text-center leading-relaxed">PC1 = 0,589719·z_faiz + 0,288938·z_döviz + 0,498314·z_enflasyon − 0,566065·z_istihdam<br>MDİE = 100 × (PC1 − min) / (max − min)</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2"><div class="flex items-center justify-between text-emerald-400 font-bold"><span>3. İl Düzeyinde Ayrı PCA</span><i class="fa-solid fa-map-location-dot"></i></div><p class="text-slate-300 leading-relaxed">81 il için ayrıca yürütülen PCA’da PC1, varyansın %61,07’sini açıklamıştır. İl PC1 skorları ulusal MDİE’den ayrı hesaplanır ve kendi kesitinde 0–100 ölçeğine dönüştürülür.</p><div class="font-mono text-[10px] text-emerald-300 bg-slate-950 p-2 rounded border border-slate-800 text-center leading-relaxed">PC1ᵢ = 0,533737·z_döviz + 0,569944·z_faiz + 0,205112·z_enflasyon − 0,590100·z_istihdam</div></div>
                 </div>
 
                 <!-- Proje raporundaki doğrulama ve sınırlılık bulguları -->
@@ -858,26 +769,26 @@
                                 <div class="flex justify-between gap-3"><span>İşsizlik oranı</span><strong class="text-cyan-300">R² = 0,9298</strong></div>
                                 <div class="flex justify-between gap-3"><span>USD/TRY aylık getirisi</span><strong class="text-cyan-300">R² = 0,3616</strong></div>
                                 <div class="flex justify-between gap-3"><span>EUR/TRY sağlamlık modeli</span><strong class="text-cyan-300">R² = 0,3140</strong></div>
-                                <div class="flex justify-between gap-3"><span>Kredi faizi aylık değişimi</span><strong class="text-amber-300">R² = 0,1135; F testi p = 0,112</strong></div>
+                                <div class="flex justify-between gap-3"><span>Kredi faizi aylık değişimi</span><strong class="text-amber-300">R² = 0,1135; F testi p = 0,113</strong></div>
                             </div>
                         </div>
                         <div class="rounded-lg border border-slate-800 overflow-hidden">
                             <div class="px-3 py-2 bg-slate-950 text-slate-300 font-bold">Korelasyon ve yorum sınırı</div>
                             <div class="p-3 space-y-2 text-slate-300 leading-relaxed">
-                                <p>Enflasyon araması ile aylık TÜFE arasında r = 0,9581; istihdam araması ile işsizlik oranı arasında r = 0,9263; faiz araması ile ihtiyaç kredisi faizi arasında r = 0,9398 bildirilmiştir.</p>
+                                <p>Enflasyon araması ile aylık TÜFE arasında r = 0,9581; istihdam araması ile işsizlik oranı arasında r = 0,9263; faiz araması ile ihtiyaç kredisi faizi arasında r = 0,9398 bildirilmiştir. MDİE bileşen serilerinden türetildiği için bu bileşenlerle korelasyonları endeks yapısı çerçevesinde değerlendirilir.</p>
                                 <p>Döviz araması ile USD/TRY getirisi arasındaki korelasyon r = 0,5484’tür. Çapraz korelasyon tablosunda başlıca ilişkilerin zirvesi eşanlı dönemdedir.</p>
-                                <p>Granger testlerinde arama ilgisinden resmi göstergelere doğru çoğu eşleşmede anlamlı nedensellik bulunmamıştır. Bu nedenle “öncü sinyal” yorumu korelasyon ve model bulgularının sınırlarıyla birlikte sunulmalıdır.</p>
+                                <p>VAR(2) Granger testinde faiz değişimlerinden faiz arama ilgisine doğru ilişki (χ² = 8,630; p = 0,013) raporlanmıştır. Enflasyon, döviz ve işsizlik eşleşmelerinde gecikmeli ilişki için istatistiksel kanıt bulunmamıştır; bu sonuç doğrudan yapısal nedensellik olarak yorumlanmaz.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Kullanılan 17 Anahtar Kelime Dökümü -->
+                <!-- Kullanılan 16 Arama Terimi Dökümü -->
                 <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-                    <div class="text-xs font-bold text-white mb-3">Modelde Kullanılan 17 Anahtar Kelimenin Kategorik Dağılımı:</div>
+                    <div class="text-xs font-bold text-white mb-3">Projede Kullanılan 16 Arama Terimi ve Dört Gösterge Alanı:</div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
                         <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                            <div class="font-bold text-emerald-400 mb-1">Döviz (%35.1 Ağırlık)</div>
+                            <div class="font-bold text-emerald-400 mb-1">Döviz Arama İlgisi</div>
                             <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
                                 <div>• dolar</div>
                                 <div>• euro</div>
@@ -885,7 +796,7 @@
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                            <div class="font-bold text-indigo-400 mb-1">Faiz ve Kredi (%36.1 Ağırlık)</div>
+                            <div class="font-bold text-indigo-400 mb-1">Faiz ve Kredi Arama İlgisi</div>
                             <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
                                 <div>• faiz</div>
                                 <div>• kredi faizi</div>
@@ -894,7 +805,7 @@
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                            <div class="font-bold text-amber-400 mb-1">Enflasyon (%25.3 Ağırlık)</div>
+                            <div class="font-bold text-amber-400 mb-1">Enflasyon Arama İlgisi</div>
                             <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
                                 <div>• enflasyon</div>
                                 <div>• tüfe</div>
@@ -904,7 +815,7 @@
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                            <div class="font-bold text-purple-400 mb-1">İşgücü / İstihdam (%3.5 Ağırlık)</div>
+                            <div class="font-bold text-purple-400 mb-1">İşgücü / İstihdam Arama İlgisi</div>
                             <div class="font-mono text-slate-300 text-[11px] space-y-0.5">
                                 <div>• işsizlik</div>
                                 <div>• iş ilanı</div>
@@ -979,111 +890,773 @@
 
         const rawIstihdam = [24.6, 22.6, 17.5, 18.4, 17.8, 21.4, 21.0, 22.6, 24.0, 25.1, 23.8, 27.9, 32.3, 31.8, 31.5, 27.7, 25.0, 29.4, 32.4, 31.5, 28.5, 27.8, 28.5, 28.3, 30.7, 29.5, 42.0, 42.0, 25.6, 27.4, 28.3, 26.5, 25.7, 25.8, 28.9, 26.1, 28.1, 30.4, 29.2, 25.8, 27.2, 21.0, 24.3, 25.5, 22.9, 21.1, 22.3, 22.9, 25.4, 24.2, 25.1, 20.3, 22.4, 17.3, 21.3, 20.1, 20.0, 19.1, 19.5, 20.5, 20.2, 22.3, 21.1, 19.3, 17.9, 17.8, 20.1, 18.6, 16.4, 14.9, 17.7, 17.9, 19.5, 18.1, 18.3, 15.7, 14.8, 17.0, 18.0, 17.3, 17.3, 17.1, 17.3, 16.8, 18.2, 16.4, 15.3, 16.1, 14.1, 16.8, 14.9, 18.3, 15.5, 14.3, 17.7, 15.3, 17.1, 18.1, 15.2, 14.1, 13.6, 12.8, 16.7, 14.1, 15.4, 20.0];
 
-        // PCA Katsayıları
-        const W_FAIZ = 0.361;
-        const W_DOVIZ = 0.351;
-        const W_ENF = 0.253;
-        const W_ISTIHDAM = 0.035;
-
-        const fullMdieData = fullLabels.map((_, i) => {
-            const val = (W_FAIZ * rawFaiz[i]) + 
-                        (W_DOVIZ * rawDoviz[i]) + 
-                        (W_ENF * rawEnf[i]) + 
-                        (W_ISTIHDAM * rawIstihdam[i]);
-            return parseFloat(val.toFixed(1));
-        });
+        // Ulusal PC1 katsayıları; seriler z-skoruyla standartlaştırılır.
+        function sampleStats(values) {
+            const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+            const variance = values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / (values.length - 1);
+            return { mean, sd: Math.sqrt(variance) };
+        }
+        const nationalStats = { faiz: sampleStats(rawFaiz), doviz: sampleStats(rawDoviz), enf: sampleStats(rawEnf), ist: sampleStats(rawIstihdam) };
+        const NATIONAL_PC1 = { faiz: 0.589719, doviz: 0.288938, enf: 0.498314, ist: -0.566065 };
+        const nationalPC1Data = fullLabels.map((_, i) =>
+            NATIONAL_PC1.faiz * ((rawFaiz[i] - nationalStats.faiz.mean) / nationalStats.faiz.sd) +
+            NATIONAL_PC1.doviz * ((rawDoviz[i] - nationalStats.doviz.mean) / nationalStats.doviz.sd) +
+            NATIONAL_PC1.enf * ((rawEnf[i] - nationalStats.enf.mean) / nationalStats.enf.sd) +
+            NATIONAL_PC1.ist * ((rawIstihdam[i] - nationalStats.ist.mean) / nationalStats.ist.sd)
+        );
+        const nationalPC1Min = Math.min(...nationalPC1Data);
+        const nationalPC1Max = Math.max(...nationalPC1Data);
+        const fullMdieData = nationalPC1Data.map(value => 100 * (value - nationalPC1Min) / (nationalPC1Max - nationalPC1Min));
 
         // -------------------------------------------------------------
         // 2. 81 İL VERİ SETİ (Google Trends Alt Bölge CSV Eşleştirmesi)
         // -------------------------------------------------------------
         const provinceDataset = [
-            {"il": "Adana", "mdie": 63.8, "doviz": 74.3, "faiz": 62.9, "enf": 52.4, "ist": 50.3, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Adıyaman", "mdie": 63.4, "doviz": 58.2, "faiz": 84.1, "enf": 47.1, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Afyonkarahisar", "mdie": 74.8, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Aksaray", "mdie": 70.7, "doviz": 77.5, "faiz": 62.9, "enf": 78.8, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Amasya", "mdie": 73.8, "doviz": 64.6, "faiz": 78.8, "enf": 84.1, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Ankara", "mdie": 57.7, "doviz": 48.6, "faiz": 47.1, "enf": 89.4, "ist": 71.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Antalya", "mdie": 27.8, "doviz": 16.4, "faiz": 47.1, "enf": 10.0, "ist": 71.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Ardahan", "mdie": 73.3, "doviz": 71.1, "faiz": 89.4, "enf": 52.4, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Artvin", "mdie": 75.5, "doviz": 87.1, "faiz": 84.1, "enf": 57.6, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Aydın", "mdie": 59.6, "doviz": 45.3, "faiz": 78.8, "enf": 52.4, "ist": 47.9, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Ağrı", "mdie": 76.9, "doviz": 87.1, "faiz": 89.4, "enf": 52.4, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Balıkesir", "mdie": 64.8, "doviz": 55.0, "faiz": 73.5, "enf": 68.2, "ist": 45.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bartın", "mdie": 74.2, "doviz": 71.1, "faiz": 94.7, "enf": 52.4, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Batman", "mdie": 75.1, "doviz": 83.9, "faiz": 84.1, "enf": 57.6, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bayburt", "mdie": 74.9, "doviz": 71.1, "faiz": 84.1, "enf": 73.5, "ist": 14.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bilecik", "mdie": 68.2, "doviz": 58.2, "faiz": 68.2, "enf": 84.1, "ist": 33.7, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bingöl", "mdie": 68.9, "doviz": 61.4, "faiz": 73.5, "enf": 78.8, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bitlis", "mdie": 78.5, "doviz": 93.6, "faiz": 84.1, "enf": 57.6, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bolu", "mdie": 68.2, "doviz": 64.6, "faiz": 73.5, "enf": 68.2, "ist": 31.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Burdur", "mdie": 72.1, "doviz": 67.8, "faiz": 78.8, "enf": 73.5, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Bursa", "mdie": 52.9, "doviz": 45.3, "faiz": 47.1, "enf": 68.2, "ist": 64.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Denizli", "mdie": 59.6, "doviz": 51.8, "faiz": 73.5, "enf": 57.6, "ist": 38.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Diyarbakır", "mdie": 79.5, "doviz": 87.1, "faiz": 84.1, "enf": 68.2, "ist": 38.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Düzce", "mdie": 69.8, "doviz": 67.8, "faiz": 73.5, "enf": 68.2, "ist": 38.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Edirne", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Elazığ", "mdie": 68.9, "doviz": 61.4, "faiz": 78.8, "enf": 73.5, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Erzincan", "mdie": 73.8, "doviz": 77.5, "faiz": 78.8, "enf": 62.9, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Erzurum", "mdie": 73.3, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Eskişehir", "mdie": 59.4, "doviz": 42.1, "faiz": 52.4, "enf": 94.7, "ist": 47.9, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Gaziantep", "mdie": 58.2, "doviz": 58.2, "faiz": 62.9, "enf": 57.6, "ist": 38.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Giresun", "mdie": 74.3, "doviz": 74.3, "faiz": 78.8, "enf": 73.5, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Gümüşhane", "mdie": 71.4, "doviz": 64.6, "faiz": 84.1, "enf": 68.2, "ist": 14.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Hakkâri", "mdie": 88.8, "doviz": 100.0, "faiz": 100.0, "enf": 68.2, "ist": 10.0, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Hatay", "mdie": 67.2, "doviz": 71.1, "faiz": 73.5, "enf": 62.9, "ist": 31.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Isparta", "mdie": 70.5, "doviz": 64.6, "faiz": 78.8, "enf": 68.2, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Iğdır", "mdie": 73.7, "doviz": 74.3, "faiz": 84.1, "enf": 62.9, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kahramanmaraş", "mdie": 68.2, "doviz": 71.1, "faiz": 78.8, "enf": 57.6, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Karabük", "mdie": 72.5, "doviz": 64.6, "faiz": 78.8, "enf": 78.8, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Karaman", "mdie": 72.5, "doviz": 77.5, "faiz": 78.8, "enf": 68.2, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kars", "mdie": 76.4, "doviz": 77.5, "faiz": 89.4, "enf": 57.6, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kastamonu", "mdie": 74.9, "doviz": 71.1, "faiz": 84.1, "enf": 73.5, "ist": 14.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kayseri", "mdie": 42.1, "doviz": 35.7, "faiz": 25.9, "enf": 73.5, "ist": 45.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kilis", "mdie": 67.2, "doviz": 67.8, "faiz": 78.8, "enf": 57.6, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kocaeli", "mdie": 52.8, "doviz": 45.3, "faiz": 31.2, "enf": 100.0, "ist": 64.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Konya", "mdie": 58.2, "doviz": 67.8, "faiz": 52.4, "enf": 62.9, "ist": 29.0, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kütahya", "mdie": 74.2, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kırklareli", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kırıkkale", "mdie": 77.9, "doviz": 74.3, "faiz": 78.8, "enf": 89.4, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Kırşehir", "mdie": 74.9, "doviz": 77.5, "faiz": 78.8, "enf": 78.8, "ist": 14.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Malatya", "mdie": 72.9, "doviz": 74.3, "faiz": 84.1, "enf": 62.9, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Manisa", "mdie": 64.8, "doviz": 55.0, "faiz": 73.5, "enf": 68.2, "ist": 45.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Mardin", "mdie": 74.8, "doviz": 77.5, "faiz": 84.1, "enf": 68.2, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Mersin", "mdie": 61.0, "doviz": 61.4, "faiz": 68.2, "enf": 57.6, "ist": 45.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Muğla", "mdie": 34.9, "doviz": 29.3, "faiz": 47.1, "enf": 20.6, "ist": 69.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Muş", "mdie": 75.8, "doviz": 83.9, "faiz": 89.4, "enf": 57.6, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Nevşehir", "mdie": 36.0, "doviz": 16.4, "faiz": 36.5, "enf": 62.9, "ist": 33.7, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Niğde", "mdie": 77.1, "doviz": 77.5, "faiz": 73.5, "enf": 89.4, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Ordu", "mdie": 74.9, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Osmaniye", "mdie": 69.1, "doviz": 64.6, "faiz": 78.8, "enf": 68.2, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Rize", "mdie": 75.2, "doviz": 80.6, "faiz": 78.8, "enf": 68.2, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Sakarya", "mdie": 62.0, "doviz": 55.0, "faiz": 68.2, "enf": 68.2, "ist": 40.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Samsun", "mdie": 68.0, "doviz": 61.4, "faiz": 73.5, "enf": 73.5, "ist": 31.4, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Siirt", "mdie": 80.0, "doviz": 93.6, "faiz": 84.1, "enf": 62.9, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Sinop", "mdie": 75.5, "doviz": 74.3, "faiz": 84.1, "enf": 73.5, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Sivas", "mdie": 73.6, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Tekirdağ", "mdie": 58.8, "doviz": 48.6, "faiz": 57.6, "enf": 68.2, "ist": 64.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Tokat", "mdie": 76.4, "doviz": 71.1, "faiz": 73.5, "enf": 94.7, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Trabzon", "mdie": 70.7, "doviz": 74.3, "faiz": 78.8, "enf": 62.9, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Tunceli", "mdie": 72.8, "doviz": 64.6, "faiz": 78.8, "enf": 94.7, "ist": 19.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Uşak", "mdie": 73.6, "doviz": 71.1, "faiz": 78.8, "enf": 78.8, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Van", "mdie": 79.0, "doviz": 87.1, "faiz": 84.1, "enf": 68.2, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Yalova", "mdie": 64.0, "doviz": 58.2, "faiz": 68.2, "enf": 68.2, "ist": 45.5, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Yozgat", "mdie": 74.9, "doviz": 77.5, "faiz": 78.8, "enf": 73.5, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Zonguldak", "mdie": 73.3, "doviz": 64.6, "faiz": 89.4, "enf": 68.2, "ist": 24.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Çanakkale", "mdie": 74.5, "doviz": 51.8, "faiz": 94.7, "enf": 73.5, "ist": 33.7, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Çankırı", "mdie": 72.9, "doviz": 64.6, "faiz": 73.5, "enf": 89.4, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Çorum", "mdie": 72.5, "doviz": 77.5, "faiz": 73.5, "enf": 73.5, "ist": 17.2, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "İstanbul", "mdie": 39.2, "doviz": 61.4, "faiz": 10.0, "enf": 41.8, "ist": 100.0, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "İzmir", "mdie": 45.3, "doviz": 38.9, "faiz": 36.5, "enf": 57.6, "ist": 76.3, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Şanlıurfa", "mdie": 73.4, "doviz": 77.5, "faiz": 78.8, "enf": 68.2, "ist": 21.8, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."},
-            {"il": "Şırnak", "mdie": 80.4, "doviz": 96.8, "faiz": 89.4, "enf": 52.4, "ist": 26.6, "desc": "Gösterilen değer, bu çalışma kesitindeki göreli arama ilgisi puanıdır; ildeki ekonomik koşulları doğrudan ölçmez."}
-        ];
+            {
+                        "il": "Adana",
+                        "mdie": 52.4,
+                        "doviz": 74.3,
+                        "faiz": 62.9,
+                        "enf": 52.4,
+                        "ist": 50.3,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Adıyaman",
+                        "mdie": 67.4,
+                        "doviz": 58.2,
+                        "faiz": 84.1,
+                        "enf": 47.1,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Afyonkarahisar",
+                        "mdie": 74.6,
+                        "doviz": 74.3,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Aksaray",
+                        "mdie": 69.9,
+                        "doviz": 77.5,
+                        "faiz": 62.9,
+                        "enf": 78.8,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Amasya",
+                        "mdie": 71.3,
+                        "doviz": 64.6,
+                        "faiz": 78.8,
+                        "enf": 84.1,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Ankara",
+                        "mdie": 31.9,
+                        "doviz": 48.6,
+                        "faiz": 47.1,
+                        "enf": 89.4,
+                        "ist": 71.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Antalya",
+                        "mdie": 4.0,
+                        "doviz": 16.4,
+                        "faiz": 47.1,
+                        "enf": 10.0,
+                        "ist": 71.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Ardahan",
+                        "mdie": 77.1,
+                        "doviz": 71.1,
+                        "faiz": 89.4,
+                        "enf": 52.4,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Artvin",
+                        "mdie": 78.4,
+                        "doviz": 87.1,
+                        "faiz": 84.1,
+                        "enf": 57.6,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Aydın",
+                        "mdie": 48.1,
+                        "doviz": 45.3,
+                        "faiz": 78.8,
+                        "enf": 52.4,
+                        "ist": 47.9,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Ağrı",
+                        "mdie": 80.8,
+                        "doviz": 87.1,
+                        "faiz": 89.4,
+                        "enf": 52.4,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Balıkesir",
+                        "mdie": 53.8,
+                        "doviz": 55.0,
+                        "faiz": 73.5,
+                        "enf": 68.2,
+                        "ist": 45.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bartın",
+                        "mdie": 78.5,
+                        "doviz": 71.1,
+                        "faiz": 94.7,
+                        "enf": 52.4,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Batman",
+                        "mdie": 77.0,
+                        "doviz": 83.9,
+                        "faiz": 84.1,
+                        "enf": 57.6,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bayburt",
+                        "mdie": 79.7,
+                        "doviz": 71.1,
+                        "faiz": 84.1,
+                        "enf": 73.5,
+                        "ist": 14.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bilecik",
+                        "mdie": 60.9,
+                        "doviz": 58.2,
+                        "faiz": 68.2,
+                        "enf": 84.1,
+                        "ist": 33.7,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bingöl",
+                        "mdie": 69.8,
+                        "doviz": 61.4,
+                        "faiz": 73.5,
+                        "enf": 78.8,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bitlis",
+                        "mdie": 84.2,
+                        "doviz": 93.6,
+                        "faiz": 84.1,
+                        "enf": 57.6,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bolu",
+                        "mdie": 64.0,
+                        "doviz": 64.6,
+                        "faiz": 73.5,
+                        "enf": 68.2,
+                        "ist": 31.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Burdur",
+                        "mdie": 72.9,
+                        "doviz": 67.8,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Bursa",
+                        "mdie": 29.8,
+                        "doviz": 45.3,
+                        "faiz": 47.1,
+                        "enf": 68.2,
+                        "ist": 64.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Denizli",
+                        "mdie": 53.7,
+                        "doviz": 51.8,
+                        "faiz": 73.5,
+                        "enf": 57.6,
+                        "ist": 38.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Diyarbakır",
+                        "mdie": 75.1,
+                        "doviz": 87.1,
+                        "faiz": 84.1,
+                        "enf": 68.2,
+                        "ist": 38.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Düzce",
+                        "mdie": 62.3,
+                        "doviz": 67.8,
+                        "faiz": 73.5,
+                        "enf": 68.2,
+                        "ist": 38.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Edirne",
+                        "mdie": 67.9,
+                        "doviz": 51.8,
+                        "faiz": 94.7,
+                        "enf": 73.5,
+                        "ist": 33.7,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Elazığ",
+                        "mdie": 69.1,
+                        "doviz": 61.4,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Erzincan",
+                        "mdie": 73.0,
+                        "doviz": 77.5,
+                        "faiz": 78.8,
+                        "enf": 62.9,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Erzurum",
+                        "mdie": 77.6,
+                        "doviz": 74.3,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Eskişehir",
+                        "mdie": 42.8,
+                        "doviz": 42.1,
+                        "faiz": 52.4,
+                        "enf": 94.7,
+                        "ist": 47.9,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Gaziantep",
+                        "mdie": 51.7,
+                        "doviz": 58.2,
+                        "faiz": 62.9,
+                        "enf": 57.6,
+                        "ist": 38.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Giresun",
+                        "mdie": 75.6,
+                        "doviz": 74.3,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Gümüşhane",
+                        "mdie": 76.0,
+                        "doviz": 64.6,
+                        "faiz": 84.1,
+                        "enf": 68.2,
+                        "ist": 14.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Hakkâri",
+                        "mdie": 100.0,
+                        "doviz": 100.0,
+                        "faiz": 100.0,
+                        "enf": 68.2,
+                        "ist": 10.0,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Hatay",
+                        "mdie": 65.8,
+                        "doviz": 71.1,
+                        "faiz": 73.5,
+                        "enf": 62.9,
+                        "ist": 31.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Isparta",
+                        "mdie": 68.5,
+                        "doviz": 64.6,
+                        "faiz": 78.8,
+                        "enf": 68.2,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Iğdır",
+                        "mdie": 78.0,
+                        "doviz": 74.3,
+                        "faiz": 84.1,
+                        "enf": 62.9,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kahramanmaraş",
+                        "mdie": 71.4,
+                        "doviz": 71.1,
+                        "faiz": 78.8,
+                        "enf": 57.6,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Karabük",
+                        "mdie": 71.4,
+                        "doviz": 64.6,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Karaman",
+                        "mdie": 78.0,
+                        "doviz": 77.5,
+                        "faiz": 78.8,
+                        "enf": 68.2,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kars",
+                        "mdie": 77.7,
+                        "doviz": 77.5,
+                        "faiz": 89.4,
+                        "enf": 57.6,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kastamonu",
+                        "mdie": 79.7,
+                        "doviz": 71.1,
+                        "faiz": 84.1,
+                        "enf": 73.5,
+                        "ist": 14.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kayseri",
+                        "mdie": 25.7,
+                        "doviz": 35.7,
+                        "faiz": 25.9,
+                        "enf": 73.5,
+                        "ist": 45.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kilis",
+                        "mdie": 71.0,
+                        "doviz": 67.8,
+                        "faiz": 78.8,
+                        "enf": 57.6,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kocaeli",
+                        "mdie": 28.5,
+                        "doviz": 45.3,
+                        "faiz": 31.2,
+                        "enf": 100.0,
+                        "ist": 64.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Konya",
+                        "mdie": 56.2,
+                        "doviz": 67.8,
+                        "faiz": 52.4,
+                        "enf": 62.9,
+                        "ist": 29.0,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kütahya",
+                        "mdie": 75.2,
+                        "doviz": 71.1,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kırklareli",
+                        "mdie": 67.9,
+                        "doviz": 51.8,
+                        "faiz": 94.7,
+                        "enf": 73.5,
+                        "ist": 33.7,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kırıkkale",
+                        "mdie": 78.5,
+                        "doviz": 74.3,
+                        "faiz": 78.8,
+                        "enf": 89.4,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Kırşehir",
+                        "mdie": 81.0,
+                        "doviz": 77.5,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 14.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Malatya",
+                        "mdie": 78.0,
+                        "doviz": 74.3,
+                        "faiz": 84.1,
+                        "enf": 62.9,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Manisa",
+                        "mdie": 53.8,
+                        "doviz": 55.0,
+                        "faiz": 73.5,
+                        "enf": 68.2,
+                        "ist": 45.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Mardin",
+                        "mdie": 79.3,
+                        "doviz": 77.5,
+                        "faiz": 84.1,
+                        "enf": 68.2,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Mersin",
+                        "mdie": 52.3,
+                        "doviz": 61.4,
+                        "faiz": 68.2,
+                        "enf": 57.6,
+                        "ist": 45.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Muğla",
+                        "mdie": 12.4,
+                        "doviz": 29.3,
+                        "faiz": 47.1,
+                        "enf": 20.6,
+                        "ist": 69.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Muş",
+                        "mdie": 83.5,
+                        "doviz": 83.9,
+                        "faiz": 89.4,
+                        "enf": 57.6,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Nevşehir",
+                        "mdie": 25.4,
+                        "doviz": 16.4,
+                        "faiz": 36.5,
+                        "enf": 62.9,
+                        "ist": 33.7,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Niğde",
+                        "mdie": 77.5,
+                        "doviz": 77.5,
+                        "faiz": 73.5,
+                        "enf": 89.4,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Ordu",
+                        "mdie": 75.2,
+                        "doviz": 71.1,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Osmaniye",
+                        "mdie": 70.6,
+                        "doviz": 64.6,
+                        "faiz": 78.8,
+                        "enf": 68.2,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Rize",
+                        "mdie": 76.3,
+                        "doviz": 80.6,
+                        "faiz": 78.8,
+                        "enf": 68.2,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Sakarya",
+                        "mdie": 53.5,
+                        "doviz": 55.0,
+                        "faiz": 68.2,
+                        "enf": 68.2,
+                        "ist": 40.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Samsun",
+                        "mdie": 63.6,
+                        "doviz": 61.4,
+                        "faiz": 73.5,
+                        "enf": 73.5,
+                        "ist": 31.4,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Siirt",
+                        "mdie": 83.1,
+                        "doviz": 93.6,
+                        "faiz": 84.1,
+                        "enf": 62.9,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Sinop",
+                        "mdie": 79.0,
+                        "doviz": 74.3,
+                        "faiz": 84.1,
+                        "enf": 73.5,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Sivas",
+                        "mdie": 77.2,
+                        "doviz": 71.1,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Tekirdağ",
+                        "mdie": 35.8,
+                        "doviz": 48.6,
+                        "faiz": 57.6,
+                        "enf": 68.2,
+                        "ist": 64.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Tokat",
+                        "mdie": 73.7,
+                        "doviz": 71.1,
+                        "faiz": 73.5,
+                        "enf": 94.7,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Trabzon",
+                        "mdie": 71.6,
+                        "doviz": 74.3,
+                        "faiz": 78.8,
+                        "enf": 62.9,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Tunceli",
+                        "mdie": 76.4,
+                        "doviz": 64.6,
+                        "faiz": 78.8,
+                        "enf": 94.7,
+                        "ist": 19.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Uşak",
+                        "mdie": 77.2,
+                        "doviz": 71.1,
+                        "faiz": 78.8,
+                        "enf": 78.8,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Van",
+                        "mdie": 81.3,
+                        "doviz": 87.1,
+                        "faiz": 84.1,
+                        "enf": 68.2,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Yalova",
+                        "mdie": 52.8,
+                        "doviz": 58.2,
+                        "faiz": 68.2,
+                        "enf": 68.2,
+                        "ist": 45.5,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Yozgat",
+                        "mdie": 79.0,
+                        "doviz": 77.5,
+                        "faiz": 78.8,
+                        "enf": 73.5,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Zonguldak",
+                        "mdie": 74.2,
+                        "doviz": 64.6,
+                        "faiz": 89.4,
+                        "enf": 68.2,
+                        "ist": 24.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Çanakkale",
+                        "mdie": 67.9,
+                        "doviz": 51.8,
+                        "faiz": 94.7,
+                        "enf": 73.5,
+                        "ist": 33.7,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Çankırı",
+                        "mdie": 74.1,
+                        "doviz": 64.6,
+                        "faiz": 73.5,
+                        "enf": 89.4,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Çorum",
+                        "mdie": 76.6,
+                        "doviz": 77.5,
+                        "faiz": 73.5,
+                        "enf": 73.5,
+                        "ist": 17.2,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "İstanbul",
+                        "mdie": 0.0,
+                        "doviz": 61.4,
+                        "faiz": 10.0,
+                        "enf": 41.8,
+                        "ist": 100.0,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "İzmir",
+                        "mdie": 15.4,
+                        "doviz": 38.9,
+                        "faiz": 36.5,
+                        "enf": 57.6,
+                        "ist": 76.3,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Şanlıurfa",
+                        "mdie": 76.0,
+                        "doviz": 77.5,
+                        "faiz": 78.8,
+                        "enf": 68.2,
+                        "ist": 21.8,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            },
+            {
+                        "il": "Şırnak",
+                        "mdie": 83.9,
+                        "doviz": 96.8,
+                        "faiz": 89.4,
+                        "enf": 52.4,
+                        "ist": 26.6,
+                        "desc": "Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir."
+            }
+];
 
-        // 81 İlin MDİE Skorunu PCA Formülüyle Hesapla
-        provinceDataset.forEach(item => {
-            const score = (W_DOVIZ * item.doviz) + (W_FAIZ * item.faiz) + (W_ENF * item.enf) + (W_ISTIHDAM * item.ist);
-            item.mdie = parseFloat(score.toFixed(1));
+        // İl PCA'sı, ulusal MDİE'den ayrı olarak 81 il kesitinde hesaplanır.
+        const PROVINCE_PC1 = { doviz: 0.533737, faiz: 0.569944, enf: 0.205112, ist: -0.590100 };
+        const provinceStats = { doviz: sampleStats(provinceDataset.map(x => x.doviz)), faiz: sampleStats(provinceDataset.map(x => x.faiz)), enf: sampleStats(provinceDataset.map(x => x.enf)), ist: sampleStats(provinceDataset.map(x => x.ist)) };
+        const provincePC1Data = provinceDataset.map(item =>
+            PROVINCE_PC1.doviz * ((item.doviz - provinceStats.doviz.mean) / provinceStats.doviz.sd) +
+            PROVINCE_PC1.faiz * ((item.faiz - provinceStats.faiz.mean) / provinceStats.faiz.sd) +
+            PROVINCE_PC1.enf * ((item.enf - provinceStats.enf.mean) / provinceStats.enf.sd) +
+            PROVINCE_PC1.ist * ((item.ist - provinceStats.ist.mean) / provinceStats.ist.sd)
+        );
+        const provincePC1Min = Math.min(...provincePC1Data);
+        const provincePC1Max = Math.max(...provincePC1Data);
+        provinceDataset.forEach((item, index) => {
+            item.mdie = Number((100 * (provincePC1Data[index] - provincePC1Min) / (provincePC1Max - provincePC1Min)).toFixed(1));
+            item.desc = 'Bu puan, 81 il kesitindeki göreli arama ilgisi profilini gösterir.';
         });
 
         // Türkiye Ortalamalarını Hesapla (Radar Grafiği İçin Benchmark)
@@ -1143,7 +1716,7 @@
                     labels: fullLabels,
                     datasets: [
                         {
-                            label: 'MDİE (Bileşik Endeks)',
+                            label: 'MDİE (ulusal PC1, 0–100)',
                             data: fullMdieData,
                             borderColor: '#06b6d4',
                             backgroundColor: gradient,
@@ -1155,7 +1728,7 @@
                             pointBackgroundColor: '#06b6d4'
                         },
                         {
-                            label: 'Döviz Alt Endeksi (%35.1)',
+                            label: 'Döviz arama ilgisi',
                             data: rawDoviz,
                             borderColor: '#10b981',
                             borderWidth: 1.6,
@@ -1165,7 +1738,7 @@
                             tension: 0.25
                         },
                         {
-                            label: 'Faiz & Kredi Alt Endeksi (%36.1)',
+                            label: 'Faiz/kredi arama ilgisi',
                             data: rawFaiz,
                             borderColor: '#6366f1',
                             borderWidth: 1.6,
@@ -1175,7 +1748,7 @@
                             tension: 0.25
                         },
                         {
-                            label: 'Enflasyon Alt Endeksi (%25.3)',
+                            label: 'Enflasyon arama ilgisi',
                             data: rawEnf,
                             borderColor: '#f59e0b',
                             borderWidth: 1.6,
@@ -1185,7 +1758,7 @@
                             tension: 0.25
                         },
                         {
-                            label: 'İşgücü / İstihdam (%3.5)',
+                            label: 'İstihdam/iş arama ilgisi',
                             data: rawIstihdam,
                             borderColor: '#c084fc',
                             borderWidth: 1.4,
@@ -1261,66 +1834,29 @@
             mainChart.update();
         }
 
-        // Varsayımsal MDİE puan senaryosu
+        // Son gözleme dayalı varsayımsal puan; gerçek zamanlı tahmin değildir.
         function updateSenaryo() {
-            const shFaiz = parseFloat(document.getElementById('rngFaiz').value);
-            const shDoviz = parseFloat(document.getElementById('rngDoviz').value);
-            const shEnf = parseFloat(document.getElementById('rngEnf').value);
-            const shIstihdam = parseFloat(document.getElementById('rngIstihdam').value);
-
-            document.getElementById('lblFaiz').innerText = (shFaiz >= 0 ? '+' : '') + shFaiz + '%';
-            document.getElementById('lblDoviz').innerText = (shDoviz >= 0 ? '+' : '') + shDoviz + '%';
-            document.getElementById('lblEnf').innerText = (shEnf >= 0 ? '+' : '') + shEnf + '%';
-            document.getElementById('lblIstihdam').innerText = (shIstihdam >= 0 ? '+' : '') + shIstihdam + '%';
-
-            const lastFaiz = rawFaiz[rawFaiz.length - 1];
-            const lastDoviz = rawDoviz[rawDoviz.length - 1];
-            const lastEnf = rawEnf[rawEnf.length - 1];
-            const lastIstihdam = rawIstihdam[rawIstihdam.length - 1];
-
-            const newFaiz = Math.min(100, Math.max(0, lastFaiz * (1 + shFaiz / 100)));
-            const newDoviz = Math.min(100, Math.max(0, lastDoviz * (1 + shDoviz / 100)));
-            const newEnf = Math.min(100, Math.max(0, lastEnf * (1 + shEnf / 100)));
-            const newIstihdam = Math.min(100, Math.max(0, lastIstihdam * (1 + shIstihdam / 100)));
-
-            const simScore = (W_FAIZ * newFaiz) + (W_DOVIZ * newDoviz) + (W_ENF * newEnf) + (W_ISTIHDAM * newIstihdam);
-            const roundedScore = parseFloat(simScore.toFixed(1));
-
-            document.getElementById('simOutputMdie').innerText = roundedScore;
-
-            const badge = document.getElementById('simRiskBadge');
-            const dovizSig = document.getElementById('simDovizSignal');
-            const enfSig = document.getElementById('simEnfSignal');
-            const alarmLvl = document.getElementById('simAlarmLevel');
-
-            if (roundedScore > 45.0) {
-                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30";
-                badge.innerText = "Üst puan bandı";
-                dovizSig.innerText = "Döviz arama ilgisi yüksek";
-                dovizSig.className = "font-bold text-rose-400 font-mono";
-                enfSig.innerText = "Enflasyon arama ilgisi yüksek";
-                enfSig.className = "font-bold text-rose-400 font-mono";
-                alarmLvl.innerText = "Göreli puan: üst bant";
-                alarmLvl.className = "font-bold font-mono text-rose-400";
-            } else if (roundedScore > 28.0) {
-                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30";
-                badge.innerText = "Orta puan bandı";
-                dovizSig.innerText = "Orta göreli arama puanı";
-                dovizSig.className = "font-bold text-amber-400 font-mono";
-                enfSig.innerText = "Orta göreli arama puanı";
-                enfSig.className = "font-bold text-amber-400 font-mono";
-                alarmLvl.innerText = "Orta puan bandı";
-                alarmLvl.className = "font-bold font-mono text-amber-400";
-            } else {
-                badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
-                badge.innerText = "Alt puan bandı";
-                dovizSig.innerText = "Göreli puan: alt bant";
-                dovizSig.className = "font-bold text-emerald-400 font-mono";
-                enfSig.innerText = "Alt puan bandı";
-                enfSig.className = "font-bold text-emerald-400 font-mono";
-                alarmLvl.innerText = "Göreli puan: alt bant";
-                alarmLvl.className = "font-bold font-mono text-emerald-400";
-            }
+            const changes = { faiz: Number(document.getElementById('rngFaiz').value), doviz: Number(document.getElementById('rngDoviz').value), enf: Number(document.getElementById('rngEnf').value), ist: Number(document.getElementById('rngIstihdam').value) };
+            document.getElementById('lblFaiz').innerText = `${changes.faiz >= 0 ? '+' : ''}${changes.faiz}%`;
+            document.getElementById('lblDoviz').innerText = `${changes.doviz >= 0 ? '+' : ''}${changes.doviz}%`;
+            document.getElementById('lblEnf').innerText = `${changes.enf >= 0 ? '+' : ''}${changes.enf}%`;
+            document.getElementById('lblIstihdam').innerText = `${changes.ist >= 0 ? '+' : ''}${changes.ist}%`;
+            const last = {
+                faiz: rawFaiz.at(-1) * (1 + changes.faiz / 100),
+                doviz: rawDoviz.at(-1) * (1 + changes.doviz / 100),
+                enf: rawEnf.at(-1) * (1 + changes.enf / 100),
+                ist: rawIstihdam.at(-1) * (1 + changes.ist / 100)
+            };
+            Object.keys(last).forEach(key => { last[key] = Math.min(100, Math.max(0, last[key])); });
+            const pc1 = NATIONAL_PC1.faiz * ((last.faiz - nationalStats.faiz.mean) / nationalStats.faiz.sd) +
+                NATIONAL_PC1.doviz * ((last.doviz - nationalStats.doviz.mean) / nationalStats.doviz.sd) +
+                NATIONAL_PC1.enf * ((last.enf - nationalStats.enf.mean) / nationalStats.enf.sd) +
+                NATIONAL_PC1.ist * ((last.ist - nationalStats.ist.mean) / nationalStats.ist.sd);
+            const score = 100 * (pc1 - nationalPC1Min) / (nationalPC1Max - nationalPC1Min);
+            const rounded = Number(score.toFixed(1));
+            document.getElementById('simOutputMdie').innerText = rounded.toFixed(1);
+            const delta = rounded - fullMdieData.at(-1);
+            document.getElementById('simDelta').innerText = `Son gözlem MDİE puanına göre fark: ${delta > 0 ? '+' : ''}${delta.toFixed(1)} puan`;
         }
 
         function resetSimulator() {
@@ -1338,7 +1874,7 @@
         // 81 il endeks haritası
         let activeMapMetric = 'mdie';
         const mapMetricMeta = {
-            mdie: { label: 'MDİE', full: 'MDİE skoru', color: [34, 197, 94] },
+            mdie: { label: 'İl PC1', full: 'İl PC1 skoru', color: [34, 197, 94] },
             doviz: { label: 'Döviz', full: 'Döviz arama ilgisi', color: [16, 185, 129] },
             faiz: { label: 'Faiz', full: 'Faiz arama ilgisi', color: [99, 102, 241] },
             enf: { label: 'Enflasyon', full: 'Enflasyon arama ilgisi', color: [245, 158, 11] },
@@ -1411,7 +1947,7 @@
             provinceDataset.forEach(item => {
                 const opt = document.createElement('option');
                 opt.value = item.il;
-                opt.innerText = `${item.il} (MDİE: ${item.mdie})`;
+                opt.innerText = `${item.il} (PC1: ${item.mdie})`;
                 if (item.il === "İstanbul") opt.selected = true;
                 selectEl.appendChild(opt);
             });
@@ -1422,7 +1958,7 @@
             radarChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Döviz Duyarlılığı', 'Faiz / Kredi', 'Enflasyon / Pahalılık', 'İstihdam İlgisi'],
+                    labels: ['Döviz arama ilgisi', 'Faiz/kredi arama ilgisi', 'Enflasyon arama ilgisi', 'İstihdam/iş arama'],
                     datasets: [
                         {
                             label: 'Seçilen İl',
@@ -1474,7 +2010,7 @@
             document.getElementById('cardProvinceName').innerText = data.il;
             document.getElementById('cardProvinceMdie').innerText = data.mdie;
             document.getElementById('radarLegendIl').innerText = data.il;
-            document.getElementById('cardProvinceDesc').innerText = data.desc;
+            document.getElementById('cardProvinceDesc').innerText = 'Bu PC1 skoru, 81 il için ayrı hesaplanan göreli arama profili ölçeğindedir. Alt göstergeler seçili il ile 81 il ortalamasını karşılaştırır.';
 
             document.getElementById('barValDoviz').innerText = data.doviz + " Puan";
             document.getElementById('barFillDoviz').style.width = Math.min(100, data.doviz) + "%";
@@ -1495,7 +2031,7 @@
             }
         }
 
-        // En Hassas ve En Düşük 5 İl Listeleri
+        // PC1 puanı en yüksek ve en düşük 5 il listeleri
         function renderSummaryRankings() {
             const sorted = [...provinceDataset].sort((a, b) => b.mdie - a.mdie);
             const top5 = sorted.slice(0, 5);
@@ -1579,6 +2115,8 @@
 
         // Başlangıç Yüklemesi
         window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('kpiCurrentMdie').innerText = fullMdieData.at(-1).toFixed(1);
+            document.getElementById('kpiHistoricalMax').innerText = Math.max(...fullMdieData).toFixed(1);
             initChart();
             updateSenaryo();
             initProvinceSelector();
