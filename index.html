@@ -448,12 +448,12 @@
                     <!-- Sağ Kolon: Simüle Edilen Sonuç ve Sinyal Paneli (5 Kolon) -->
                     <div class="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-4">
                         <div>
-                            <span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">Senaryo Sonucu MDİE (Gösterim)</span>
+                            <span class="text-[11px] uppercase font-mono tracking-wider text-slate-400">MDİE Puanı (senaryo aracı)</span>
                             <div class="flex items-baseline space-x-3 mt-1">
                                 <span class="text-4xl font-extrabold font-mono text-cyan-400" id="simOutputMdie">40.5</span>
                                 <span class="text-[10px] font-mono text-slate-400">gözlenen dönem ölçeği</span>
-                                <span class="text-xs font-bold px-2 py-0.5 rounded-full" id="simRiskBadge">
-                                    Varsayımsal
+                                <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/25" id="simRiskBadge">
+                                    Gözlenen veri
                                 </span>
                             </div>
                         </div>
@@ -476,7 +476,7 @@
 
                         <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
                             <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>
-                            <strong>Yorum:</strong> Bu araç, son ayın arama değerlerinde varsayımsal değişiklik yapıp aynı PCA ve dönem min–max dönüşümünü uygular; tahmin ya da risk ölçümü değildir. Varsayımsal bileşim tarihsel PC1 sınırlarını aşarsa puan 0–100 aralığının dışına çıkabilir.
+                            <strong>Yorum:</strong> Başlangıçta son gözlenen ayın değerleri gösterilir. Kaydırıcılardan biri değiştirildiğinde sonuç varsayımsal senaryoya dönüşür; tahmin ya da risk ölçümü değildir. Varsayımsal bileşim tarihsel PC1 sınırlarını aşarsa puan 0–100 aralığının dışına çıkabilir.
                         </div>
                     </div>
                 </div>
@@ -1364,8 +1364,11 @@
             const dovizSig = document.getElementById('simDovizSignal');
             const enfSig = document.getElementById('simEnfSignal');
             const alarmLvl = document.getElementById('simAlarmLevel');
-            badge.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-200 border border-cyan-500/25";
-            badge.innerText = "Varsayımsal";
+            const hasScenarioChanges = shFaiz !== 0 || shDoviz !== 0 || shEnf !== 0 || shIstihdam !== 0;
+            badge.className = hasScenarioChanges
+                ? "text-xs font-bold px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-200 border border-cyan-500/25"
+                : "text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/25";
+            badge.innerText = hasScenarioChanges ? "Varsayımsal senaryo" : "Gözlenen veri";
             dovizSig.innerText = `Arama değeri: ${newDoviz.toFixed(1)}`;
             dovizSig.className = "font-bold text-white font-mono";
             enfSig.innerText = `Arama değeri: ${newEnf.toFixed(1)}`;
