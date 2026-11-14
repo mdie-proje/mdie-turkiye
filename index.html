@@ -898,19 +898,19 @@
                         <div class="rounded-lg border border-slate-800 overflow-hidden">
                             <div class="px-3 py-2 bg-slate-950 text-slate-300 font-bold">Örneklem içi regresyonlar</div>
                             <div class="p-3 space-y-2 text-slate-300">
-                                <div class="flex justify-between gap-3"><span>Aylık TÜFE</span><strong class="text-cyan-300">R² = 0,9176</strong></div>
-                                <div class="flex justify-between gap-3"><span>İşsizlik oranı</span><strong class="text-cyan-300">R² = 0,9298</strong></div>
-                                <div class="flex justify-between gap-3"><span>USD/TRY aylık getirisi</span><strong class="text-cyan-300">R² = 0,3616</strong></div>
-                                <div class="flex justify-between gap-3"><span>EUR/TRY sağlamlık modeli</span><strong class="text-cyan-300">R² = 0,3140</strong></div>
-                                <div class="flex justify-between gap-3"><span>Kredi faizi aylık değişimi</span><strong class="text-amber-300">R² = 0,1135; F testi p = 0,112</strong></div>
+                                <div class="flex justify-between gap-3"><span>Aylık TÜFE (OLS)</span><strong class="text-cyan-300">R² = 0,9176</strong></div>
+                                <div class="flex justify-between gap-3"><span>USD/TRY aylık getirisi (OLS)</span><strong class="text-cyan-300">R² = 0,3616</strong></div>
+                                <div class="flex justify-between gap-3"><span>EUR/TRY aylık getirisi (OLS)</span><strong class="text-cyan-300">R² = 0,3140</strong></div>
+                                <div class="flex justify-between gap-3"><span>Faiz arama ilgisi değişimi · HAC</span><strong class="text-emerald-300">F(2,101) = 7,12; p = 0,0013</strong></div>
+                                <div class="flex justify-between gap-3"><span>İş/istihdam arama ilgisi değişimi · HAC</span><strong class="text-amber-300">F(2,100) = 2,21; p = 0,1147</strong></div>
+                                <p class="text-[11px] text-slate-400">Faiz ve işsizlik modelleri durağan birinci farklarla, 12 gecikmeli Newey–West HAC standart hatalarıyla tahmin edilmiştir. Faiz modelinin ortak testi anlamlı, iş/istihdam modelinin ortak testi anlamlı değildir. HAC modelleri için R² raporlanmamıştır.</p>
                             </div>
                         </div>
                         <div class="rounded-lg border border-slate-800 overflow-hidden">
                             <div class="px-3 py-2 bg-slate-950 text-slate-300 font-bold">Korelasyon ve yorum sınırı</div>
                             <div class="p-3 space-y-2 text-slate-300 leading-relaxed">
-                                <p>Enflasyon araması ile aylık TÜFE arasında r = 0,9581; istihdam araması ile işsizlik oranı arasında r = 0,9263; faiz araması ile ihtiyaç kredisi faizi arasında r = 0,9398 bildirilmiştir.</p>
-                                <p>Döviz araması ile USD/TRY getirisi arasındaki korelasyon r = 0,5484’tür. Çapraz korelasyon tablosunda başlıca ilişkilerin zirvesi eşanlı dönemdedir.</p>
-                                <p>Granger testlerinde arama ilgisinden resmi göstergelere doğru çoğu eşleşmede anlamlı nedensellik bulunmamıştır. Bu nedenle “öncü sinyal” yorumu korelasyon ve model bulgularının sınırlarıyla birlikte sunulmalıdır.</p>
+                                <p>Enflasyon araması ile aylık TÜFE arasındaki korelasyon r = 0,9581; döviz araması ile USD/TRY getirisi arasındaki korelasyon r = 0,5484’tür. İstihdam araması–işsizlik (r = 0,9263) ve faiz araması–ihtiyaç kredisi faizi (r = 0,9398) düzey korelasyonları I(1) seriler içerdiği için betimseldir; eşbütünleşme sınaması yapılmadan uzun dönem ilişkisi kanıtı sayılmaz.</p>
+                                <p>Durağan birinci farklarla kurulan VAR(2) modelinde faiz değişiminden faiz arama ilgisi değişimine doğru Granger öngörü ilişkisi bulunmuştur (χ² = 14,024; p = 0,001); ters yönde kanıt yoktur (p = 0,631). İşsizlik eşleşmesinde iki yönde de anlamlı kanıt bulunmamıştır (p = 0,410 ve p = 0,113). Granger sonuçları yapısal nedensellik veya örneklem dışı tahmin başarısı göstermez.</p>
                             </div>
                         </div>
                     </div>
